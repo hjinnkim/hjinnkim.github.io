@@ -1,19 +1,19 @@
 # main links
 main:
   - title: "Home"
-    url: https://choiiis.github.io/
+    url: https://hjinnkim.github.io/
 
   - title: "About"
     url: /about/
 
   - title: "GitHub"
-    url: https://github.com/choiiis
+    url: https://github.com/hjinnkim
 
   # - title: "Projects"
   #   url: /projects/
 
-  # - title: "Categories"
-  #   url: /categories/
+  - title: "Categories"
+    url: /categories/
 
 # sidebar navigation (categories)
 # 2022.09.24 sidebar ver2.0 : main-sub version
