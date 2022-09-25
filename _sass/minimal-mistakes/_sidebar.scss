@@ -128,10 +128,11 @@
   }
 
   img {
-    max-width: 80px;
+    max-width: 175px;
+    border-radius: 10%;
     align-items: center;
     background-attachment: fixed;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 10px;
 
     @include breakpoint($large) {
