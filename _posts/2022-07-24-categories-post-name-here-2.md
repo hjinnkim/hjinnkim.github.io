@@ -25,4 +25,4 @@ last_modified_at: 2022-07-24
 <!-- Youtube link
 {% include video id="q0P3TSoVNDM" provider="youtube" %} -->
 
-![Test Image](/images/timing.png)
+![Test Image](../images/timing.png)
