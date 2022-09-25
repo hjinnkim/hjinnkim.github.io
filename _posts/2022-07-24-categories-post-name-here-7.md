@@ -11,6 +11,8 @@ permalink: /categories7/post-name-here-7/
 
 toc: true
 toc_sticky: true
+author_profile: true
+search: true
 
 date: 2022-09-23
 last_modified_at: 2022-09-23

@@ -11,6 +11,8 @@ permalink: /categories1/post-name-here/
 
 toc: true
 toc_sticky: true
+author_profile: true
+search: true
 
 date: 2020-05-21
 last_modified_at: 2021-10-09

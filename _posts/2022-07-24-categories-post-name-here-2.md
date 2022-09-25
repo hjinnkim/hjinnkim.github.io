@@ -11,6 +11,8 @@ permalink: /categories2/post-name-here-2/
 
 toc: true
 toc_sticky: true
+author_profile: true
+search: true
 
 date: 2022-07-24
 last_modified_at: 2022-07-24
@@ -19,3 +21,8 @@ last_modified_at: 2022-07-24
 ## 🦥 본문
 
 본문은 여기에 ...
+
+<!-- Youtube link
+{% include video id="q0P3TSoVNDM" provider="youtube" %} -->
+
+![Test Image](/images/timing.png)
