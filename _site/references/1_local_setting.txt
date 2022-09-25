@@ -1,0 +1,35 @@
+- **Install & Setup**
+    1. **git, ruby-dev, VScode 설치**
+
+        ```bash
+        # git, ruby-dev 설치
+        sudo apt install git ruby-dev
+        ```
+
+        VScode는 [VScode 홈페이지](https://code.visualstudio.com/)에서 deb 파일 다운로드 후
+
+        ```bash
+        sudo dpkg -i Downloads/code_***.deb 
+        ```
+
+    2. **jekyll 환경 구축**
+
+        ```bash
+        gem install jekyll bundler
+        ```
+
+
+**Local server runnign**
+    1. 본인의 `github.io` 디렉토리에서 다음 명령어를 실행하여 `minimal-mistakes theme`에 미리 정의된 plugin을 설치한다.
+
+        ```bash
+        bundle install
+        ```
+
+    2. 다음 명령어를 통해 **Github pages**를 로컬 환경에서 생성할 수 있다.
+
+        ```bash
+        bundle exec jekyll serve
+        ```
+
+    3. 인터넷 주소창에 `localhost:4000`을 입력하여 **Github pages**를 확인할 수 있다.

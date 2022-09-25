@@ -15,6 +15,9 @@ main:
   - title: "Categories"
     url: /categories/
 
+  - title: "Tags"
+    url: /tags/
+
 # sidebar navigation (categories)
 # 2022.09.24 sidebar ver2.0 : main-sub version
 categories:

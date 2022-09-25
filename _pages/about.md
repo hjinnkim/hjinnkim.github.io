@@ -1,5 +1,5 @@
 ---
-title: "Hi all! I'm OOOOOO👋🏻"
+title: "Hi all! I'm Hyeonjin Kim"
 permalink: /about/
 layout: single
 comments: false
