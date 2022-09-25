@@ -26,3 +26,7 @@ last_modified_at: 2022-07-24
 {% include video id="q0P3TSoVNDM" provider="youtube" %} -->
 
 ![Test Image](../images/timing.png)
+
+<p align="center">
+    <img src="/images/timing.png" width="100%">
+</p>
