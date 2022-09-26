@@ -107,9 +107,9 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:khj12203@gmail.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://hjinnkim.github.io"
+    # - label: "Website"
+    #   icon: "fas fa-fw fa-link"
+    #   url: "https://hjinnkim.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/hjinnkim"
@@ -123,9 +123,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/hjinnkim"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/hjinnkim_0012"
+    # - label: "Instagram"
+    #   icon: "fab fa-fw fa-instagram"
+    #   url: "https://instagram.com/hjinnkim_0012"
 
 # Reading Files
 include:
@@ -265,3 +265,4 @@ defaults:
         nav: "categories"
 
 date_format: "%Y-%m-%d"
+gdrive_url_prefix: "https://drive.google.com/uc?export=view&id="

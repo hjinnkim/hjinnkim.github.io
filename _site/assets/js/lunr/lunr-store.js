@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[포스팅 예시] 이곳에 제목을 입력하세요",
-        "excerpt":"🦥 본문   본문은 여기에 …               –&gt;     ","categories": ["Categories2"],
+        "excerpt":"🦥 본문   본문은 여기에 …               –&gt;        ","categories": ["Categories2"],
         "tags": ["tag1","tag2"],
         "url": "/categories2/post-name-here-2/",
         "teaser": null
@@ -21,6 +21,12 @@ var store = [{
         "excerpt":"🦥 본문   본문은 여기에 …  ","categories": ["Categories4"],
         "tags": ["tag1","tag2"],
         "url": "/categories4/post-name-here-4/",
+        "teaser": null
+      },{
+        "title": "Linear algebra",
+        "excerpt":"🦥 본문   Linear Algebra Linear Algebra   Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra Linear Algebra  ","categories": ["LinearAlgebra"],
+        "tags": ["tag1","tag2"],
+        "url": "/math/linear-algebra/first/",
         "teaser": null
       },{
         "title": "[포스팅 예시] 이곳에 제목을 입력하세요",

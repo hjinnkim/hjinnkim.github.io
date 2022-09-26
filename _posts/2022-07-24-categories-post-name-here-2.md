@@ -17,7 +17,6 @@ search: true
 date: 2022-07-24
 last_modified_at: 2022-07-24
 
-published: false
 ---
 
 ## 🦥 본문
@@ -27,8 +26,6 @@ published: false
 <!-- Youtube link
 {% include video id="q0P3TSoVNDM" provider="youtube" %} -->
 
-![Test Image](/images/timing.png)
+![gdrvie-image]({{ site.gdrive_url_prefix }}18ypfuYtt6XnyhCQhWOxJE7gJMwgkJtLs)
 
-<p align="center">
-    <img src="/images/timing.png" width="100%">
-</p>
+![cake-image]({{ site.gdrive_url_prefix }}1X6zX7ZvKkgD8eCnxG8yGax_nXlD6V8Wq)
