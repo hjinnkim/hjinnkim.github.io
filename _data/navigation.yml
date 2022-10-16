@@ -51,3 +51,13 @@ categories:
     children:
       - title: "LinearAlgebra"
         url: /categories/linear-algebra
+
+  - title: LiberalArts
+    children:
+      - title: "Philosphy of Science"
+        url: /categories/philosophy-of-science
+
+  - title: Blog
+    children:
+      - title: "Blog"
+        url: /categories/blog

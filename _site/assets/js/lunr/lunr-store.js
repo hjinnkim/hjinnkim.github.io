@@ -46,4 +46,10 @@ var store = [{
         "tags": ["tag1","tag2"],
         "url": "/categories7/post-name-here-7/",
         "teaser": null
+      },{
+        "title": "Jekyll blog setup",
+        "excerpt":"1. Why Github blog &amp; Jekyll? Github blog를 시작하게 된 계기는 간단하다. 공부할 내용이 많아 어딘가 기록할 필요가 있었다. 많은 개발자 및 엔지니어들이 그렇듯 blog에 기록하려 한다. 다만, 이를 위해 새로운 언어를 배우긴 싫기 때문에 Markdown으로 기록할 수 있는 블로그들 중, 평소에도 많이 쓰는 Github에서 제공하는 Github blog를 사용할 것이다....","categories": ["Blog"],
+        "tags": ["Jekyll","ruby","gem"],
+        "url": "/github-blog/Jekyll/first/",
+        "teaser": null
       }]

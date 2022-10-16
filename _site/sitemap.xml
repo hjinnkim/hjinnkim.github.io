@@ -33,10 +33,17 @@
 <lastmod>2022-09-23T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/github-blog/Jekyll/first/</loc>
+<lastmod>2022-10-16T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/blog/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/categories/categories1/</loc>
@@ -63,6 +70,9 @@
 <loc>http://localhost:4000/categories/linear-algebra/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/categories/philosophy-of-science/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
@@ -73,6 +83,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/google6438916bc7c3d7e7.html</loc>
-<lastmod>2022-09-20T14:07:52+09:00</lastmod>
+<lastmod>2022-10-16T14:57:36+09:00</lastmod>
 </url>
 </urlset>
