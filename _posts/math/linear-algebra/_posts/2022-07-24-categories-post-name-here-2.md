@@ -3,7 +3,7 @@ title: "Linear algebra"
 excerpt: "본문의 주요 내용을 여기에 입력하세요"
 
 categories:
-  - LinearAlgebra
+  - Linear Algebra
 tags:
   - [tag1, tag2]
 

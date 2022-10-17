@@ -161,6 +161,8 @@
     <link rel="mask-icon" href="https://hjinnkim.github.io/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
+
+    
   </head>
 
   <body class="layout--single">
@@ -345,7 +347,7 @@
   <label for="ac-toc">Toggle menu</label>
   <ul class="nav__items">
     <!-- <li>
-      <span class="nav__total">🌴 Total Posts: 4</span>
+      <span class="nav__total">🌴 Total Posts: 15</span>
     </li> -->
     
     
@@ -362,9 +364,11 @@
             <!-- sub-title -->
             
               
+                <li><a href="/categories/linear-algebra">Linear Algebra (1)</a></li>
+              
             
               
-                <li><a href="/categories/linear-algebra">LinearAlgebra (1)</a></li>
+            
               
             
               
@@ -391,6 +395,10 @@
               
             
               
+                <li><a href="/categories/philosophy-of-science">Ph of Science (9)</a></li>
+              
+            
+              
             
           
         </ul>
@@ -412,9 +420,24 @@
               
             
               
+                <li><a href="/categories/blog">Blog (4)</a></li>
+              
             
               
-                <li><a href="/categories/blog">Blog (2)</a></li>
+            
+              
+            
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/markdown">Markdown (1)</a></li>
               
             
           
@@ -472,7 +495,8 @@
             </nav>
           </aside>
         
-        <h1 id="1-why-github-blog--jekyll">1. Why Github blog &amp; Jekyll?</h1>
+        <h2 id="1-why-github-blog--jekyll">1. Why Github blog &amp; Jekyll?</h2>
+
 <p>Github blog를 시작하게 된 계기는 간단하다. 공부할 내용이 많아 어딘가 기록할 필요가 있었다. 많은 개발자 및 엔지니어들이 그렇듯 blog에 기록하려 한다. 다만, 이를 위해 새로운 언어를 배우긴 싫기 때문에 Markdown으로 기록할 수 있는 블로그들 중, 평소에도 많이 쓰는 Github에서 제공하는 Github blog를 사용할 것이다.</p>
 
 <p>Jekyll은 여러 텍스트 파일(특히 Markdown)으로 부터 정적 웹사이트 구축을 위한 파일을 생성해주는 프레임워크이다. 또한, 수많은 Jekyll Theme들이 공개되어 있어 웹프로그래밍을 공부하지 않은 사람들도 테마를 다운받아 손쉽게 사용할 수 있다. <em>(그래도 커스터마이징하려면 싫어도 배워야한다…)</em></p>
@@ -482,7 +506,8 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
 
 <p>참고로 본 포스트는 Ubuntu 20.04 환경을 기준으로 설명한다.</p>
 
-<h1 id="2-ruby--jekyll-bundler-installation">2. ruby &amp; Jekyll bundler installation</h1>
+<h2 id="2-ruby--jekyll-bundler-installation">2. ruby &amp; Jekyll bundler installation</h2>
+
 <p>Jekyll 프레임워크는 Ruby 기반 프로그램이다. 따라서 Ruby를 설치한 뒤 쉽게 사용할 수 있다.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># ruby installation</span>
@@ -495,7 +520,8 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
   gem <span class="nb">install </span>jekyll bundler
 </code></pre></div></div>
 
-<h1 id="3-github-blog-repository">3. Github blog repository</h1>
+<h2 id="3-github-blog-repository">3. Github blog repository</h2>
+
 <p>Github blog를 사용하기 위해서는 Github blog용 repository를 생성해야 한다. 사용하고 싶은 Jekyll Theme를 fork(혹은 clone)하여 자신의 Github에 가져와야 한다. 이때, repository명은 <strong>[자신의 Github ID].github.io</strong>가 되어야 한다.</p>
 
 <figure align="center">
@@ -507,7 +533,8 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
     <figcaption align="center"><b>이미 hjinnkim.github.io라는 레포지토리가 있기 때문에 경고가 뜬다</b></figcaption>
   </figure>
 
-<h1 id="4-running-on-local">4. Running on local</h1>
+<h2 id="4-running-on-local">4. Running on local</h2>
+
 <p>그리고 생성한 repository를 clone한 뒤, terminal에서 clone받은 directory로 이동한 뒤, 다음 명령어를 입력하여 fork한 theme에서 필요로 하는 플러그인을 설치한다.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  bundle <span class="nb">install</span>
@@ -522,10 +549,12 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
 
 <p>이후 웹브라우저에서 <em>http://127.0.0.1:4000</em>에 접속하면 현재 생성한 블로그를 확인할 수 있다.</p>
 
-<h1 id="5-push-on-github">5. Push on Github</h1>
+<h2 id="5-push-on-github">5. Push on Github</h2>
+
 <p>이후 포스트를 업로드하는 등, 새롭게 업데이트한 뒤 온라인 상의 자신의 블로그를 업데이트하고 싶으면 Github에 push하면 된다. 이때, 실제 자신의 블로그에 반영되기 위해서는 시간이 걸리게 된다. 따라서, 이러한 이유로 local에서 먼저 변경사항을 확인하고 최종적으로 Github에 반영하는 것을 추천한다.</p>
 
-<h1 id="6-references">6. References</h1>
+<h2 id="6-references">6. References</h2>
+
 <ol>
   <li><a href="https://seungwubaek.github.io/blog/post_1/#page-title">https://seungwubaek.github.io/blog/post_1/#page-title</a></li>
   <li><a href="https://www.youtube.com/watch?v=ACzFIAOsfpM&amp;t=575s">https://www.youtube.com/watch?v=ACzFIAOsfpM&amp;t=575s</a></li>
@@ -599,7 +628,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
 ">Previous</a>
     
     
-      <a href="/blog/blog/000/" class="pagination--pager" title="Have to study
+      <a href="/blog/blog/002/" class="pagination--pager" title="[Jekyll] 02. Math symbol
 ">Next</a>
     
   </nav>
@@ -625,7 +654,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/blog/000/" rel="permalink">Have to study
+        <a href="/liberalarts/philosophyofscience/010/" rel="permalink">[Philosophy of Science] 10. Observation and Theory
 </a>
       
     </h2>
@@ -636,7 +665,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
+        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
       </span>
     
 
@@ -646,7 +675,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Have to study for blog setup
+    <p class="archive__item-excerpt" itemprop="description">How are observation and theory related to each other
 </p>
   </article>
 </div>
@@ -661,7 +690,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/math/linear-algebra/first/" rel="permalink">Linear algebra
+        <a href="/liberalarts/philosophyofscience/009/" rel="permalink">[Philosophy of Science] 09. Logical Positivism
 </a>
       
     </h2>
@@ -672,7 +701,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-07-24T00:00:00+09:00">July 24, 2022</time>
+        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
       </span>
     
 
@@ -682,7 +711,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">본문의 주요 내용을 여기에 입력하세요
+    <p class="archive__item-excerpt" itemprop="description">What is the logical positivism
 </p>
   </article>
 </div>
@@ -697,7 +726,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/categories2/post-name-here-2/" rel="permalink">[포스팅 예시] 이곳에 제목을 입력하세요
+        <a href="/liberalarts/philosophyofscience/006/" rel="permalink">[Philosophy of Science] 06. The Methods of Science
 </a>
       
     </h2>
@@ -708,7 +737,7 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-07-24T00:00:00+09:00">July 24, 2022</time>
+        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
       </span>
     
 
@@ -718,7 +747,43 @@ minimal-mistakes-choiiis-customized</a>의 테마를 사용하고 있다.</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">본문의 주요 내용을 여기에 입력하세요
+    <p class="archive__item-excerpt" itemprop="description">What methods do scientists use to achieve aims of science
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/liberalarts/philosophyofscience/005/" rel="permalink">[Philosophy of Science] 05. The Aims of Science
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">What is difference of science from other enterprises such as music, sports, religion, and politics
 </p>
   </article>
 </div>

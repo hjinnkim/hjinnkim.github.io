@@ -26,18 +26,20 @@ main:
 categories:
   - title: Mathematics
     children:
-      - title: "LinearAlgebra"
+      - title: "Linear Algebra"
         url: /categories/linear-algebra
 
   - title: LiberalArts
     children:
-      - title: "Philosphy of Science"
+      - title: "Ph of Science"
         url: /categories/philosophy-of-science
 
   - title: Blog
     children:
       - title: "Blog"
         url: /categories/blog
+      - title: "Markdown"
+        url: /categories/markdown
 
       # Add here for more children
       # - title: "blahblah"

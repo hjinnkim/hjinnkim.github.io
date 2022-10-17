@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Have to study | hjinnkim</title>
-<meta name="description" content="Have to study for blog setup">
+<!-- begin _includes/seo.html --><title>[Philosophy of Science] 04. Descriptivism vs. Instrumentalism | hjinnkim</title>
+<meta name="description" content="What are descriptivism and instrumentalism">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,11 +65,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="Have to study">
-<meta property="og:url" content="http://localhost:4000/blog/blog/000/">
+<meta property="og:title" content="[Philosophy of Science] 04. Descriptivism vs. Instrumentalism">
+<meta property="og:url" content="http://localhost:4000/liberalarts/philosophyofscience/004/">
 
 
-  <meta property="og:description" content="Have to study for blog setup">
+  <meta property="og:description" content="What are descriptivism and instrumentalism">
 
 
 
@@ -90,7 +90,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/blog/blog/000/">
+<link rel="canonical" href="http://localhost:4000/liberalarts/philosophyofscience/004/">
 
 
 
@@ -162,6 +162,30 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
 
+    
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
     
   </head>
 
@@ -455,15 +479,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Have to study">
-    <meta itemprop="description" content="Have to study for blog setup">
+    <meta itemprop="headline" content="[Philosophy of Science] 04. Descriptivism vs. Instrumentalism">
+    <meta itemprop="description" content="What are descriptivism and instrumentalism">
     <meta itemprop="datePublished" content="2022-10-16T00:00:00+09:00">
     <meta itemprop="dateModified" content="2022-10-16T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Have to study
+          <h1 id="page-title" class="page__title" itemprop="headline">[Philosophy of Science] 04. Descriptivism vs. Instrumentalism
 </h1>
           
 
@@ -490,32 +514,145 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#what-i-have-to-study-for-blog-setup">What I have to study for blog setup</a></li></ul>
+              <ul class="toc__menu"><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-descriptivism">1. Descriptivism</a><ul><li><a href="#11-definition">1.1 Definition</a></li><li><a href="#12-features-of-descriptivism">1.2 Features of Descriptivism</a></li><li><a href="#13-descriptivists">1.3 Descriptivists</a></li></ul></li><li><a href="#2-instrumentalism">2. Instrumentalism</a><ul><li><a href="#21-definition">2.1 Definition</a></li><li><a href="#22-features-of-instrumentalism">2.2 Features of Instrumentalism</a></li><li><a href="#23-advantages-of-holding-instrumentalism">2.3 Advantages of Holding Instrumentalism</a></li></ul></li><li><a href="#3-planck-vs-mach">3. Planck vs. Mach</a><ul><li><a href="#31-mach">3.1 Mach</a></li><li><a href="#32-planck">3.2 Planck</a></li></ul></li><li><a href="#4-advantages-and-disadvantages">4. Advantages and Disadvantages</a><ul><li><a href="#41-advantages-of-instrumentalism-over-descriptivism">4.1 Advantages of Instrumentalism over Descriptivism</a></li><li><a href="#42-disadvante-of-instrumentalism">4.2 Disadvante of Instrumentalism</a></li></ul></li><li><a href="#5-summary">5. Summary</a></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="what-i-have-to-study-for-blog-setup">What I have to study for blog setup</h1>
+        <h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-descriptivism">Descriptivism</a></li>
+  <li><a href="#2-instrumentalism">Instrumentalism</a></li>
+  <li><a href="#3-planck-vs-mach">Planck vs. Mach</a></li>
+  <li><a href="#4-advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+  <li><a href="#5-summary">Summary</a></li>
+</ol>
+
+<h2 id="1-descriptivism">1. Descriptivism</h2>
+
+<h3 id="11-definition">1.1 Definition</h3>
+
+<p>Descriptivism is the view that a scientific theory is a description of the world</p>
+
+<h3 id="12-features-of-descriptivism">1.2 Features of Descriptivism</h3>
 
 <ul>
-  <li>
-    <p>Posts order setup</p>
-
-    <p>Not by date or title, but manually order posts</p>
-  </li>
-  <li>
-    <p>Adjusting side space</p>
-
-    <p>It is too narrow for body contents.</p>
-  </li>
-  <li>
-    <p>Image caption</p>
-
-    <p>It is too ugly… Have to study how to change font (size, color, bold…)</p>
-  </li>
-  <li></li>
+  <li>A scientific theory either correctly or incorrectly describes/reflects the world</li>
+  <li>If it <u>correctly reflects</u> the world, it is <u>true</u></li>
+  <li>If it <u>incorreclty reflects</u> the world, it is <u>false</u></li>
 </ul>
 
+<h3 id="13-descriptivists">1.3 Descriptivists</h3>
+
+<ul>
+  <li><strong>Hempel</strong> (1966) maintains that a scientific theory is composed of internal and bridge principles
+    <ul>
+      <li>An internal principle describes how theoretical entities behave</li>
+      <li>An bridge principle describes how the behavior of the theoretical entities is connected with observational entities</li>
+      <li>Hempel’s view implies that a scientific theory is a set of sentences, that it is a description of the world</li>
+    </ul>
+  </li>
+  <li><strong>Albert Einstein</strong>(1879-1955) contends that the task of science is to give us true theories
+    <ul>
+      <li>He denies that the task of science is to give us merely useful theories, the that merely make true prediction</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-instrumentalism">2. Instrumentalism</h2>
+
+<h3 id="21-definition">2.1 Definition</h3>
+
+<p>Instrumentalism is that a scientific theory is not a description of the world but rather an instrument for making prediction and calculations</p>
+
+<h3 id="22-features-of-instrumentalism">2.2 Features of Instrumentalism</h3>
+
+<ul>
+  <li>In the view of descriptivism, false theories can make true predictions</li>
+  <li>In the view of instrumentalism, since a scientific theory is not a description of the world, it is incapable of being true or false</li>
+  <li>If it makes true predictions, it is <u>usefule</u> and if not, it is <u>useless</u></li>
+  <li>Instrumentalism implies that theoretical entities which a scientific theory posits to explain and predict events are not real but rather fictional</li>
+  <li>The important differences between these theoretical entities and other theoretical entities, such as unicorns, Zeus, and goblins, are that the former are useful whereas the latter are useless, for making predictions</li>
+</ul>
+
+<h3 id="23-advantages-of-holding-instrumentalism">2.3 Advantages of Holding Instrumentalism</h3>
+
+<ul>
+  <li>You can have true predictions about observables without holding false belief about unobservables</li>
+  <li><strong>Andreas Osiander</strong> (1498-1552), a German priest and theologian(신학자) was an instrumentalist about Copernican theory</li>
+  <li>According to Copernican theory, the sun is at the center of the universe, and the earth revolves around the sun</li>
+  <li>Osiander asserted that the Copernican theory was merely an instrument for making predictions, and that it does not describe the unobservabl structure of the universe</li>
+  <li>Being a priest and theologian, he firmly beleived that the earth was at the center of the universe. This belief conflicted with the Copernican theory according to which the sun was at the center of the universe.</li>
+  <li>By taking the instrumentalist attitude toward the Copernican theory, Osiander was able to stick to his cherished belief that earth was at the center of the universe</li>
+</ul>
+
+<h2 id="3-planck-vs-mach">3. Planck vs. Mach</h2>
+
+<h3 id="31-mach">3.1 Mach</h3>
+
+<ul>
+  <li>Mach was an <u>instrumentalist</u> about physical theories</li>
+  <li>He says “Physics is experince, arranged in economical order” (Mach, 2016)</li>
+  <li>He also says that the aim of physics “is the <em>simplest</em> and the <em>most economical</em> abstract expression of facts” (Mach, 2016)</li>
+  <li>On his account, a physical theory does not reflect unobservables, but rather organizes data into a coherent(논리정연한) and economic system</li>
+  <li>He states that whoever “knows onkly one view or one form of a view does not believe that another has ever stood in its place, or that another will ever succeed it; he niether doubts nor tests”</li>
+  <li>He thought that if physicists are descriptivists about a theory and believe it is true, they would not bother to think up a better theory that will replace it</li>
+</ul>
+
+<h3 id="32-planck">3.2 Planck</h3>
+
+<ul>
+  <li>Planck argues that if physicists embraced instrumentalism, they would not care whether a physical theory is true of unobservables, and they would only care whether it is true of observables</li>
+  <li>As a result, they would only care whether it is true of unobservables, i.e., they would not bother to develop a true physical theory</li>
+  <li>He believes that descriptivists would not be content with the existing theory, thinking that it might not describe unobservables correctly, and then would make efforts to develop a theory that better describes unobservables</li>
+</ul>
+
+<h2 id="4-advantages-and-disadvantages">4. Advantages and Disadvantages</h2>
+
+<h3 id="41-advantages-of-instrumentalism-over-descriptivism">4.1 Advantages of Instrumentalism over Descriptivism</h3>
+
+<ul>
+  <li>You can avoid forming false belief about unobservables</li>
+  <li>You can protect your cherished beliefs from the attacks of scientific theories</li>
+</ul>
+
+<h3 id="42-disadvante-of-instrumentalism">4.2 Disadvante of Instrumentalism</h3>
+
+<p>Prof. Park argues that there are some disadvantages of instrumentalism</p>
+<ul>
+  <li>If a scientists believes instrumentalism, their audience will also think that his/her new scientific theory is not true, but only useful. So, he/she will be disappointed about it.
+    <ul>
+      <li>But in my point of view, if he/she is already instrumentalist, he/she don’t even think that his/her new theory is ture. But, he/she will only think he/she found a more useful theory.</li>
+    </ul>
+  </li>
+  <li>Instrumentalists are not entitled to predict to use a scientific theory to <em>predict</em> theoretical events (Park, 2019)
+    <ul>
+      <li>Instrumentalists believe theoretical entities are fictional, thus they are only a fictional tool to predict observables</li>
+      <li>Thus, they cannot predict about theoretical entities</li>
+    </ul>
+  </li>
+  <li>A Moorean sentence : “If ~ do something, ~ would do. But I don’t beleive ~”
+    <ul>
+      <li>The Moorean sentence will only puzzle audiences</li>
+      <li>The assertion of a Moorean sentence does not have persuasive force</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="5-summary">5. Summary</h2>
+
+<ul>
+  <li>Descriptivism holds that a scientific theory is a description of the world, so it is either true or false</li>
+  <li>Instrumentalism holds that a scientific theory is an instrument for making predictions, so it is either useful or useless</li>
+  <li>Instrumentalism can make true predictions about observables without holding false belief about unobservables</li>
+  <li>Osiander embraces instrumentalism about the Copernican theory becuase the Copernican theory conflicts with his cherished belief that the earth is at the center of the universe</li>
+  <li>Mach and Planck advocate instrumentalism and descriptivism, respecively</li>
+  <li>Mach argues that if scientists embraced descriptivism, they could be dogmatic about existing scientific theories</li>
+  <li>Planck argues, however, that if scientists embraced instrumentalism, they would not make efforts to develop true scientific theories</li>
+  <li>In prof. Park’s view, if we take the instrumentalist attitude toward other’s scientific theories, and they would point out that we should not believe that our scientific theories are true</li>
+  <li>Moreover, we cannot use scientific theories to predict theoretical events and to explain events, observational or theoretical, due to Moore’s paradox</li>
+</ul>
 
         
       </section>
@@ -523,21 +660,6 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      <a href="/tags/#jekyll" class="page__taxonomy-item" rel="tag">Jekyll</a>
-    
-    </span>
-  </p>
-
-
 
 
   
@@ -549,7 +671,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">Blog</a>
+      <a href="/categories/#ph-of-science" class="page__taxonomy-item" rel="tag">Ph of Science</a>
     
     </span>
   </p>
@@ -566,22 +688,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Have+to+study%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F000%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BPhilosophy+of+Science%5D+04.+Descriptivism+vs.+Instrumentalism%20http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F004%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F000%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F004%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F000%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F004%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/blog/003/" class="pagination--pager" title="[Jekyll] 03. Unpublish posts
+      <a href="/liberalarts/philosophyofscience/003/" class="pagination--pager" title="[Philosophy of Science] 03. Hypothesis, Law, and Theory
 ">Previous</a>
     
     
-      <a href="/liberalarts/philosophyofscience/000/" class="pagination--pager" title="[Philosophy of Science] 00. Introduction
+      <a href="/blog/markdown/001/" class="pagination--pager" title="[Markdown] 01. Basic
 ">Next</a>
     
   </nav>
@@ -794,8 +916,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/blog/000/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/blog/blog/have-to-study"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/liberalarts/philosophyofscience/004/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/liberalarts/philosophyofscience/[Philosophy-of-Science]-04-descriptivism-instrumentalism"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
