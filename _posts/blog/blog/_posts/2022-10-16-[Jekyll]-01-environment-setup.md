@@ -17,6 +17,7 @@ search: true
 date: 2022-10-16
 last_modified_at: 2022-10-16
 order: 2
+classes: wide
 
 ---
 

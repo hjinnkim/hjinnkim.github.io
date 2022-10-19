@@ -34,6 +34,13 @@ categories:
       - title: "Ph of Science"
         url: /categories/philosophy-of-science
 
+  - title: Courses
+    children:
+      - title: "AI toolkit"
+        url: /categories/ai-toolkit
+      - title: "Nonparametric bayesian"
+        url: /categories/nonparametric-bayesian
+
   - title: Blog
     children:
       - title: "Blog"

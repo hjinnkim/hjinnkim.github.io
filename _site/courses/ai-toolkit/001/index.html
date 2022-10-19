@@ -1,0 +1,1412 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <style> 
+      ::-webkit-scrollbar{ 
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        width: 0px;
+        background-color: rgba(224, 224, 224, 0.2);
+        /* border-radius: 5px; */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        width: 0px;
+        background-color: rgba(220, 219, 218, 0.6);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        width: 10px;
+        height: 20px;
+        /* background-color: rgba(190, 190, 190, 0.2); */
+        background-color: rgba(193, 192, 191, 0.7);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-track:hover {
+        width: 10px;
+        /* background-color: rgba(150, 150, 150, 0.1); */
+        background-color: rgba(224, 224, 224, 0.5);
+        border-radius: 5px;
+        /* background: transparent; */
+        /* border-radius: 10px; */
+      }
+
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+          width:0px;
+          height: 0px;
+          /* background-color: rgb(14, 221, 24); */
+          /* border-radius: 50%; */
+      }
+    </style>
+    
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[AI toolkit] 01. Linear Algebra | hjinnkim</title>
+<meta name="description" content="Basics of Linear Algebra">
+
+
+  <meta name="author" content="hjinnkim">
+  
+  <meta property="article:author" content="hjinnkim">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="hjinnkim Devlog">
+<meta property="og:title" content="[AI toolkit] 01. Linear Algebra">
+<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/001/">
+
+
+  <meta property="og:description" content="Basics of Linear Algebra">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-19T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-10-19T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/001/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "hjinnkim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="naver-site-verification" content="c578bc80ddad92815840edec269a967d3dc34d16">
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="hjinnkim Devlog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hjinnkim.github.io/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hjinnkim.github.io/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hjinnkim.github.io/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://hjinnkim.github.io/assets/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://hjinnkim.github.io/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+
+    
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          hjinnkim Devlog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://hjinnkim.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search">search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar.jpg" alt="hjinnkim" itemprop="image">
+      
+    </div>
+  
+
+  <!-- 2022.02.17 author content hidden -->
+  <!-- <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hjinnkim</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>hjinnkim’s Robot / AI / Development notes</p>
+
+      </div>
+    
+  </div> -->
+
+  <div class="author__urls-wrapper">
+    <!-- <button class="btn btn--inverse">Follow</button> -->
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Ulsan, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:khj12203@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hjinnkim" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/hjinnkim_0012" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    <!-- <li>
+      <span class="nav__total">🌴 Total Posts: 19</span>
+    </li> -->
+    
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Mathematics</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+                <li><a href="/categories/linear-algebra">Linear Algebra (1)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">LiberalArts</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/philosophy-of-science">Ph of Science (9)</a></li>
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Courses</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/ai-toolkit">AI toolkit (4)</a></li>
+              
+            
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Blog</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+                <li><a href="/categories/blog">Blog (4)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/markdown">Markdown (1)</a></li>
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[AI toolkit] 01. Linear Algebra">
+    <meta itemprop="description" content="Basics of Linear Algebra">
+    <meta itemprop="datePublished" content="2022-10-19T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-19T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 01. Linear Algebra
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-19T00:00:00+09:00">October 19, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#lecture-01">Lecture 01</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-scalars-and-vectors">1. Scalars and Vectors</a></li><li><a href="#2-matrices-and-tensors">2. Matrices and Tensors</a></li><li><a href="#3-linear-algebra">3. Linear Algebra</a><ul><li><a href="#31-linear-equation-example">3.1 Linear Equation: Example</a></li></ul></li><li><a href="#4-two-ways-of-representing-linear-equations">4. Two ways of representing linear equations</a></li><li><a href="#5-matrix-addition-and-multiplication">5. Matrix Addition and Multiplication</a></li><li><a href="#6-associativity-and-distributivity-of-multiplication">6. Associativity and Distributivity of Multiplication</a></li><li><a href="#7-identity-inverse-and-transpose">7. Identity, Inverse and Transpose</a></li><li><a href="#8-vector-space">8. Vector Space</a></li><li><a href="#9-vector-subspace">9. Vector Subspace</a></li><li><a href="#10-column-space-of-a-ca">10. Column Space of A, C(A)$</a></li><li><a href="#11-null-space-of-a-na">11. Null Space of A, N(A)</a></li><li><a href="#12-solving-axb-particular-and-general-solution">12. Solving Ax=b: Particular and General Solution</a></li><li><a href="#13-gaussian-elimination">13. Gaussian Elimination</a></li><li><a href="#14-back-to-previous-example-particular-and-general-solution">14. Back to Previous Example: Particular and General Solution</a></li><li><a href="#15-linear-independence">15. Linear Independence</a></li><li><a href="#16-span-and-rank">16. Span and Rank</a></li><li><a href="#17-basis-for-vector-space">17. Basis for Vector Space</a></li><li><a href="#18-linear-transformations">18. Linear Transformations</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="lecture-01">Lecture 01</h1>
+
+<h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-confirmation">Scalars and Vectors</a></li>
+  <li><a href="#2-matrices-and-tensors">Matrices and Tensors</a></li>
+  <li><a href="#3-linear-algebra">Linear Algebra</a></li>
+  <li><a href="#4-two-ways-of-representing-linear-equations">Two ways of representing linear equations</a></li>
+  <li><a href="#5-matrix-addition-and-multiplication">Matrix Addition and Multiplication</a></li>
+  <li><a href="#6-associativity-and-distributivity-of-multiplication">Associativity and Distributivity of Multiplication</a></li>
+  <li><a href="#7-identity-inverse-and-transpose">Identity, Inverse and Transpose</a></li>
+  <li><a href="#8-vector-space">Vector Space</a></li>
+  <li><a href="#9-vector-subspace">Vector Subspace</a></li>
+  <li><a href="#10-column-space-of-a-ca">Column Space of A, C(A)</a></li>
+  <li><a href="#11-null-space-of-a-na">Null Space of A, N(A)</a></li>
+  <li><a href="#12-solving--particular-and-general-solution">Solving Ax=b: Particular and General Solution</a></li>
+  <li><a href="#13-gaussian-elimination">Gaussian Elimination</a></li>
+  <li><a href="#14-back-to-previous-example-particular-and-general-solution">Back to Previous Example: Particular and General Solution</a></li>
+  <li><a href="#15-linear-independence">Linear IndependencePermalink</a></li>
+  <li><a href="#16-span-and-rank">Span and Rank</a></li>
+  <li><a href="#17-basis-for-vector-space">Basis for Vector Space</a></li>
+  <li><a href="#18-linear-transformations">Linear Transformations</a></li>
+</ol>
+
+<h2 id="1-scalars-and-vectors">1. Scalars and Vectors</h2>
+
+<ul>
+  <li><strong>Scalars,</strong> $x\in\mathbb{R}$
+    <ul>
+      <li>A single number, (real valued)</li>
+      <li>Usually written with $x, y$ (normal lower-case letters)</li>
+    </ul>
+  </li>
+  <li><strong>Vector</strong>, $\mathbf{x}\in\mathbb{R}^d$
+    <ul>
+      <li>A fixed-length arrays of scalars. $\mathbf{x}=[x_1, \ldots, x_d]^T$
+        <ul>
+          <li>Each scalar $x_i$ is called as “element”, “entry”, or “component”</li>
+        </ul>
+      </li>
+      <li>Usually written with $\mathbf{x}$ (bold lower-case letters)</li>
+      <li>Can be represented with arrows</li>
+    </ul>
+    <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1QWRhnNvyXscxq6-IEYnIZWu1d2NTZC75" title="lec01-p2-vector image" style="width:50%" />
+</p>
+  </li>
+</ul>
+
+<h2 id="2-matrices-and-tensors">2. Matrices and Tensors</h2>
+
+<ul>
+  <li><strong>Matrix,</strong> $\mathbf{A}\in\mathbb{R}^{m\times n}$ ($m$ rows and $n$ columns)
+    <ul>
+      <li>Usually written with $\mathbf{A}$ (bold upper-case letters)
+        <p align="center">
+$ \mathbf{A}=\begin{bmatrix}
+a_{11} &amp; \cdots &amp; a_{1n} \\
+\vdots &amp; &amp; \vdots \\ 
+a_{m1} &amp; \cdots &amp; a_{mn} \\
+\end{bmatrix}, a_{ij}\in\mathbb{R}$
+</p>
+        <ul>
+          <li>Can be represented as $\mathbf{a}\in\mathbb{R}^{mn}$, by stacking all $n$ columns vertically, or concatenating $m$ rows horizontally.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Tensor</strong>
+    <ul>
+      <li>Stack $k$ number of $\mathbf{X}\in\mathbb{R}^{m\times n}$.</li>
+      <li>The results can be called as 3th-order array, tensor $\mathsf{X}\in\mathbb{R}^{k\times m\times n}$</li>
+      <li>Usually written $\mathsf{X}$ (capital letters with a special font face)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-linear-algebra">3. Linear Algebra</h2>
+
+<ul>
+  <li>Gives us the tool for solving linear equations
+    <p>
+$ \begin{align*}
+  a_{11}x_1+\cdots +a_{1n}x_n&amp; = b_1 \\
+  \vdots\qquad  &amp; \\
+  a_{m1}x_1+\cdots +a_{mn}x_n&amp; = b_n \\
+  \end{align*}
+$ 
+</p>
+    <p><br /></p>
+  </li>
+  <li>$\mathbf{x}=[x_1,\ldots ,x_n]\in\mathbb{R}^n\quad$: the unknow variable of the system.</li>
+  <li>Every $\mathbf{x}$ that satisfies above euqasion is a <strong>solution</strong> of the linear equation system.</li>
+  <li>There can be <em>one</em> solution, <em>no</em> solution or <em>inifinite</em> solutions.</li>
+</ul>
+
+<h3 id="31-linear-equation-example">3.1 Linear Equation: Example</h3>
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1MYB_icHMhww75tUvPk-m90-APraF2PgJ" title="lec01-p5-linear equation image" style="width: 75%" />
+</p>
+
+<p>Each linear equation defines a <em>line</em> on $x_1x_2-plane$.</p>
+<ul>
+  <li>A solution set is the intersection of these lines.</li>
+  <li>Infinite solution   :If two equations refer to the same line.</li>
+  <li>No solution           :If two lines are parallel.</li>
+</ul>
+
+<p>When there are three variables,</p>
+<ul>
+  <li>Each linear equation defines a <strong>plane</strong> in 3-dimensional space.</li>
+  <li>A solution set is the intersection between planes
+    <ul>
+      <li>Point</li>
+      <li>Line</li>
+      <li>Plane</li>
+      <li>Empty</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-two-ways-of-representing-linear-equations">4. Two ways of representing linear equations</h2>
+
+<ol>
+<li>$
+\begin{bmatrix}
+      a_{11} \\
+      \vdots \\
+      a_{m1} \\
+\end{bmatrix}x_1+\begin{bmatrix}
+      a_{12} \\
+      \vdots \\
+      a_{m2} \\
+\end{bmatrix}x_2+\cdots +\begin{bmatrix}
+      a_{1n} \\
+      \vdots \\
+      a_{mn} \\
+\end{bmatrix}x_n=\begin{bmatrix}
+      b_{1} \\
+      \vdots \\
+      b_{m} \\
+\end{bmatrix}
+$
+</li>
+  <ul>
+    <li><p>Finding a proper weight vector $\mathbf{x}=[x_1,\ldots ,x_n]\in\mathbb{R}^n$ for this linear combination betwen column vectors, wich are $a_j=[a_{1j},\ldots ,a_{mj}]^T$.<br /><br /></p></li>
+  </ul>
+<li>
+$
+\begin{bmatrix}
+      a_{11} &amp; \cdots &amp; a_{1n} \\
+      \vdots &amp; &amp; \vdots \\
+      a_{m1} &amp; \cdots &amp; a_{mn} \\
+\end{bmatrix}x_1+\begin{bmatrix}
+      x_{1} \\
+      \vdots \\
+      x_{2} \\
+\end{bmatrix}=\begin{bmatrix}
+      b_{1} \\
+      \vdots \\
+      b_{m} \\
+\end{bmatrix}
+$
+</li>
+<ul><li><p>$\mathbf{Ax}=\mathbf{b}\rightarrow$  How to solve matrix form?<br /></p></li></ul>
+</ol>
+
+<h2 id="5-matrix-addition-and-multiplication">5. Matrix Addition and Multiplication</h2>
+
+<ul>
+  <li><strong>Addition</strong> : an element-wisse sum between two same-sized matrices.</li>
+  <li><strong>Multiplication</strong>
+    <ul>
+      <li>For $\mathbf{A}\in\mathbb{R}^{m\times n}, \mathbf{B}\in\mathbb{R}^{n\times l}$, the element $c_{ij}$ of the product $\mathbf{C}=\mathbf{AB}\in\mathbb{R}^{m\times l}$ is:
+        <ul>
+          <li>
+            <p>$c_{ij}=\Sigma_{k=1}^na_{ik}b_{kj}=\mathbf{a}_i^T\mathbf{b}_j, i=1,\ldots , m, j=1,\ldots , l$</p>
+
+            <ul>
+              <li>An inner product between $i$-th row of $\mathbf{A}$ with the $j$-th column of $\mathbf{B}$.</li>
+            </ul>
+          </li>
+          <li>
+            <p># of columns of $\mathbf{A}$ (dim. of row vector) == # of rows of $\mathbf{B}$ (dim. of column vector)</p>
+          </li>
+        </ul>
+      </li>
+      <li>$\mathbf{BA}$ is not defined if $l\ne m$</li>
+      <li>$\mathbf{AB}\ne \mathbf{BA}$</li>
+      <li>Element-wise multiplication is called as a Hadamard product.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="6-associativity-and-distributivity-of-multiplication">6. Associativity and Distributivity of Multiplication</h2>
+
+<ul>
+  <li><strong>Associativity</strong>
+    <ul>
+      <li>$(\mathbf{AB})\mathbf{C} = \mathbf{A}(\mathbf{BC})$</li>
+      <li>For scalar $\lambda$ and $\phi$
+        <ul>
+          <li>$(\lambda\phi)\mathbf{C} = \lambda(\phi\mathbf{C})$</li>
+          <li>$\lambda(\mathbf{BC}) = (\lambda\mathbf{B})\mathbf{C} = \mathbf{B}(\lambda\mathbf{C})= (\mathbf{BC})\lambda$</li>
+          <li>$(\lambda\mathbf{C})^T = \mathbf{C}^T\lambda^T = \mathbf{C}^T\lambda = \lambda\mathbf{C}^T$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Distributivity</strong>
+    <ul>
+      <li>$(\mathbf{A}+\mathbf{B})\mathbf{C} = \mathbf{A}\mathbf{C} + \mathbf{B}\mathbf{C}$</li>
+      <li>$\mathbf{A}(\mathbf{C}+\mathbf{D}) = \mathbf{A}\mathbf{C} + \mathbf{A}\mathbf{D}$</li>
+      <li>For scalar $\lambda$ and $\phi$
+        <ul>
+          <li>$(\lambda+\phi)\mathbf{C} = \lambda\mathbf{C}+\phi\mathbf{C}$</li>
+          <li>$\lambda(\mathbf{B}+\mathbf{C}) = \lambda\mathbf{B}+\lambda\mathbf{C}$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>$\mathbf{x}^T\mathbf{A}\mathbf{x}$
+    <ul>
+      <li>$\mathbf{x}^T\mathbf{x}$ is scalar</li>
+      <li>$\mathbf{x}^T\mathbf{x}A\mathbf{y}^T\mathbf{y} = \mathbf{x}^T\mathbf{x}\mathbf{y}^T\mathbf{y}A=\mathbf{y}^T\mathbf{y}A\mathbf{x}^T\mathbf{x}$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-identity-inverse-and-transpose">7. Identity, Inverse and Transpose</h2>
+
+<ul>
+  <li><b>Identity Matrix</b> (square)</li>
+  <ul>
+    <li>$\mathbf{I}\in\mathbb{R}^{n\times n}$ is an identity matrix if 1 on the diagonal and 0 everywhere else.</li>
+    <li><p>ex) $
+\begin{bmatrix}
+      1 &amp; 0 &amp; 0 \\
+      0 &amp; 1 &amp; 0 \\
+      0 &amp; 0 &amp; 1 \\
+\end{bmatrix}
+$ $3\times 3$ identity matrix</p></li>
+<li>$\mathbf{AI}=\mathbf{IA}=\mathbf{A}$</li>
+</ul>
+<li><b>Inverse Matrix</b> $\mathbf{A}^{-1}$</li>
+<ul>
+<li>For a square matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$, another square matrix $\mathbf{B}\in\mathbb{R}^{n\times n}$ is $\mathbf{A}^{-1}$ if $\mathbf{AB}=\mathbf{BA}=\mathbf{I}$</li>
+<li>"Singular", noninvertible" <b>A</b> : $\mathbf{A}^{-1}$ does not exist.</li>
+</ul>
+<li><b>Transpose:</b> for $\mathbf{A, B}$ with $b_{ij}=a{ji}$ is called the transpose of $\mathbf{A}$, written as $\mathbf{A}^T$.</li>
+<ul><li>A matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$ is symmetric if $\mathbf{A}=\mathbf{A}^T$.</li></ul>
+</ul>
+
+<h2 id="8-vector-space">8. Vector Space</h2>
+
+<ul>
+  <li>A set of elements (vectors) with rules for <strong>“linear combinations”</strong>
+    <ol>
+      <li>Addition,</li>
+      <li>Multiplication by real numbers (scalars).</li>
+    </ol>
+  </li>
+  <li>$\mathbb{R}^n$ : a space consists of all column vectors with $n$ components.
+    <ul>
+      <li>$x\in\mathbb{R}^n$ : n-dim vector</li>
+    </ul>
+  </li>
+  <li>Addition and Scalar Multiplications are required to satisfy below rules:
+    <ul>
+      <li>$\mathbf{x}+\mathbf{y}=\mathbf{y}+\mathbf{x}$</li>
+      <li>$\mathbf{x}+(\mathbf{y}+\mathbf{z})=(\mathbf{x}+\mathbf{y})+\mathbf{z}$</li>
+      <li>$\mathbf{x}+\mathbf{0}=\mathbf{x}$</li>
+      <li>There is a unique “zero vector” such that $\mathbf{x}+\mathbf{0}=\mathbf{x}$ for all $\mathbf{x}$</li>
+      <li>$1\mathbf{x}=\mathbf{x}$</li>
+      <li>$(c_1c_2)\mathbf{x}=c_1(c_2\mathbf{x})$</li>
+      <li>$c(\mathbf{x}+\mathbf{y})=c\mathbf{x}+c\mathbf{y}$</li>
+      <li>$(c_1+c_2)\mathbf{x}=c_1\mathbf{x}+c_2\mathbf{x}$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="9-vector-subspace">9. Vector Subspace</h2>
+
+<ul>
+  <li>A non-empty subset of a vector space:
+    <ol>
+      <li>If $\mathbf{x}$ $\mathbf{y}$ are in the subspace, $\mathbf{x}+\mathbf{y}$ is in the subspace.</li>
+      <li>
+        <p>If multiply $\mathbf{x}$ in the subspace by any scalar $c$, $c\mathbf{x}$ is in the subspace.</p>
+
+        <ul>
+          <li>Linear combinations stays in the subspace.</li>
+          <li>“Closed” under addition and scalar multiplication.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>A zero vector belongs to every subspace, due to zero scalar.</li>
+  <li>Example
+    <ul>
+      <li>For a vector space by $3\times 3$ matrices, $\mathbb{V}$
+        <ul>
+          <li>A set of symmetric matrices.                                 (o)</li>
+          <li>A set of lower triangular matrices in its subspace (o)</li>
+          <li>
+            <p>A set of matrices with all positive elements           (x)</p>
+
+            <p>$\rightarrow$ It is because for $c\mathbf{A}, c\lt 0, c\mathbf{A}\notin\mathbb{V}$</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="10-column-space-of-a-ca">10. Column Space of A, C(A)$</h2>
+
+<ul>
+<li>All linear combinations of columns of $\mathbf{A}\in\mathbb{R}^{m\times n}$.</li>
+<li>Example</li>
+<ul>
+<li>$\mathbf{Ax}=\mathbf{B}$ when $m=3$ and $n=2$,
+</li>
+<li><p>$\begin{bmatrix}
+1 &amp; 0 \\
+5 &amp; 4 \\
+2 &amp; 4 \\
+\end{bmatrix}\begin{bmatrix}
+u \\
+v \\
+\end{bmatrix}=\begin{bmatrix}
+b_1 \\
+b_2 \\
+b_3 \\
+\end{bmatrix} \Rightarrow u\begin{bmatrix}
+1 \\
+5 \\
+2 \\
+\end{bmatrix}+v\begin{bmatrix}
+0 \\
+4 \\
+4 \\
+\end{bmatrix}=\begin{bmatrix}
+b_1 \\
+b_2 \\
+b_3 \\
+\end{bmatrix}$
+</p>
+</li>
+<li>$\mathbf{Ax}=\mathbf{B}$ is solvable $\Leftrightarrow \mathbf{b}$ can be expressed as a linear combination of columns of $\mathbf{A}$.</li>
+<li>$\mathbf{Ax}=\mathbf{B}$ is solvable $\Leftrightarrow \mathbf{b}$ lies in <b>plane</b> spanned by two column vectors.</li>
+<ul>
+<li>The <b>plane</b> is a subspace, a column space of $\mathbf{A}$, consisting of all linear combinations of the columns.</li>
+</ul>
+</ul>
+<li>For an invertible matrix, $\mathbf{Ax}=\mathbf{b}$ will have a solutino for every $\mathbf{b}$.</li>
+<ul>The column space is the whole space $\mathbb{R}^m$</ul>
+</ul>
+
+<h2 id="11-null-space-of-a-na">11. Null Space of A, N(A)</h2>
+
+<ul>
+<li>A vector space formed by the solutions to $\mathbf{Ax}=\mathbf{0}. x\in\mathbb{R}^n$</li>
+<li>$\mathbf{N(A)}$ is a subspace of $\mathbb{R}^n$.</li>
+<li>If $\mathbf{N(A)}$ contains only the zero vector, $\mathbf{A}$ has "independent columns"</li>
+<ul>
+<li>$\mathbf{Ax}=\mathbf{0} \rightarrow x=\mathbf{0}$<br />
+$\Rightarrow[a_1, \ldots, a_n]x=\overrightarrow{a_1}x_1+\cdots+\overrightarrow{a_n}x_n=\mathbf{0}$<br />
+$(c_1\overrightarrow{v_1}+\cdots+c_n\overrightarrow{v_n}=\mathbf{0}, c_1=\cdots=c_n=0$ which means $v_i: L.I.)$</li>
+</ul>
+<li>For an invertible matrix, $\mathbf{N(A)}$ contains only $\mathbf{x}=\mathbf{0}$</li>
+<ul><li>$\mathbf{Ax}=\mathbf{0}\rightarrow \mathbf{x}=\mathbf{A}^{-1}\mathbf{0}=\mathbf{0}$</li></ul>
+</ul>
+
+<h2 id="12-solving-axb-particular-and-general-solution">12. Solving Ax=b: Particular and General Solution</h2>
+
+<ul>
+  <li>Any vector $\mathbf{x_n}$ in the nullspace can be added to a particular solution $\mathbf{x_p}$.
+    <ul>
+      <li>So that solutions are $\mathbf{x}=\mathbf{x_p}+\mathbf{x_n}$.
+        <ul>
+          <li>$\mathbf{Ax_p}=\mathbf{b}, \mathbf{Ax_n}=\mathbf{0}\Rightarrow \mathbf{A}(\mathbf{x_p}+\mathbf{x_n})=\mathbf{b}$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>(Simple) Example</li>
+</ul>
+
+<p>$
+\begin{bmatrix}
+1 &amp; 0 &amp; 8 &amp; -4 \\
+0 &amp; 1 &amp; 2 &amp; 12 \\
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 \\
+\end{bmatrix} = \begin{bmatrix} 42 \\ 8 \\ \end{bmatrix}$, <br />$\begin{Bmatrix} \mathbf{x}\in\mathbb{R}^4 : \mathbf{x}=\begin{bmatrix}42\\8\\0\\0\\\end{bmatrix}+\lambda_1\begin{bmatrix}8\\2\\-1\\0\\\end{bmatrix}+\lambda_2\begin{bmatrix}-4\\12\\0\\-1\\\end{bmatrix}, \lambda_1, \lambda_2\in\mathbb{R}\end{Bmatrix}
+$</p>
+
+<p>where $\begin{bmatrix} 42 \\ 8 \\ 0 \\ 0 \\ \end{bmatrix}$ is a particular solution, and $\begin{bmatrix}8\\2\\-1\\0\\ \end{bmatrix}, \begin{bmatrix}-4\\12\\0\\-1\\ \end{bmatrix}$ are nullspace vectors.</p>
+
+<h2 id="13-gaussian-elimination">13. Gaussian Elimination</h2>
+
+<ul>
+  <li>An algorithm that performs “elementary transformations to bring a system of linear equations into reduced “row-echelon form” (REF)</li>
+  <li><strong>Elementary Transformations</strong>
+    <ul>
+      <li>Exchange of two equations (rows in the matrix).</li>
+      <li>Multiplications of an equation (row) with a non-zero constant.</li>
+      <li>Addition of two equations (rows).</li>
+    </ul>
+  </li>
+  <li><strong>Row-Echelon Form of a Matrix</strong>
+    <ul>
+      <li>All rows containing only zeros are at the bottom</li>
+      <li>All rows containing at least one non-zero element are on top of rows containing zeros.</li>
+      <li>For non-zero rows, the first non-zero number from the left <strong>(pivot)</strong> is always strictly to the right of the pivot of the row above it.</li>
+    </ul>
+  </li>
+  <li>Example
+    <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1wCZgA22unVJW954u04u8bKai1i90awhP" title="lec01-p17-ref image" style="width: 100%" />
+</p>
+  </li>
+  <li>The variables corresponding to the pivots in REF are “pivot variables”, otherwise, “free variables”.</li>
+  <li>A matrix is “reduced” row-echelon form if,
+    <ul>
+      <li>Every pivot is 1,</li>
+      <li>The pivot is the only non-zero entry in its column.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="14-back-to-previous-example-particular-and-general-solution">14. Back to Previous Example: Particular and General Solution</h2>
+
+<ul>
+  <li>Particular solution can be found by expressing equation by using only pivot columns.
+    <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1ZVaFCFUtv2eF9UMHwBzhHiiSBl5BDwG7" title="lec01-p17-ref image" style="width: 100%" />
+</p>
+
+    <p>$\lambda_3=1, \lambda_2=-1, \lambda_1=2$</p>
+
+    <p>$\mathbf{x}=[2, 0, -1, 1, 0]^T$</p>
+  </li>
+  <li>Solutions of $\mathbf{Ax}=\mathbf{0}$ can be found by expressing non-pivot columns in terms of sums and multiples of pivot columns that are on their left.
+    <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1GekOEuXJZjYFyr0fo9uhZxvszxui6W4I" title="lec01-p17-ref image" style="width: 100%" />
+</p>
+    <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1qiMoQmQ3BM1gC8mxRQExeaCbsjL2CX-M" title="lec01-p17-ref image" style="width: 100%" />
+</p>
+  </li>
+  <li>If $\mathbf{AX}=\mathbf{b}$ has more unknows than equations $n\gt m$, there are at least $n-m$ free variables.</li>
+  <li>When there are $r$ pivot rows and columns, the <strong>rank</strong> of matrix is $r$.</li>
+</ul>
+
+<h2 id="15-linear-independence">15. Linear Independence</h2>
+
+<ul>
+  <li>Vectors $v_1, \ldots, v_k$ are linearly independent if $c_1\mathbf{v}_1+\ldots+c_k\mathbf{v}_k=\mathbf{0}$ only happens when $c_1=\ldots=c_k=0$.</li>
+  <li>If any $c$’s are non-zero, the $\mathbf{v}$’s are linearly dependent
+    <ul>
+      <li>One vector is a linear combination of the others.</li>
+    </ul>
+  </li>
+  <li>The columns of $\mathbf{A}$ are independent exactly when $\mathbf{N(A)}={\mathbf{0}}.$
+    <ul>
+      <li>which means $\mathbf{Ax}=\mathbf{0}$  has the $\mathbf{0}$ as a unique solution.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="16-span-and-rank">16. Span and Rank</h2>
+
+<ul>
+  <li><strong>Span</strong>
+    <ul>
+      <li>If a vector space $\mathbb{V}$ consists of all linear combinations of $\mathbf{w}_1, \ldots, \mathbf{w}_l$, then these vectors <strong>span the space.</strong></li>
+      <li>Every vector in $\mathbb{V}$ is some combination of the $\mathbf{w}$’s
+        <ul>
+          <li>$\mathbf{v}=c_1\mathbf{w}_1+\ldots+c_l\mathbf{w}_l$</li>
+        </ul>
+      </li>
+      <li>The column space of $\mathbf{A}$ is “spanned” by its columns.</li>
+    </ul>
+  </li>
+  <li><strong>Rank</strong> $r$
+    <ul>
+      <li>The number of $min$(# of rows, # of columns)</li>
+      <li>The number of genuinely independent rows/columns in the matirx.</li>
+      <li>A dimension of the column space of matrix.</li>
+      <li>When $r=m=n$, the matrix has an inverse.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="17-basis-for-vector-space">17. Basis for Vector Space</h2>
+
+<ul>
+<li>A sequence of vectors having below two properties:</li>
+<ol>
+<li>The vectors are linearly independent (not too many vectors).</li>
+<li>The vectors span the vector space (not too few vectors).</li></ol>
+<li>There is one and only one way to write a vector as a linear combination of basis vectors.</li>
+<ul>
+<p>
+$For\ \mathbf{v}\in\mathbb{V}\text{ assume that }$<br />
+$\mathbf{v}=\alpha_1\overrightarrow{b}_1+\cdots+\alpha_n\overrightarrow{b}_n=\beta_1\overrightarrow{b}_1+\cdots+\beta_n\overrightarrow{b}_n (\alpha_i\ne \beta_i, i=1,\ldots,n)$<br />
+$\rightarrow(\alpha_1-\beta_1)\overrightarrow{b}_1+\cdots+(\alpha_n-\beta_n)\overrightarrow{b}_n=\mathbf{0}\rightarrow\alpha_i-\beta_i=0$<br />
+becuase $b_i's$ are basis vectors (thus linearly independent). It contradicts the assumption that $\alpha_i\ne\beta_i$
+</p></ul>
+<li>If columns of a matrix is a basis for $\mathbb{R}^n$, then the matrix must be square and invertible.</li>
+<ul><p>
+$\mathbf{A}\in\mathbb{R}^{m\times n} \rightarrow [\mathbf{a}_1, \ldots, \mathbf{a}_n]$<br />
+$i)\ \text{if m}\lt\text{n}$<br />
+$\quad dim(A)\lt dim(\mathbb{R}^n),\ \text{columns of A is not a basis of }\mathbb{R}^n$<br />
+$ii)\ \text{if m}\geq\text{n}$<br />
+$\quad\text{for columns of A to be L.I., m=n}$<br />
+</p>
+</ul>
+<li>"Dimension" of a vector space is "the number of basis vectors"</li>
+<ul><li>Dimension of $\mathbf{C(A)}$ is rank $r$ (# of pivot variables, # of independent row/columns)</li>
+<li>Dimension of $\mathbf{N(A)}$ is $n-r$ (# of non-pivot/free variables)</li></ul>
+</ul>
+
+<h2 id="18-linear-transformations">18. Linear Transformations</h2>
+
+<ul><li>$\mathbf{T(x)}$ is a linear transformation if $\mathbf{T}(c\mathbf{x}+d\mathbf{y})=c\mathbf{T}(\mathbf{x})+d\mathbf{T}(\mathbf{y})$</li>
+<li>Consider transformation by matrix $\mathbf{A} : \mathbf{Ax}$</li>
+<li>If basis : $\mathbf{x}_1,\ldots,\mathbf{x}_n$ and $\mathbf{x}=c_1\mathbf{x_1}+\ldots+c_n\mathbf{x_n}$</li>
+<ul>
+<li>$\mathbf{Ax}=c_1(\mathbf{Ax_1})+\ldots+c_n(\mathbf{Ax_n})$</li>
+<li>If we know $\mathbf{Ax}$ for each vector in a basis, then we know $\mathbf{Ax}$ for each vector in the entire space.</li></ul>
+<li>Is composition of two linear transformations is also linear transform?</li>
+<ul>
+$\mathbf{y}=\mathbf{T}(\mathbf{x}), \mathbf{\mathbf{z}}=\mathbf{U}(\mathbf{y})$<br />
+$\mathbf{z}=\mathbf{U}(\mathbf{T}(\mathbf{x}))=\mathbf{R}(\mathbf{x}), \mathbf{x}\leftarrow\ c_1\mathbf{x_1}+c_2\mathbf{x_2}$<br />
+$\mathbf{z}=\mathbf{U}(\mathbf{T}(c_1\mathbf{x_1}+c_2\mathbf{x_2}))=\mathbf{U}(c_1\mathbf{T}(\mathbf{x_1})+c_2\mathbf{T}(\mathbf{x_2}))$<br />
+$\mathbf{z}=c_1\mathbf{U}(\mathbf{T}(\mathbf{x_1}))+c_2\mathbf{U}(\mathbf{T}(\mathbf{x_2}))$<br />
+$\mathbf{z}=c_1\mathbf{R}(\mathbf{x_1})+c_2\mathbf{R}(\mathbf{x_2})$</ul></ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">Linear Algebra</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai-toolkit" class="page__taxonomy-item" rel="tag">AI toolkit</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-19">October 19, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+01.+Linear+Algebra%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F001%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F001%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F001%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/courses/ai-toolkit/000/" class="pagination--pager" title="[AI toolkit] 00.
+">Previous</a>
+    
+    
+      <a href="/courses/ai-toolkit/002/" class="pagination--pager" title="[AI toolkit] 02. Analytic Geometry
+">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/003/" rel="permalink">[AI toolkit] 03. Matrix Decomposition (1)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-20T00:00:00+09:00">October 20, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Determinant and eigenvalue/eigenvector
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/002/" rel="permalink">[AI toolkit] 02. Analytic Geometry
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-20T00:00:00+09:00">October 20, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Geometric features of linear algebra
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/000/" rel="permalink">[AI toolkit] 00.
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-19T00:00:00+09:00">October 19, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">template
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/liberalarts/philosophyofscience/010/" rel="permalink">[Philosophy of Science] 10. Observation and Theory
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">How are observation and theory related to each other
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hjinnkim" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 hjinnkim. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/courses/ai-toolkit/001/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/ai-toolkit/01-linear-algebra"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hjinnkim.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

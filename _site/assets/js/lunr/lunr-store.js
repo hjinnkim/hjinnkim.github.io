@@ -88,4 +88,28 @@ var store = [{
         "tags": [],
         "url": "/liberalarts/philosophyofscience/010/",
         "teaser": null
+      },{
+        "title": "[AI toolkit] 00. ",
+        "excerpt":"Lecture 00   0. Table of Contents      template   1. Template  ","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra"],
+        "url": "/courses/ai-toolkit/000/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 01. Linear Algebra",
+        "excerpt":"Lecture 01 0. Table of Contents Scalars and Vectors Matrices and Tensors Linear Algebra Two ways of representing linear equations Matrix Addition and Multiplication Associativity and Distributivity of Multiplication Identity, Inverse and Transpose Vector Space Vector Subspace Column Space of A, C(A) Null Space of A, N(A) Solving Ax=b: Particular...","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra"],
+        "url": "/courses/ai-toolkit/001/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 02. Analytic Geometry",
+        "excerpt":"Lecture 02 0. Table of Contents Norms L1 and L2 Norm and Angles and Distance Geometry of Linear Transformations Hyperplanes Orthogonality Projection onto a Line Projection Matrix Orthonormal Basis and Gram-Schmidt Process 1. Norms function which assigns a length $\\left\\lVert\\mathbf{x}\\right\\rVert$ to each vector $\\mathbf{x}$. $f(\\cdot): \\mathbb{V}\\rightarrow\\mathbb{R}$ For all scalars $\\lambda\\in\\mathbb{R}$,...","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra"],
+        "url": "/courses/ai-toolkit/002/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 03. Matrix Decomposition (1)",
+        "excerpt":"Lecture 00 0. Table of Contents Determinant Recall: Geometry of Linear Transformations Properties of Determinant Trace Characteristic Polynomial Eigenvalues and Eigenvectors) Graphical Intuition in Two Dimensions Eigenvalues and Eigenvectors: Properties 1. Determinant A function that maps $\\mathbf{A}$ onto a real number $det(\\mathbf{A}) or \\left\\lvert\\mathbf{A}\\right\\rvert, where \\mathbf{A}\\in\\mathbb{R}^{m\\times n}$. For $\\mathbf{A}\\in\\mathbb{R}^{2\\times 2}$...","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra"],
+        "url": "/courses/ai-toolkit/003/",
+        "teaser": null
       }]
