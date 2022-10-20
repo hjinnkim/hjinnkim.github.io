@@ -246,7 +246,7 @@ $ $3\times 3$ identity matrix</p></li>
       
       $\rightarrow$ It is because for $c\mathbf{A}, c\lt 0, c\mathbf{A}\notin\mathbb{V}$
 
-## 10. Column Space of A, C(A)$
+## 10. Column Space of A, C(A)
 
 <ul>
 <li>All linear combinations of columns of $\mathbf{A}\in\mathbb{R}^{m\times n}$.</li>
