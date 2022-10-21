@@ -45,7 +45,7 @@ use_math: true
   \end{bmatrix}, det(\mathbf{A})=\begin{vmatrix}
   a_{22} & -a_{12} \\
   -a_{12} & a_{11} \\
-  \end{vmatrix}$ = a_{11}a_{22}-a_{12}a_{21}$
+  \end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}$
 - For any square matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$, $\mathbf{A}$ is invertible iff $det(\mathbf{A})\ne 0$, otherwise singular
 - Equals the **volume** of a box in n-dimensional space, where the edges of the box come from columns.
 <img src="{{site.gdrive_url_prefix}}1G24x-suUr75b-0RNBRx-eIfpDtzEPLuK" title="lec02-p2 image" style="float: center; width:50%">
@@ -54,7 +54,7 @@ use_math: true
 
 <img src="{{site.gdrive_url_prefix}}1xWe72i5cgDLR8U_j36Gs_f58E12I86Jx" title="lec03-p3-linear transformation image" style="float: center; width:100%">
 
-- We can call a matrix is &&invertible** when we can revert this linear transformation.
+- We can call a matrix is **invertible** when we can revert this linear transformation.
 - Then what would happen if $det(\mathbf{A})=0$?
 - The box area becomes zero, w cannot revert this linear transformation when $\mathbf{Ax}$ is given.
 
