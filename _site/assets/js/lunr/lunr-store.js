@@ -108,8 +108,38 @@ var store = [{
         "teaser": null
       },{
         "title": "[AI toolkit] 03. Matrix Decomposition (1)",
-        "excerpt":"Lecture 00 0. Table of Contents Determinant Recall: Geometry of Linear Transformations Properties of Determinant Trace Characteristic Polynomial Eigenvalues and Eigenvectors) Graphical Intuition in Two Dimensions Eigenvalues and Eigenvectors: Properties 1. Determinant A function that maps $\\mathbf{A}$ onto a real number $det(\\mathbf{A}) or \\left\\lvert\\mathbf{A}\\right\\rvert, where \\mathbf{A}\\in\\mathbb{R}^{m\\times n}$. For $\\mathbf{A}\\in\\mathbb{R}^{2\\times 2}$...","categories": ["AI toolkit"],
+        "excerpt":"Lecture 03 0. Table of Contents Determinant Recall: Geometry of Linear Transformations Properties of Determinant Trace Characteristic Polynomial Eigenvalues and Eigenvectors) Graphical Intuition in Two Dimensions Eigenvalues and Eigenvectors: Properties 1. Determinant A function that maps $\\mathbf{A}$ onto a real number $det(\\mathbf{A}) or \\left\\lvert\\mathbf{A}\\right\\rvert, where \\mathbf{A}\\in\\mathbb{R}^{m\\times n}$. For $\\mathbf{A}\\in\\mathbb{R}^{2\\times 2}$...","categories": ["AI toolkit"],
         "tags": ["Linear Algebra"],
         "url": "/courses/ai-toolkit/003/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 04. Matrix Decomposition (2)",
+        "excerpt":"Lecture 04 0. Table of Contents Cholesky Decomposition Eigendecomposition and Diagnoalization Singular Value Decomposition (SVD) 1. Cholesky Decomposition A symmetric($A=A^T$), positive definite($x^TAx&gt;0$) matrix $A$ can ve factorized into a product, $A=LL^T$, where $L$ is a lower-triangular matrix with positive diagonal elements. $$\\begin{bmatrix} a_{11} &amp; \\cdots &amp; a_{1n} \\\\ \\vdots &amp;...","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra","Eigen decomposition","SVD"],
+        "url": "/courses/ai-toolkit/004/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 05. Matrix Approximation, PCA",
+        "excerpt":"Lecture 05 0. Table of Contents Matrix Approximation Dimensionality Reduction Feature Extraction Principal Component Analysis Maxiumum Variance Formulation PCA in General PCA algorithm: Disadvantages 1. Matrix Approximation $A_i:=u_iv_i^T$ Rank-1 Matrix formed by outer product $A:=\\Sigma_{i=1}^r\\sigma_iu_iv_i^T=\\Sigma_{i=1}^r\\sigma_iA_i$ Rank-r matrix formed by summing r number of rank-1 matrices $\\hat{A}(k):=\\Sigma_{i=1}^k\\sigma_iu_iv_i^T=\\Sigma_{i=1}^k\\sigma_iA_i$ Rank-k approximation matrix formed...","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra","Principal Component Analysis","PCA"],
+        "url": "/courses/ai-toolkit/005/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 06. Vector Calculus",
+        "excerpt":"Lecture 06 0. Table of Contents Function and Machine Learning Differential Rules Derivative and Approximation Taylor Series Partial Differentiation and Gradient Rules of Partial Differentiation Gradient of Vector-Valued Functions Jacobian and Hessican Useful Identities for Computing Gradients Higher Dimension Differentiation and Approximation Gradients, Backpropagation, Chain Rule, and Neural Network 1....","categories": ["AI toolkit"],
+        "tags": ["Linear Algebra","Calculus","Gradient","Jacobian","Hessian"],
+        "url": "/courses/ai-toolkit/006/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 07. Probability Distribution (1)",
+        "excerpt":"Lecture 07 0. Table of Contents Coin Toss Example Sample space, event, and probability Random Variables Discrete Probabilities Continuous Probabilities Rules of Probability Means Covariance Correlation Empirical Mean and Covariance Sums and Transformations of Random Variables Independence 1. Coin Toss Example How can we “quantify” the likelihood of observing heads...","categories": ["AI toolkit"],
+        "tags": ["Probability"],
+        "url": "/courses/ai-toolkit/007/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 08. Probability Distribution (2)",
+        "excerpt":"Lecture 03 0. Table of Contents Bernoulli Distribution Uniform Distribution Binomial Distribution Poisson Distribution Gaussian Distribution Properties of Gaussian Distribution Central Limit Theorem Exponential Family Random Process Stationary Process 1. Bernoulli Distribution For a single binary random variable $X$ with state $x={0,\\ 1}$(i.e., coin flip) assume that we observe $X=1$...","categories": ["AI toolkit"],
+        "tags": ["Probability","Central Limit Theorem","Random Variables"],
+        "url": "/courses/ai-toolkit/008/",
         "teaser": null
       }]

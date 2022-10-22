@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[AI toolkit] 02. Analytic Geometry | hjinnkim</title>
-<meta name="description" content="Geometric features of linear algebra">
+<!-- begin _includes/seo.html --><title>[AI toolkit] 04. Matrix Decomposition (2) | hjinnkim</title>
+<meta name="description" content="Eigen decomposition, SVD">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[AI toolkit] 02. Analytic Geometry">
-<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/002/">
+<meta property="og:title" content="[AI toolkit] 04. Matrix Decomposition (2)">
+<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/004/">
 
 
-  <meta property="og:description" content="Geometric features of linear algebra">
-
-
-
+  <meta property="og:description" content="Eigen decomposition, SVD">
 
 
 
 
-  <meta property="article:published_time" content="2022-10-20T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-20T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-22T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-10-22T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/002/">
+
+<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/004/">
 
 
 
@@ -529,15 +529,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[AI toolkit] 02. Analytic Geometry">
-    <meta itemprop="description" content="Geometric features of linear algebra">
-    <meta itemprop="datePublished" content="2022-10-20T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-20T00:00:00+09:00">
+    <meta itemprop="headline" content="[AI toolkit] 04. Matrix Decomposition (2)">
+    <meta itemprop="description" content="Eigen decomposition, SVD">
+    <meta itemprop="datePublished" content="2022-10-22T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-22T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 02. Analytic Geometry
+          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 04. Matrix Decomposition (2)
 </h1>
           
 
@@ -546,7 +546,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-20T00:00:00+09:00">October 20, 2022</time>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
       </span>
     
 
@@ -564,217 +564,209 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#lecture-02">Lecture 02</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-norms">1. Norms</a></li><li><a href="#2-l1-and-l2-norm-and-dot-product">2. L1 and L2 Norm and Dot Product</a></li><li><a href="#3-angles-and-distance">3. Angles and Distance</a></li><li><a href="#4-geometry-of-linear-transformations">4. Geometry of Linear Transformations</a></li><li><a href="#5-hyperplanes">5. Hyperplanes</a></li><li><a href="#6-orthogonality">6. Orthogonality</a></li><li><a href="#7-projection-onto-a-line">7. Projection onto a Line</a></li><li><a href="#8-projection-matrix">8. Projection Matrix</a></li><li><a href="#9-orthonormal-basis-and-gram-schmidt-process">9. Orthonormal Basis and Gram-Schmidt Process</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#lecture-04">Lecture 04</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-cholesky-decomposition">1. Cholesky Decomposition</a></li><li><a href="#2-eigendecomposition-and-diagnoalization">2. Eigendecomposition and Diagnoalization</a></li><li><a href="#3-singular-value-decomposition-svd">3. Singular Value Decomposition (SVD)</a><ul><li><a href="#31-geometric-intuitions-for-the-svd-when-ainmathbbr3times-2">3.1 Geometric Intuitions for the SVD when $A\in\mathbb{R}^{3\times 2}$</a></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="lecture-02">Lecture 02</h1>
+        <h1 id="lecture-04">Lecture 04</h1>
 
 <h2 id="0-table-of-contents">0. Table of Contents</h2>
 
 <ol>
-  <li><a href="#1-norms">Norms</a></li>
-  <li><a href="#2-l1-and-l2-norm-and-dot-product">L1 and L2 Norm and</a></li>
-  <li><a href="#3-angles-and-distance">Angles and Distance</a></li>
-  <li><a href="#4-geometry-of-linear-transformations">Geometry of Linear Transformations</a></li>
-  <li><a href="#5-hyperplanes">Hyperplanes</a></li>
-  <li><a href="#6-orthogonality">Orthogonality</a></li>
-  <li><a href="#7-projection-onto-a-line">Projection onto a Line</a></li>
-  <li><a href="#8-projection-matrix">Projection Matrix</a></li>
-  <li><a href="#9-orthonormal-basis-and-gram-schmidt-process">Orthonormal Basis and Gram-Schmidt Process</a></li>
+  <li><a href="#1-cholesky-decomposition">Cholesky Decomposition</a></li>
+  <li><a href="#2-eigendecomposition-and-diagnoalization">Eigendecomposition and Diagnoalization</a></li>
+  <li><a href="#3-singular-value-decomposition-svd">Singular Value Decomposition (SVD)</a></li>
 </ol>
 
-<h2 id="1-norms">1. Norms</h2>
+<h2 id="1-cholesky-decomposition">1. Cholesky Decomposition</h2>
 
 <ul>
-  <li> function which assigns a length $\left\lVert\mathbf{x}\right\rVert$ to each vector $\mathbf{x}$. <br />$f(\cdot): \mathbb{V}\rightarrow\mathbb{R}$</li>
-  <li>For all scalars $\lambda\in\mathbb{R}$, the following hold for $\mathbf{x, y}\in\mathbb{V}$:</li>
-    <ul>
-<li>Absolutely homogeneous</li><ul>
-$\left\lVert\lambda\mathbf{x}\right\rVert=\left\lvert\lambda\right\rvert\left\lVert\mathbf{x}\right\rVert$<img src="https://drive.google.com/uc?export=view&amp;id=1G8OnnpWsI6p_cldhN62Ee8CB1s9nrHDY" title="lec02-p5-triangle image" style="float: right; width:50%" /></ul>
-<li>Triangular inequality</li>
-<ul>
-$\left\lVert\mathbf{x}+\mathbf{y}\right\rVert\leq \left\lVert\mathbf{x}\right\rVert+\left\lVert\mathbf{y}\right\rVert$
-</ul>
-<li>Positive semi definite</li>
-<ul><li>$\left\lVert\lambda\mathbf{x}\right\rVert\geq 0$</li>
-<li>$\left\lVert\lambda\mathbf{x}\right\rVert=0 \Leftrightarrow \mathbf{x}=0$</li>
-</ul>
-</ul>
-</ul>
+  <li>
+    <p>A symmetric($A=A^T$), positive definite($x^TAx&gt;0$) matrix $A$ can ve factorized into a product, $A=LL^T$, where $L$ is a lower-triangular matrix with positive diagonal elements.</p>
 
-<h2 id="2-l1-and-l2-norm-and-dot-product">2. L1 and L2 Norm and Dot Product</h2>
-
-<div><img src="https://drive.google.com/uc?export=view&amp;id=17ogxNPXwg4z3yHXv2dGysFO_LF6Q7sz0" title="lec02-p6-1 image" style="float: right; width:20%" />
-<ul>
-<li><b>Manhattan Norm (L1 Norm)</b></li>
-<ul>
-<li>For $\mathbf{x}\in\mathbb{R}^n$,</li>
-<ul>$\left\lVert\mathbf{x}\right\rVert_1\:=\sum_{i=1}^{n} \left\lvert x_i\right\rvert$<br /><br /></ul></ul>
-</ul>
-</div>
-
-<div><img src="https://drive.google.com/uc?export=view&amp;id=1vbG04bNWO23GK23wRcKKwwa-K3wUTbr-" title="lec02-p6-2 image" style="float: right; width:20%;" />
-<ul>
-<li><b>Euclidean Norm (L2 Norm)</b></li>
-<ul>
-<li>For $\mathbf{x}\in\mathbb{R}^n$,</li>
-<ul>$\left\lVert\mathbf{x}\right\rVert_2:=\sqrt{\sum_{i=1}^{n}x_i^2}=\sqrt{\mathbf{x}^T\mathbf{x}}$</ul>
-</ul>
-</ul></div>
-
-<ul>
-<li><b>p-Norm</b></li>
-<ul>
-<li>For $\mathbf{x}\in\mathbb{R}^n$</li>
-<ul>$\left\lVert\mathbf{x}\right\rVert_p:=\big(\sum^n_{i=1}\left\lvert x_i\right\rvert^p\big)^{\frac{1}{p}}$</ul>
-</ul>
-</ul>
-<p>1zS5Wd-D2UEhvP1euNCMr1yDT3nLF8Fz8</p>
-
-<h2 id="3-angles-and-distance">3. Angles and Distance</h2>
-
-<div>
-<ul>
-<li>Dot Product</li>
-<ul>$\mathbf{x}\cdot\mathbf{y}=\mathbf{x}^Y\mathbf{y}=\sum_{i=1}^nx_iy_i=\left\lVert\mathbf{x}\right\rVert\left\lVert\mathbf{y}\right\rVert\cos(\theta)$</ul>
-</ul><img src="https://drive.google.com/uc?export=view&amp;id=1zS5Wd-D2UEhvP1euNCMr1yDT3nLF8Fz8" title="lec02-p6-2 image" style="float: right; width:40%; " />
-<li>The angle between two vectors</li>
-<ul>$\theta=\arccos(\frac{\mathbf{x}\cdot\mathbf{y}}{\left\lVert\mathbf{x}\right\rVert\left\lVert\mathbf{y}\right\rVert})$<br />
-$\cos(\theta)=\frac{\mathbf{x}\cdot\mathbf{y}}{\left\lVert\mathbf{x}\right\rVert\left\lVert\mathbf{y}\right\rVert}$
-</ul>
-<li>The distance between two vectors</li>
-<ul>$d(\mathbf{x}, \mathbf{y}):=\left\lVert\mathbf{x-y}\right\rVert$</ul>
-</div>
-
-<h2 id="4-geometry-of-linear-transformations">4. Geometry of Linear Transformations</h2>
-
-<div><div>
-  $\mathbf{A}=\begin{bmatrix}
-  a &amp; b \\
-  c &amp; d \\
-  \end{bmatrix}$<br />
-  $
-  \begin{align*}
-  \mathbf{Ax} &amp; =\begin{bmatrix}
-  a &amp; b \\
-  c &amp; d \\
-  \end{bmatrix}\begin{bmatrix}
-  x \\
-  y \\
+    <p align="center">
+  $$\begin{bmatrix}
+  a_{11} &amp; \cdots &amp; a_{1n} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  a_{n1} &amp; \cdots &amp; a_{nn} \\
   \end{bmatrix} = \begin{bmatrix}
-  ax + by \\
-  cx + dy \\
-  \end{bmatrix} \\
-  &amp; = x\begin{bmatrix}
-  a \\
-  c \\
-  \end{bmatrix} +
-  y\begin{bmatrix}
-  b \\
-  d \\
-  \end{bmatrix} = x\begin{Bmatrix}
-  \mathbf{A}\begin{bmatrix}
-  1 \\
-  0 \\
-  \end{bmatrix}\end{Bmatrix}
-  + y\begin{Bmatrix}\mathbf{A}\begin{bmatrix}
-  0 \\
-  1 \\
-  \end{bmatrix}\end{Bmatrix} \\
-  \end{align*}$</div>
-  <div>
-  We can write a matrix transformation of any vector in terms of how $\mathbf{A}$ transforms two specific vectors, $[1, 0]^T$, $[0, 1]^T$</div>
-  <div>
-  <img src="https://drive.google.com/uc?export=view&amp;id=11ZwR_zTA2YUuzaKJ-GAlKEUWKNWw8e_I" title="lec02-p6-2 image" style="float: center; width:80%; " />
-  </div>
-  <div>Matrix multipliation can skew, rotate, and scale the grid, and grid structure is remained</div>
-  </div>
+  l_{11} &amp; \cdots &amp; 0 \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  l_{n1} &amp; \cdots &amp; l_{nn} \\
+  \end{bmatrix} \begin{bmatrix}
+  l_{11} &amp; \cdots &amp; l_{n1} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  0 &amp; \cdots &amp; l_{nn} \\
+  \end{bmatrix}
+  $$
+  </p>
+  </li>
+  <li>$L$ is called the <strong>Cholesky</strong> factor of $A$, and $L$ is unique.</li>
+  <li>If possible, calculating the determinant of $A$ becomes much easier
+    <p align="center">
+  $$A=LL^T, det(A)=det(LL^T)=det(L)det(L^T)\\
+  =det(L)^2=(\Pi_{i=1}^nl_{ii})^2$$
+  </p>
+  </li>
+  <li>
+    <p>$3\times 3$ matrix example</p>
 
-<h2 id="5-hyperplanes">5. Hyperplanes</h2>
-
-<div>
-<img src="https://drive.google.com/uc?export=view&amp;id=1s-_vko9vB9MNQNgRUCm5mZ7JbXDiPkbU" title="lec02-p6-2 image" style="float: left; width:40%; " />
-<ul>
-<li>$\mathbf{v}\cdot\mathbf{w}=1$ when the length of projection $\mathbf{v}$ onto the direction of $\mathbf{w}$ is exactly $\frac{1}{\left\lVert\mathbf{w}\right\rVert}$</li>
-<li>$\mathbf{v}\cdot\mathbf{w} \gt 1$ or $\mathbf{v}\cdot\mathbf{w}\lt1$ divides the space.</li>
-<li>Linear Classification<br />
-$\Rightarrow$ a method finding hyperplanes (decision planes) that separates the different target classes</li>
-</ul><br />
-</div>
-
-<h2 id="6-orthogonality">6. Orthogonality</h2>
-
-<div>
-<ul>
-<li>
-$\mathbf{x}$ and $\mathbf{y}$ are orthogonal vectors if and only if $\mathbf{x}\cdot$\mathbf{y}=0$.</li>
-<ul><li>If $\left\lVert\mathbf{x}\right\rVert=\left\lVert\mathbf{y}\right\rVert=1, \mathbf{x} and \mathbf{y}$ are orthonormal</li></ul>
-<li>If nonzero vectors $\mathbf{v}_1, \ldots, \mathbf{v}_k$ are mutuall orthogonal (every vector is perpendicular to every other), then those vectors are linearly independent</li>
-<ul>$\mathbf{v}_i^T\mathbf{v}_j=\begin{cases}
-\begin{matrix}
-0 &amp; if &amp; i\ne j\\
-\left\lVert\mathbf{v}_i\right\rVert^2 &amp; if &amp; i=j
-\end{matrix}
-\end{cases}$<br />
-$c_1\mathbf{v}_1+\cdots+c_k\mathbf{v}_k=0$
-by multiplying $\mathbf{v}_i^T$, we can get $c_i=0$<br />
-$\mathbf{v}_i^T(c_1\mathbf{v}_1+\cdots+c_k\mathbf{v}_k)=0$<br />
-$c_i\left\lVert\mathbf{v}_i\right\rVert^2=0\rightarrow c_i=0\ (\left\lVert\mathbf{v}_i\right\rVert\ne 0)$
+    <p align="center">
+ $$
+ \begin{align*}
+ &amp; A = \begin{bmatrix}
+ a_{11} &amp; a_{12} &amp; a_{13} \\
+ a_{21} &amp; a_{22} &amp; a_{23} \\
+ a_{31} &amp; a_{32} &amp; a_{33} \\
+ \end{bmatrix}
+  = LL^T = \begin{bmatrix}
+ l_{11} &amp; 0 &amp; 0 \\
+ l_{21} &amp; l_{22} &amp; 0 \\
+ l_{31} &amp; l_{32} &amp; l_{33} \\
+ \end{bmatrix}\begin{bmatrix}
+ l_{11} &amp; a_{21} &amp; a_{31} \\
+ 0 &amp; l_{22} &amp; a_{32} \\
+ 0 &amp; 0 &amp; l_{33} \\
+ \end{bmatrix} \\
+ \Rightarrow\ &amp; A = \begin{bmatrix}
+ l_{11}^2 &amp; l_{21}l_{11} &amp; l_{31}l_{11} \\
+ l_{21}l_{11} &amp; l_{22}^2+l_{22}^2 &amp; l_{31}l_{21}+l_{32}l_{22} \\
+ l_{31}l_{11} &amp; l_{32}l_{21}+l_{32}l_{22} &amp; l_{31}^2+l_{32}^2+l_{33}^2 &amp; \\
+ \end{bmatrix} \\
+ \end{align*}
+ $$
+ </p>
+  </li>
 </ul>
-<li>A square matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$ is an orthogonal matrix if and only if its columns are orthonormal, so that $\mathbf{AA}^T=\mathbf{I}=\mathbf{A}^T\mathbf{A}\rightarrow \mathbf{A}^{-1}=\mathbf{A}^T$</li>
-<li>Linear transformations by orthogonal matrices does not chane...(they just rotate/flip!)</li>
+
+<h2 id="2-eigendecomposition-and-diagnoalization">2. Eigendecomposition and Diagnoalization</h2>
+
 <ul>
-<li>The length of vector</li>
-<li>The angle between any two vectors</li>
-<ul>$\left\lVert\mathbf{Ax}\right\rVert^2=\mathbf{x}^T\mathbf{A}^T\mathbf{A}\mathbf{x}=\mathbf{x}^T\mathbf{I}\mathbf{x}=\mathbf{x}^T\mathbf{x}=\left\lVert\mathbf{x}\right\rVert^2=1$.<br />
-$angle=\frac{\mathbf{x}^T\mathbf{y}}{\left\lVert\mathbf{x}\right\rVert\left\lVert\mathbf{y}\right\rVert}$</ul>
+  <li>A matrix $A\in\mathbb{R}^{n\times n}$ is diagonalizable if there exist and <strong>invertible</strong> matrix $P\in\mathbb{R}^{n\times n}$ such that</li>
 </ul>
-</ul>
-</div>
+<p align="center">
+    $D=P^{-1}AP, A=PDP^{-1}$
+</p>
 
-<h2 id="7-projection-onto-a-line">7. Projection onto a Line</h2>
-
-<div>
-<img src="https://drive.google.com/uc?export=view&amp;id=1iuKIKYyezZlxopZ9Ivs4LxavTd5c4MT0" title="lec02-p6-2 image" style="float: right; width:30%; " />
 <ul>
-<li>Looking for a line for the point $\mathbf{p}$ on $\mathbf{a}$ closest to $\mathbf{b}$</li>
-<ul><li>The line connecting $\mathbf{b}$ to $\mathbf{p}$ is perpendicular to $\mathbf{a}$</li></ul>
-<li>The point must be some $\mathbf{p}=k\mathbf{a},$</li>
-<ul>$k=\frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}$<br />
-$\Rightarrow \mathbf{p}^T(\mathbf{b}-\mathbf{p})=0$<br />
-$k\mathbf{a}^T(\mathbf{b}-k\mathbf{a})=k\mathbf{a}^T\mathbf{b}-k^2\mathbf{a}^T\mathbf{a}=0$<br />
-$k\mathbf{a}^T\mathbf{a}=\mathbf{a}^T\mathbf{b}$</ul>
-<li>And, $\left\lVert\mathbf{e}\right\rVert^2=\left\lVert\mathbf{b}-k\mathbf{a}\right\rVert^2=\left\lVert\mathbf{b}-\frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}\right\rVert^2\geq 0\Rightarrow$ Schwarz inequality $\left\lvert\mathbf{a}^T\mathbf{b}\right\rvert\leq\left\lVert\mathbf{a}\right\rVert\left\lVert\mathbf{b}\right\rVert$, eqaulity holds for $\theta=0$ or $\theta=\pi$</li>
+  <li>Define $P:=[p_1,\ldots, p_n]$, and let $D\in\mathbb{R}^{n\times n}$ be a diagonal matrix with diagonal entries $\lambda_1, \ldots, \lambda_n$.</li>
+  <li>Then, $AP=PD$ iff $\lambda_1,\ldots, \lambda_n$ are the eigenvalues of $A\in\mathbb{R}^{n\times n}$ and $p_1,\ldots, p_n$ are corresponding eigenvectors of $A$.</li>
+  <li>$P\in\mathbb{R}^{n\times n}$ is invertible $\Leftrightarrow$ has full rank $\Leftrightarrow$ linearly independent engenvectors $p_1,\ldots, p_n$ $\Leftrightarrow$ eivenctors form a basis of $\mathbb{R}^{n}$</li>
 </ul>
-</div>
 
-<h2 id="8-projection-matrix">8. Projection Matrix</h2>
+<p align="center">
+$ \begin{bmatrix}
+Ap_1 = \lambda_1p_1 \\
+\vdots \\
+Ap_n = \lambda_np_n \\
+\end{bmatrix} \Rightarrow [Ap_1, \ldots, Ap_n] = AP$ $ = [\lambda_1p_1, \ldots, \lambda_np_n]=\begin{bmatrix}
+\lambda_1 &amp; \ldots &amp; 0 \\
+\vdots &amp; \ddots &amp; \vdots \\
+0 &amp; \ldots &amp; \lambda_n \\
+\end{bmatrix}P = \Lambda P
+$
+</p>
 
-<div>
 <ul>
-<li>Projection of $\mathbf{b}$ on $\mathbf{a}$ is carried out with matrix $\mathbf{P}$,</li>
-<ul><li>$\mathbf{p}=k\mathbf{a}=\mathbf{Pb}$</li>
-<li>$k=\frac{\mathbf{a}^T\mathbf{b}}{\mathbf{a}^T\mathbf{a}}\Rightarrow \mathbf{P}=\frac{\mathbf{a}\mathbf{a}^T}{\mathbf{a}^T\mathbf{a}}$</li></ul>
+  <li>If $A\in\mathbb{R}^{n\times n}$ is symmetric, there exists an orthonormal basis of the corresponding vector space $V$ consisting of eigenvectors of $A$, and each eigenvalues is real (<a href="https://mast.queensu.ca/~br66/419/spectraltheoremproof.pdf"><span style="color:blue"><em>Spectral Theorem</em></span></a>).</li>
+  <li>
+    <p>A symmetric matrix can always be diagonalized, and $A=PDP^T\ \&amp; \ D=P^TDP$.</p>
+
+    <p><img src="https://drive.google.com/uc?export=view&amp;id=1xlRA_GzkmMa5QYqjFx6ufiIjqqcl-cFv" title="lec04-p5-pca image" style="float: center; width:75%" /></p>
+
+    <ul>
+      <li>$P^{-1}$ : performs a basis change</li>
+      <li>$D$ : scales the vectors</li>
+      <li>$P$ : transforms back to standard coordinate</li>
+    </ul>
+  </li>
+  <li>
+    <p>$A^k=PD^kP^{-1}$</p>
+
+    <p>$\Rightarrow A=PDP^{-1}$
+  $A^k\rightarrow PDP^{-1}PDP^{-1},\ldots, PDP^{-1}\rightarrow PD(P^{-1}P)DP^{-1},\ldots, PDP^{-1}$
+  $\rightarrow PDIDP^{-1},\ldots, PDP^{-1}\rightarrow PD^kP^{-1}$</p>
+  </li>
+  <li>
+    <p>$det(A)=\Pi\lambda_i$</p>
+
+    <p>$det(PDP^{-1})=det(P)det(D)det(P^{-1})=det(P)det(D)1/det(P)=det(D)$
+  $det(D)=\begin{vmatrix}
+  \lambda_i &amp; &amp; \\<br />
+   &amp; \ddots &amp;  \\<br />
+ &amp; &amp; \lambda_n \\<br />
+  \end{vmatrix}=\Pi\lambda_i$</p>
+  </li>
 </ul>
-<ol>
-<li>$\mathbf{P}$ is a symmetric matrix</li>
-<li>Its square is itself: $\mathbf{P}^2=\mathbf{P}$</li>
-<li>Its rank is 1</li></ol></div>
 
-<h2 id="9-orthonormal-basis-and-gram-schmidt-process">9. Orthonormal Basis and Gram-Schmidt Process</h2>
+<h2 id="3-singular-value-decomposition-svd">3. Singular Value Decomposition (SVD)</h2>
 
-<div>
 <ul>
-<li>A basis ${\mathbf{q}_1, \ldots, \mathbf{q}_n}$ of a $\mathbb{V}$ is orthonormal if $\left\lVert\mathbf{q}_i\right\rVert=1$ and mutually orthogonal.</li>
-<li>Gram-Schmidt Process: Find a proper way to make vectors "orthonormal"</li>
-<ul>Example) $\mathbf{a}, \mathbf{b}, \mathbf{c}\rightarrow \mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3$<br />
-$\mathbf{q}_1=\mathbf{a}/\left\lVert\mathbf{a}\right\rVert$<br />
-$\mathbf{m}=\mathbf{b}-(\mathbf{q}_1^T\mathbf{b})\mathbf{q}_1, \mathbf{q}_2=\mathbf{m}/\left\lVert\mathbf{m}\right\rVert$<br />
-$\mathbf{n}=\mathbf{c}-(\mathbf{q}_1^T\mathbf{c})\mathbf{q}_1-(\mathbf{q}_2^T\mathbf{c})\mathbf{q}_2, \mathbf{q}_3=\mathbf{n}/\left\lVert\mathbf{n}\right\rVert$</ul>
-<li>To substract from every new vector, its components in the directions that are already settled.</li>
-</ul></div>
+  <li>Eigendecomposition requires squre matrix.</li>
+  <li>
+    <p>Let $A\in\mathbb{m\times n}$ be a rectangular matrix of rank $r\in[0, min(m, n)]$</p>
+
+    <p><img src="https://drive.google.com/uc?export=view&amp;id=1d-KHoM1ob620IdWJgaRVUXytwaMpNR-X" title="lec04-p7-svd image" style="float: center; width:75%" /></p>
+  </li>
+  <li>$U$: orthogonal matrix with column vectors $u_i$, left-singular vectors</li>
+  <li>$V$: orthogonal matrix with column vectors $v_i$, right-singular vectors</li>
+  <li>$\Sigma$ : $m\times n$ matrix with $\Sigma_{ii}=\sigma_i\geq0, \Sigma_{ij}=0, i\ne j$
+    <ul>
+      <li>diagonal entries $\sigma_i, i=1,\ldots, r$ are singular values where $\sigma_1\geq\sigma_2\geq,\ldots, \sigma_r\geq0$</li>
+    </ul>
+  </li>
+  <li>For symmetric and positive definite matrix $S\in\mathbb{R}^{n\times n}, S=S^T=PDP^T=U\Sigma V^T$</li>
+  <li>
+    <p>For $V^T$,</p>
+
+    <p>$\Rightarrow A^TA=PDP^T=P\begin{bmatrix}
+  \lambda_1 &amp; \cdots &amp; 0 \\<br />
+  \vdots &amp; \ddots &amp; \vdots \\<br />
+  0 &amp; \cdots &amp; \lambda_n \\<br />
+  \end{bmatrix}P^T, V^T=P^T, \sigma_i^2=\lambda_i$</p>
+    <ul>
+      <li>$(A^TA)P=PD$, ($P$=eigenvectors, $D$=eigenvalues of $A^TA$)</li>
+      <li>$A=U\Sigma V^T, A^TA=V\Sigma^T U^TU\Sigma V^T=V\Sigma^2V^T, (U^TU=I, \Sigma^2=D)$</li>
+    </ul>
+  </li>
+  <li>
+    <p>For $U$,</p>
+
+    <p>$\Rightarrow (AA^T)Q=QE$, ($Q$=eigenvectors, $E$=eigenvalues of $AA^T$)</p>
+    <ul>
+      <li>$A=U\Sigma V^T, AA^T=U\Sigma V^TV\Sigma^T U^T=U(\Sigma\Sigma^T)U^T, (V^TV=I, \Sigma\Sigma^T=E)$</li>
+    </ul>
+  </li>
+  <li>
+    <p>$A^TA$ and $AA^T$ have a smae eigenvalues.</p>
+
+    <p>$\Rightarrow A(A^TA)v_i=A\lambda_i v_i \rightarrow (AA^T)(Av_i)=\lambda_i (Av_i)=\lambda_i u_i$</p>
+  </li>
+  <li>
+    <p>For orthonormal $v_i, v_j, i\ne j$, from their linear transformation by $A$ are orthogonal</p>
+
+    <p>$\Rightarrow (Av_i)^TAv_j=v_i^T(A^TAv_j)=v_i^T\lambda_j v_j=0$</p>
+    <ul>
+      <li>For $m\geq r, {Av_i, \ldots, Av_r}$ is a basis of an r-dimensional subspace of $\mathbb{R}^m$
+ $u_i:=\frac{Av_i}{\left\lVert Av_i \right\rVert}=\frac{1}{\sqrt{\lambda_i}}Av_i=\frac{1}{\sigma_i}Av_i, Av_i=\sigma_iu_i,\ i=1, \ldots, r$
+$\left\lVert Av_i\right\rVert^2=v_i^TA^TAv_i=v_i^T\lambda_i v_i=\lambda_i v_i^Tv_i=\lambda_i$</li>
+      <li>If $m \lt n$ and $i\gt m$, $Av_i=0$
+  Since $v_i$ are orthonormal, it supplies an orthonormal basis of null space.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="31-geometric-intuitions-for-the-svd-when-ainmathbbr3times-2">3.1 Geometric Intuitions for the SVD when $A\in\mathbb{R}^{3\times 2}$</h3>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=193xVv1-ErSfPk1YmZyrq5o8kZ1En6Ic6" title="lec04-p7-svd image" style="float: center; width:75%" /></p>
+
+<ul>
+  <li>$V^T$ : performs a basis change in $\mathbb{R}^2$</li>
+  <li>$\Sigma$ : scales and maps from $\mathbb{R}^2$ to $\mathbb{R}^3$</li>
+  <li>$U$ : performs a basis change with $\mathbb{R}^3$</li>
+</ul>
+
 
         
       </section>
@@ -791,7 +783,11 @@ $\mathbf{n}=\mathbf{c}-(\mathbf{q}_1^T\mathbf{c})\mathbf{q}_1-(\mathbf{q}_2^T\ma
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">Linear Algebra</a>
+      <a href="/tags/#eigen-decomposition" class="page__taxonomy-item" rel="tag">Eigen decomposition</a><span class="sep">, </span>
+    
+      <a href="/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">Linear Algebra</a><span class="sep">, </span>
+    
+      <a href="/tags/#svd" class="page__taxonomy-item" rel="tag">SVD</a>
     
     </span>
   </p>
@@ -815,7 +811,7 @@ $\mathbf{n}=\mathbf{c}-(\mathbf{q}_1^T\mathbf{c})\mathbf{q}_1-(\mathbf{q}_2^T\ma
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-20">October 20, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-22">October 22, 2022</time></p>
 
 
       </footer>
@@ -825,22 +821,22 @@ $\mathbf{n}=\mathbf{c}-(\mathbf{q}_1^T\mathbf{c})\mathbf{q}_1-(\mathbf{q}_2^T\ma
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+02.+Analytic+Geometry%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F002%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+04.+Matrix+Decomposition+%282%29%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F004%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F002%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F004%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F002%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F004%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/courses/ai-toolkit/001/" class="pagination--pager" title="[AI toolkit] 01. Linear Algebra
+      <a href="/courses/ai-toolkit/003/" class="pagination--pager" title="[AI toolkit] 03. Matrix Decomposition (1)
 ">Previous</a>
     
     
-      <a href="/courses/ai-toolkit/003/" class="pagination--pager" title="[AI toolkit] 03. Matrix Decomposition (1)
+      <a href="/courses/ai-toolkit/005/" class="pagination--pager" title="[AI toolkit] 05. Matrix Approximation, PCA
 ">Next</a>
     
   </nav>
@@ -1053,8 +1049,8 @@ $\mathbf{n}=\mathbf{c}-(\mathbf{q}_1^T\mathbf{c})\mathbf{q}_1-(\mathbf{q}_2^T\ma
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/courses/ai-toolkit/002/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/courses/ai-toolkit/02-analytic-geometry"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/ai-toolkit/004/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/ai-toolkit/04-matrix-decomposition-2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

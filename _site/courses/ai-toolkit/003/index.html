@@ -371,7 +371,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <label for="ac-toc">Toggle menu</label>
   <ul class="nav__items">
     <!-- <li>
-      <span class="nav__total">🌴 Total Posts: 19</span>
+      <span class="nav__total">🌴 Total Posts: 24</span>
     </li> -->
     
     
@@ -454,7 +454,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
               
             
               
-                <li><a href="/categories/ai-toolkit">AI toolkit (4)</a></li>
+                <li><a href="/categories/ai-toolkit">AI toolkit (9)</a></li>
               
             
           
@@ -564,12 +564,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#lecture-00">Lecture 00</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-determinant">1. Determinant</a></li><li><a href="#2-recall-geometry-of-linear-transformations">2. Recall: Geometry of Linear Transformations</a></li><li><a href="#3-properties-of-determinant">3. Properties of Determinant</a></li><li><a href="#4-trace">4. Trace</a></li><li><a href="#5-characteristic-polynomial">5. Characteristic Polynomial</a></li><li><a href="#6-eigenvalues-and-eigenvectors">6. Eigenvalues and Eigenvectors</a></li><li><a href="#7-graphical-intuition-in-two-dimensions">7. Graphical Intuition in Two Dimensions</a></li><li><a href="#8-eigenvalues-and-eigenvectors-properties">8. Eigenvalues and Eigenvectors: Properties</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#lecture-03">Lecture 03</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-determinant">1. Determinant</a></li><li><a href="#2-recall-geometry-of-linear-transformations">2. Recall: Geometry of Linear Transformations</a></li><li><a href="#3-properties-of-determinant">3. Properties of Determinant</a></li><li><a href="#4-trace">4. Trace</a></li><li><a href="#5-characteristic-polynomial">5. Characteristic Polynomial</a></li><li><a href="#6-eigenvalues-and-eigenvectors">6. Eigenvalues and Eigenvectors</a></li><li><a href="#7-graphical-intuition-in-two-dimensions">7. Graphical Intuition in Two Dimensions</a></li><li><a href="#8-eigenvalues-and-eigenvectors-properties">8. Eigenvalues and Eigenvectors: Properties</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="lecture-00">Lecture 00</h1>
+        <h1 id="lecture-03">Lecture 03</h1>
 
 <h2 id="0-table-of-contents">0. Table of Contents</h2>
 
@@ -592,12 +592,12 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   <li>For $\mathbf{A}\in\mathbb{R}^{2\times 2}$
     <ul>
       <li>$\mathbf{A}^{-1}=\frac{1}{a_{11}a_{22}-a_{12}a_{21}}\begin{bmatrix}
-a_{22} &amp; -a_{12} <br />
--a_{21} &amp; a_{11} <br />
-\end{bmatrix}, det(\mathbf{A})=\begin{vmatrix}
-a_{22} &amp; -a_{12} <br />
--a_{12} &amp; a_{11} <br />
-\end{vmatrix}$ = a_{11}a_{22}-a_{12}a_{21}$</li>
+a_{22} &amp; -a_{12} \\<br />
+-a_{21} &amp; a_{11} \\<br />
+\end{bmatrix},$  $det(\mathbf{A})=\begin{vmatrix}
+a_{22} &amp; -a_{12} \\<br />
+-a_{12} &amp; a_{11} \\<br />
+\end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}$</li>
     </ul>
   </li>
   <li>For any square matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$, $\mathbf{A}$ is invertible iff $det(\mathbf{A})\ne 0$, otherwise singular</li>
@@ -610,7 +610,7 @@ a_{22} &amp; -a_{12} <br />
 <p><img src="https://drive.google.com/uc?export=view&amp;id=1xWe72i5cgDLR8U_j36Gs_f58E12I86Jx" title="lec03-p3-linear transformation image" style="float: center; width:100%" /></p>
 
 <ul>
-  <li>We can call a matrix is &amp;&amp;invertible** when we can revert this linear transformation.</li>
+  <li>We can call a matrix is <strong>invertible</strong> when we can revert this linear transformation.</li>
   <li>Then what would happen if $det(\mathbf{A})=0$?</li>
   <li>The box area becomes zero, w cannot revert this linear transformation when $\mathbf{Ax}$ is given.</li>
 </ul>
@@ -624,16 +624,16 @@ a_{22} &amp; -a_{12} <br />
         <p>“(Row 1)-scalar*(Row 2)” does not change a determinant</p>
 
         <p>$\mathbf{A}=\begin{bmatrix}
-a &amp; b <br />
-c &amp; d <br />
+a &amp; b \\<br />
+c &amp; d \\<br />
 \end{bmatrix}, \mathbf{A}’=\begin{bmatrix}
-a-kc &amp; b-kd <br />
-c &amp; d <br />
-\end{bmatrix}\rightarrow det(\mathbf{A}’)=ad-kdc-bc+kcd=ad-bc=det(\mathbf{A})$</p>
+a-kc &amp; b-kd \\<br />
+c &amp; d \\<br />
+\end{bmatrix}$ $\rightarrow det(\mathbf{A}’)=ad-kdc-bc+kcd=ad-bc=det(\mathbf{A})$</p>
       </li>
     </ul>
   </li>
-  <li>$det(\mathbf{A}^{-1})=1/det(\mathbf{A}), det(\mathbf{A})=det(\mathbf{A}^T), det(\mathbf{AB})=det(\mathbf{A})det(\mathbf{B}), det(\lambda\mathbf{A})=\lambda^ndet(\mathbf{A})$</li>
+  <li>$det(\mathbf{A}^{-1})=1/det(\mathbf{A}),\ det(\mathbf{A})=det(\mathbf{A}^T),$ $det(\mathbf{AB})=det(\mathbf{A})det(\mathbf{B}),\ det(\lambda\mathbf{A})=\lambda^ndet(\mathbf{A})$</li>
   <li>Swapping two rows/columns change the sign of determinant.</li>
   <li>A square matrix has $det(\mathbf{A})\ne 0$ iff $rank(\mathbf{A})=n$.</li>
 </ul>
@@ -782,7 +782,8 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/courses/ai-toolkit/004/" class="pagination--pager" title="[AI toolkit] 04. Matrix Decomposition (2)
+">Next</a>
     
   </nav>
 
@@ -807,7 +808,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/ai-toolkit/002/" rel="permalink">[AI toolkit] 02. Analytic Geometry
+        <a href="/courses/ai-toolkit/008/" rel="permalink">[AI toolkit] 08. Probability Distribution (2)
 </a>
       
     </h2>
@@ -818,7 +819,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-20T00:00:00+09:00">October 20, 2022</time>
+        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
       </span>
     
 
@@ -828,7 +829,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Geometric features of linear algebra
+    <p class="archive__item-excerpt" itemprop="description">Random Variables, Central Limit Theorem
 </p>
   </article>
 </div>
@@ -843,7 +844,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/ai-toolkit/001/" rel="permalink">[AI toolkit] 01. Linear Algebra
+        <a href="/courses/ai-toolkit/007/" rel="permalink">[AI toolkit] 07. Probability Distribution (1)
 </a>
       
     </h2>
@@ -854,7 +855,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-19T00:00:00+09:00">October 19, 2022</time>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
       </span>
     
 
@@ -864,7 +865,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Basics of Linear Algebra
+    <p class="archive__item-excerpt" itemprop="description">Probability Basics
 </p>
   </article>
 </div>
@@ -879,7 +880,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/ai-toolkit/000/" rel="permalink">[AI toolkit] 00.
+        <a href="/courses/ai-toolkit/006/" rel="permalink">[AI toolkit] 06. Vector Calculus
 </a>
       
     </h2>
@@ -890,7 +891,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-19T00:00:00+09:00">October 19, 2022</time>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
       </span>
     
 
@@ -900,7 +901,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">template
+    <p class="archive__item-excerpt" itemprop="description">Vector &amp; Matrix Calculus
 </p>
   </article>
 </div>
@@ -915,7 +916,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/liberalarts/philosophyofscience/010/" rel="permalink">[Philosophy of Science] 10. Observation and Theory
+        <a href="/courses/ai-toolkit/005/" rel="permalink">[AI toolkit] 05. Matrix Approximation, PCA
 </a>
       
     </h2>
@@ -926,7 +927,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
       </span>
     
 
@@ -936,7 +937,7 @@ $\Rightarrow \mathbf{x}^T\mathbf{S}\mathbf{x}=\mathbf{x}^T\mathbf{A}^T\mathbf{A}
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">How are observation and theory related to each other
+    <p class="archive__item-excerpt" itemprop="description">Principal Componene Analysis, PCA
 </p>
   </article>
 </div>

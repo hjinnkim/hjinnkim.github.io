@@ -21,7 +21,7 @@ published: true
 use_math: true
 
 ---
-# Lecture 00
+# Lecture 03
 
 ## 0. Table of Contents
 
@@ -40,11 +40,11 @@ use_math: true
 - $det(\mathbf{A}) or \left\lvert\mathbf{A}\right\rvert, where \mathbf{A}\in\mathbb{R}^{m\times n}$.
 - For $\mathbf{A}\in\mathbb{R}^{2\times 2}$
   - $\mathbf{A}^{-1}=\frac{1}{a_{11}a_{22}-a_{12}a_{21}}\begin{bmatrix}
-  a_{22} & -a_{12} \\
-  -a_{21} & a_{11} \\
-  \end{bmatrix}, det(\mathbf{A})=\begin{vmatrix}
-  a_{22} & -a_{12} \\
-  -a_{12} & a_{11} \\
+  a_{22} & -a_{12} \\\\\\
+  -a_{21} & a_{11} \\\\\\
+  \end{bmatrix},$  $det(\mathbf{A})=\begin{vmatrix}
+  a_{22} & -a_{12} \\\\\\
+  -a_{12} & a_{11} \\\\\\
   \end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}$
 - For any square matrix $\mathbf{A}\in\mathbb{R}^{n\times n}$, $\mathbf{A}$ is invertible iff $det(\mathbf{A})\ne 0$, otherwise singular
 - Equals the **volume** of a box in n-dimensional space, where the edges of the box come from columns.
@@ -64,13 +64,13 @@ use_math: true
   - "(Row 1)-scalar*(Row 2)" does not change a determinant
 
     $\mathbf{A}=\begin{bmatrix}
-    a & b \\
-    c & d \\
+    a & b \\\\\\
+    c & d \\\\\\
     \end{bmatrix}, \mathbf{A}'=\begin{bmatrix}
-    a-kc & b-kd \\
-    c & d \\
-    \end{bmatrix}\rightarrow det(\mathbf{A}')=ad-kdc-bc+kcd=ad-bc=det(\mathbf{A})$
-- $det(\mathbf{A}^{-1})=1/det(\mathbf{A}), det(\mathbf{A})=det(\mathbf{A}^T), det(\mathbf{AB})=det(\mathbf{A})det(\mathbf{B}), det(\lambda\mathbf{A})=\lambda^ndet(\mathbf{A})$
+    a-kc & b-kd \\\\\\
+    c & d \\\\\\
+    \end{bmatrix}$ $\rightarrow det(\mathbf{A}')=ad-kdc-bc+kcd=ad-bc=det(\mathbf{A})$
+- $det(\mathbf{A}^{-1})=1/det(\mathbf{A}),\ det(\mathbf{A})=det(\mathbf{A}^T),$ $det(\mathbf{AB})=det(\mathbf{A})det(\mathbf{B}),\ det(\lambda\mathbf{A})=\lambda^ndet(\mathbf{A})$
 - Swapping two rows/columns change the sign of determinant.
 - A square matrix has $det(\mathbf{A})\ne 0$ iff $rank(\mathbf{A})=n$.
 
