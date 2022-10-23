@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Jekyll] 02. Math symbol | hjinnkim</title>
-<meta name="description" content="Using math symbol in the Github Blog">
+<!-- begin _includes/seo.html --><title>[AI toolkit] 11. Information Theory | hjinnkim</title>
+<meta name="description" content="Information Theory Basics and Loss Functions">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[Jekyll] 02. Math symbol">
-<meta property="og:url" content="http://localhost:4000/blog/blog/002/">
+<meta property="og:title" content="[AI toolkit] 11. Information Theory">
+<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/011/">
 
 
-  <meta property="og:description" content="Using math symbol in the Github Blog">
-
-
-
+  <meta property="og:description" content="Information Theory Basics and Loss Functions">
 
 
 
 
-  <meta property="article:published_time" content="2022-10-16T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-16T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-23T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-10-23T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/blog/blog/002/">
+
+<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/011/">
 
 
 
@@ -162,6 +162,30 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
 
+    
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
     
   </head>
 
@@ -505,15 +529,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Jekyll] 02. Math symbol">
-    <meta itemprop="description" content="Using math symbol in the Github Blog">
-    <meta itemprop="datePublished" content="2022-10-16T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-16T00:00:00+09:00">
+    <meta itemprop="headline" content="[AI toolkit] 11. Information Theory">
+    <meta itemprop="description" content="Information Theory Basics and Loss Functions">
+    <meta itemprop="datePublished" content="2022-10-23T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-23T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Jekyll] 02. Math symbol
+          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 11. Information Theory
 </h1>
           
 
@@ -522,7 +546,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
+        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
       </span>
     
 
@@ -540,14 +564,210 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-참고">1. 참고</a></li></ul>
+              <ul class="toc__menu"><li><a href="#lecture-11">Lecture 11</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-self-information">1. Self-Information</a></li><li><a href="#2-entropy">2. Entropy</a></li><li><a href="#3-joint-entropy">3. Joint Entropy</a></li><li><a href="#4-conditional-entropy">4. Conditional Entropy</a></li><li><a href="#5-mutual-information">5. Mutual Information</a></li><li><a href="#6-kullback-leibler-divergence">6. Kullback-Leibler Divergence</a></li><li><a href="#7-cross-entropy">7. Cross-Entropy</a></li><li><a href="#8-cross-entropy-and-multi-class-classification">8. Cross-Entropy and Multi-Class Classification</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="1-참고">1. 참고</h2>
+        <h1 id="lecture-11">Lecture 11</h1>
 
-<p><a href="https://chaelin0722.github.io/blog/mathjex/">https://chaelin0722.github.io/blog/mathjex/</a></p>
+<h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-self-information">Self-Information</a></li>
+  <li><a href="#2-entropy">Entropy</a></li>
+  <li><a href="#3-joint-entropy">Joint Entropy</a></li>
+  <li><a href="#4-conditional-entropy">Conditional Entropy</a></li>
+  <li><a href="#5-mutual-information">Mutual Information</a></li>
+  <li><a href="#6-kullback-leibler-divergence">Kullback-Leibler Divergence</a></li>
+  <li><a href="#7-cross-entropy">Cross-Entropy</a></li>
+  <li><a href="#8-cross-entropy-and-multi-class-classification">Cross-Entropy and Multi-Class Classification</a></li>
+</ol>
+
+<h2 id="1-self-information">1. Self-Information</h2>
+
+<ul>
+  <li>Bit: the unit of information, 0 or 1.
+    <ul>
+      <li>Any information can be encoded by a series of 0 and 1.</li>
+      <li>Binary digits of length $n$ contains $n$ bits of information.</li>
+    </ul>
+  </li>
+  <li>Self information: $I(X)=-\log_{2}(p)$
+    <ul>
+      <li>A function which can transfer the probability $p$ to the number of bits.</li>
+      <li>Bits of information we can receive from the event $X$.</li>
+      <li>example)
+        <ul>
+          <li>$I(“0010”)=-\log(p(“0010”))=-\log(\frac{1}{2^4})=$4bits</li>
+        </ul>
+      </li>
+      <li>This measures the information of a single discrete event.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-entropy">2. Entropy</h2>
+
+<ul>
+  <li>Generalized measure for any random variable of either discrete/continuous distribution.</li>
+  <li>For any random variable $X$ that follows probability distribution $P$ with a probability density function or a probability mass function $p(x)$,
+    <ul>
+      <li>The expected amount of information is measured through entropy,
+$H(X)=-\mathbb{E}_{x\sim P}[\log p(x)]$</li>
+      <li>If $X$ is discrete,
+$H(X)=-\underset{i}{\Large{\Sigma}}p_i\log p_i,\ \text{where }p_i=P(X_i)$</li>
+      <li>If $X$ is discrete,
+$H(X)=-\int_x p(x)\log p(x)dx$</li>
+    </ul>
+  </li>
+  <li>$H(X)=-\mathbb{E}_{x\sim P}[\log p(x)]$
+    <ol>
+      <li>Logarithm function
+        <ul>
+          <li>Entropy can be additive over independent random variables.</li>
+          <li>For instance, $p(x)=f_1(x)f_2(x),\ldots,f_n(x)$ can become $\log p(x)=\log f_1(x)+\log f_2(x)+\ldots+\log f_n(x)$</li>
+        </ul>
+      </li>
+      <li>Negative log
+        <ul>
+          <li>More frequent events should contain less information than less common events.</li>
+          <li>We need monotonically decreasing relationship between probability of events and their entropy</li>
+        </ul>
+      </li>
+      <li>Expectation function
+        <ul>
+          <li>$(-\log p)$ can be considered as the amount of surprise, after seeing a particular outcome.</li>
+          <li>The entropy equals to the average self-information from observing each output.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="3-joint-entropy">3. Joint Entropy</h2>
+
+<ul>
+  <li>For a pair random variables $(X,Y)$, what information is contained in $X$ and $Y$ together, compared to each seperately?</li>
+  <li>Joint Entropy for a pair of random variables $(X,Y)$ is defined as below:
+    <ul>
+      <li>
+        <p>$H(X,Y)=-\mathbb{E}_{(x,y)\sim P} [\log p_{X,Y}(x,y)]$</p>
+      </li>
+      <li>For discrete random variables, $H(X,Y)=-\underset{x}{\Large{\Sigma}}\underset{y}{\Large{\Sigma}}p_{X,Y}(x,y)\log p_{X,Y}(x,y)$</li>
+      <li>For continuous random variables, $H(X,Y)=-\int_{x,y}p_{X,Y}(x,y)\log p_{X,Y}(x,y)dxdy$</li>
+    </ul>
+  </li>
+  <li>If $X=Y$ are two identical random variables,
+    <ul>
+      <li>$H(X,Y)=H(X)=H(Y)$</li>
+    </ul>
+  </li>
+  <li>If $X$ and $Y$ are independent
+    <ul>
+      <li>$H(X,Y)=H(X)+H(Y)$</li>
+    </ul>
+  </li>
+  <li>$H(X),H(Y)\leq H(X,Y)\leq H(X)+H(Y)$</li>
+</ul>
+
+<h2 id="4-conditional-entropy">4. Conditional Entropy</h2>
+
+<ul>
+  <li>Conditional entropy is defined as: $H(Y\vert X)=-\mathbb{E}_{(x,y)\sim P}[\log p(y\vert x)]$</li>
+  <li>For discrete random variables, $H(Y\vert X)=-\underset{x}{\Large{\Sigma}}\underset{y}{\Large{\Sigma}}p(x,y)\log p(y\vert x)$</li>
+  <li>For continuous random variables, $H(Y\vert X)=-\int_x\int_y p(x,y)\log p(y\vert x)dxdy$</li>
+  <li>Since $p(y\vert x)=\Large{\frac{p_{X,Y}(x,y)}{p_X(x)}}$, $H(Y\vert X)=H(X,Y)-H(X)$.
+    <ul>
+      <li>The information of $Y$ given $X$ is same as information in $Y$ in which is not presented in X.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="5-mutual-information">5. Mutual Information</h2>
+
+<ul>
+  <li>How much information is shared by $X$ and $Y$?
+    <ul>
+      <li>$I(X,Y)=H(X,Y)-H(Y\vert X)-H(X\vert Y)$</li>
+      <li>From information contained in both $X$ and $Y$,
+        <ul>
+          <li>Extract information in $Y$ but not in $X$.</li>
+          <li>Extract information in $X$ but not in $Y$.</li>
+        </ul>
+        <p>$\Rightarrow I(X,Y)=\mathbb{E}_X\mathbb{E}_Y\begin{Bmatrix}p_{X,Y}(x,y)\log\Large{\frac{p_{X,Y}(x,y)}{p_X(x)p_Y(y)}}\end{Bmatrix}$</p>
+      </li>
+    </ul>
+
+    <p align="center">
+<img src="https://drive.google.com/uc?export=view&amp;id=1U0GG26MhUSbqicqHcVUzOV0WCaTLc0x_" title="lec11-p7 image" style="float: center; width:50%" />
+</p>
+
+    <ul>
+      <li>$I(X,Y)=H(X)-H(X\vert Y)=H(Y)-H(Y\vert X)=H(X)+H(Y)-H(X,Y)$</li>
+      <li>$I(X,Y)=I(Y,X)$</li>
+      <li>$I(X,Y)\geq 0$</li>
+      <li>$I(X,Y)=0 \Leftrightarrow X\ \text{and}\ Y\ \text{are independent}$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="6-kullback-leibler-divergence">6. Kullback-Leibler Divergence</h2>
+
+<ul>
+  <li>To measure if two distributions are close together or not.</li>
+  <li>Given a random variable $X$ that follows the probability distribution $P$ with p.d.f or p.m.f $p(x)$</li>
+  <li>Estimate $P$ by another probability distribution $Q$ with p.d.f or p.m.f $q(x)$.</li>
+  <li>Kullback-Leibler(KL) divergence (or relative entropy) between $P$ and $Q$ is
+    <ul>
+      <li>$D_{KL}(P \Vert Q)=\mathbb{E}_{x\sim P}\Large{[\large{\log} \frac{p(x)}{q(x)}]} $</li>
+      <li>$D_{KL}(P \Vert Q)\ne D_{KL}(Q \Vert P)$</li>
+      <li>$D_{KL}(P \Vert Q)\geq 0$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-cross-entropy">7. Cross-Entropy</h2>
+
+<ul>
+  <li>For true distribution $P$ with probability distribution $p(x)$, and the estimated distribution $Q$ with probability $q(x)$,</li>
+  <li>Measure the divergence between the estimating distribution $Q$ and the true distribution $P$ via cross-entropy.</li>
+  <li>
+    <p>$CE(P,Q)=-\mathbb{E}_{x\sim P}[\log(q(x))]$</p>
+
+    <p>$\Rightarrow CE(P,Q)=H(P)+D_{KL}(P\Vert Q)$</p>
+  </li>
+  <li>Three followings are equivalent:
+    <ol>
+      <li>Maximizing predictive probability $Q$ for distribution $P$ (i.e., $\mathbb{E}_{x\sim P}[\log(q(x))]$)</li>
+      <li>Minimizing cross-entropy $CE(P,Q)$</li>
+      <li>Minimizing the KL-divergence $D_{KL}(P\Vert Q)$.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="8-cross-entropy-and-multi-class-classification">8. Cross-Entropy and Multi-Class Classification</h2>
+
+<div>
+<ul>
+<li>Minimizing Cross-Entropy is equivalent to maximizing the log-likelihood function.</li>
+<li>For data example $i$, represent $k$-class label $\mathbf{y}_i=(y_{i1},\ldots,y_{ik})$ by one-hot encoding.</li>
+<li>Our prediction would be
+  $\hat{\mathbf{y}}_i=p_\theta(\mathbf{y}_i\vert\mathbf{x}_i)$.</li>
+  <ul>수업 내용에는 $\overset{k}{\underset{j=1}{\Large{\Pi}}}y_{ij}p_\theta(y_{ij}\vert \mathbf{x}_i)$ 까지 전개되어 있으나, 이 경우 $\hat{\mathbf{y}}_i$가 벡터가 아니게 되어 Cross Entropy가 유도되지 않는다.</ul>
+<li>The cross-entropy loss would be,</li>
+<ul>$\Rightarrow CE(\mathbf{y},\hat{\mathbf{y}})=\overset{n}{\underset{i=1}{\Large{\Sigma}}}\mathbf{y}^T_i\log \hat{\mathbf{y}}_i=\overset{n}{\underset{i=1}{\Large{\Sigma}}}\overset{k}{\underset{j=1}{\Large{\Sigma}}}y_{ij}\log p_\theta(y_{ij}\vert \mathbf{x}_i)$
+<li>수업 내용에서는 $\mathbf{y}^T_i$에서 transpose가 생략되어 있는데, transpose가 있어야 내적으로 정의되어 정확한 Cross Entropy가 나온다.</li>
+</ul>
+<li>Log-likelihood function would be</li>
+<ul>$\Rightarrow l(\theta)=\log L(\theta)=\log\overset{n}{\underset{i=1}{\Large{\Pi}}}\overset{k}{\underset{j=1}{\Large{\Pi}}}y_{ij}\log\pi_j$<br />
+where $\mathbf{\pi}=(\pi_1,\ldots,\pi_k)$ is a $k$-class multinoulli distribution probability<br />
+In maximum likelihood exstimation, we maximize $l(\theta)$ by having $\pi_j=p_\theta(y_{ij}\vert\mathbf{x}_i)$<br />
+$\Rightarrow$ same as minimizing CE loss: $CE(\mathbf{y},\hat{\mathbf{y}})$
+</ul>
+
+</ul>
+</div>
 
         
       </section>
@@ -564,11 +784,11 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#jekyll" class="page__taxonomy-item" rel="tag">Jekyll</a><span class="sep">, </span>
+      <a href="/tags/#entropy" class="page__taxonomy-item" rel="tag">Entropy</a><span class="sep">, </span>
     
-      <a href="/tags/#latex" class="page__taxonomy-item" rel="tag">LaTeX</a><span class="sep">, </span>
+      <a href="/tags/#information-theory" class="page__taxonomy-item" rel="tag">Information Theory</a><span class="sep">, </span>
     
-      <a href="/tags/#markdown" class="page__taxonomy-item" rel="tag">Markdown</a>
+      <a href="/tags/#kl-divergence" class="page__taxonomy-item" rel="tag">KL Divergence</a>
     
     </span>
   </p>
@@ -585,14 +805,14 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">Blog</a>
+      <a href="/categories/#ai-toolkit" class="page__taxonomy-item" rel="tag">AI toolkit</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-16">October 16, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-23">October 23, 2022</time></p>
 
 
       </footer>
@@ -602,23 +822,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BJekyll%5D+02.+Math+symbol%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F002%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+11.+Information+Theory%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F011%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F002%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F011%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2Fblog%2F002%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F011%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/blog/001/" class="pagination--pager" title="[Jekyll] 01. Github blog setup
+      <a href="/courses/ai-toolkit/010/" class="pagination--pager" title="[AI toolkit] 10. Optimization (2)
 ">Previous</a>
     
     
-      <a href="/blog/blog/003/" class="pagination--pager" title="[Jekyll] 03. Unpublish posts
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -633,42 +852,6 @@
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/courses/ai-toolkit/011/" rel="permalink">[AI toolkit] 11. Information Theory
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Information Theory Basics and Loss Functions
-</p>
-  </article>
-</div>
-
         
           
 
@@ -778,6 +961,42 @@
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/007/" rel="permalink">[AI toolkit] 07. Probability Distribution (1)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Probability Basics
+</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -830,8 +1049,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/blog/002/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/blog/blog/[Jekyll]-02-math-symbol-"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/ai-toolkit/011/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/ai-toolkit/11-information-theory"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

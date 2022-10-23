@@ -138,8 +138,26 @@ var store = [{
         "teaser": null
       },{
         "title": "[AI toolkit] 08. Probability Distribution (2)",
-        "excerpt":"Lecture 03 0. Table of Contents Bernoulli Distribution Uniform Distribution Binomial Distribution Poisson Distribution Gaussian Distribution Properties of Gaussian Distribution Central Limit Theorem Exponential Family Random Process Stationary Process 1. Bernoulli Distribution For a single binary random variable $X$ with state $x={0,\\ 1}$(i.e., coin flip) assume that we observe $X=1$...","categories": ["AI toolkit"],
+        "excerpt":"Lecture 08 0. Table of Contents Bernoulli Distribution Uniform Distribution Binomial Distribution Poisson Distribution Gaussian Distribution Properties of Gaussian Distribution Central Limit Theorem Exponential Family Random Process Stationary Process 1. Bernoulli Distribution For a single binary random variable $X$ with state $x={0,\\ 1}$(i.e., coin flip) assume that we observe $X=1$...","categories": ["AI toolkit"],
         "tags": ["Probability","Central Limit Theorem","Random Variables"],
         "url": "/courses/ai-toolkit/008/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 09. Optimization (1)",
+        "excerpt":"Lecture 09 0. Table of Contents Mathematical Optimization Problems Convex Optimization Problem Key Properties of Convex Functions Jensen’s Inequality Basic Terminology Convex Solution Sets First-Order Optimality Condition Special Cases of Convex Problems Lagrangian 1. Mathematical Optimization Problems $\\begin{matrix} \\underset{x\\in D}{min}\\hfill &amp; f(x)\\hfill &amp; \\\\ \\text{subject to}\\ &amp; g_i(x)\\leq 0,\\ &amp;...","categories": ["AI toolkit"],
+        "tags": ["Convex","Optimization","Lagrange"],
+        "url": "/courses/ai-toolkit/009/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 10. Optimization (2)",
+        "excerpt":"Lecture 10 0. Table of Contents Artificial Neural Network Deep Feed Forward Network Loss Optimization Backpropagation Overfitting &amp; Solutions 1. Artificial Neural Networks 1.1 Perceptrons 1.2 Activation Functions Activation function : Introducing non-linearity Image reference: https://mc.ai/complete-guide-of-activation-functions/ 1.3 Linear Algebra $\\begin{matrix} x\\in\\mathbb{R}^3\\hfill &amp; \\hfill\\text{Input} \\\\ y\\in\\mathbb{R}^2\\hfill &amp; \\hfill\\text{Output} \\\\ W\\in\\mathbb{R}^{2\\times 3}\\hfill...","categories": ["AI toolkit"],
+        "tags": ["Neural Network","Activation function"],
+        "url": "/courses/ai-toolkit/010/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 11. Information Theory",
+        "excerpt":"Lecture 11 0. Table of Contents Self-Information Entropy Joint Entropy Conditional Entropy Mutual Information Kullback-Leibler Divergence Cross-Entropy Cross-Entropy and Multi-Class Classification 1. Self-Information Bit: the unit of information, 0 or 1. Any information can be encoded by a series of 0 and 1. Binary digits of length $n$ contains $n$...","categories": ["AI toolkit"],
+        "tags": ["Information Theory","Entropy","KL Divergence"],
+        "url": "/courses/ai-toolkit/011/",
         "teaser": null
       }]

@@ -21,7 +21,7 @@ published: true
 use_math: true
 
 ---
-# Lecture 03
+# Lecture 08
 
 ## 0. Table of Contents
 

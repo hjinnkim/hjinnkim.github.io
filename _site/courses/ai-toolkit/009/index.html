@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[AI toolkit] 07. Probability Distribution (1) | hjinnkim</title>
-<meta name="description" content="Probability Basics">
+<!-- begin _includes/seo.html --><title>[AI toolkit] 09. Optimization (1) | hjinnkim</title>
+<meta name="description" content="Convex Optimization introduction">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[AI toolkit] 07. Probability Distribution (1)">
-<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/007/">
+<meta property="og:title" content="[AI toolkit] 09. Optimization (1)">
+<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/009/">
 
 
-  <meta property="og:description" content="Probability Basics">
-
-
-
+  <meta property="og:description" content="Convex Optimization introduction">
 
 
 
 
-  <meta property="article:published_time" content="2022-10-22T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-22T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-10-23T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-10-23T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/007/">
+
+<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/009/">
 
 
 
@@ -529,15 +529,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[AI toolkit] 07. Probability Distribution (1)">
-    <meta itemprop="description" content="Probability Basics">
-    <meta itemprop="datePublished" content="2022-10-22T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-22T00:00:00+09:00">
+    <meta itemprop="headline" content="[AI toolkit] 09. Optimization (1)">
+    <meta itemprop="description" content="Convex Optimization introduction">
+    <meta itemprop="datePublished" content="2022-10-23T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-23T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 07. Probability Distribution (1)
+          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 09. Optimization (1)
 </h1>
           
 
@@ -546,7 +546,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
+        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
       </span>
     
 
@@ -564,274 +564,310 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#lecture-07">Lecture 07</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-coin-toss-example">1. Coin Toss Example</a></li><li><a href="#2-sample-space-event-and-probability">2. Sample space, event, and probability</a></li><li><a href="#3-random-variables">3. Random Variables</a></li><li><a href="#4-discrete-probabilities">4. Discrete Probabilities</a></li><li><a href="#5-continuous-probabilities">5. Continuous Probabilities</a></li><li><a href="#6-rules-of-probability">6. Rules of Probability</a></li><li><a href="#7-means">7. Means</a></li><li><a href="#8-covariance">8. Covariance</a></li><li><a href="#9-correlation">9. Correlation</a></li><li><a href="#10-empirical-mean-and-covariance">10. Empirical Mean and Covariance</a></li><li><a href="#11-sums-and-transformations-of-random-variables">11. Sums and Transformations of Random Variables</a></li><li><a href="#12-independence">12. Independence</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#lecture-09">Lecture 09</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-mathematical-optimization-problems">1. Mathematical Optimization Problems</a></li><li><a href="#2-convex-optimization-problem">2. Convex Optimization Problem</a></li><li><a href="#3-key-properties-of-convex-functions">3. Key Properties of Convex Functions</a></li><li><a href="#4-jensens-inequality">4. Jensen’s Inequality</a></li><li><a href="#5-basic-terminology">5. Basic Terminology</a></li><li><a href="#6-convex-solution-sets">6. Convex Solution Sets</a></li><li><a href="#7-first-order-optimality-condition">7. First-Order Optimality Condition</a></li><li><a href="#8-special-cases-of-convex-problems">8. Special Cases of Convex Problems</a></li><li><a href="#9-lagrangian">9. Lagrangian</a><ul><li><a href="#91-lagrange-dual-function">9.1 Lagrange Dual Function</a></li><li><a href="#92-lagrange-dual-problem">9.2 Lagrange Dual Problem</a></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="lecture-07">Lecture 07</h1>
+        <h1 id="lecture-09">Lecture 09</h1>
 
 <h2 id="0-table-of-contents">0. Table of Contents</h2>
+
 <ol>
-  <li><a href="#1-coin-toss-example">Coin Toss Example</a></li>
-  <li><a href="#2-sample-space-event-and-probability">Sample space, event, and probability</a></li>
-  <li><a href="#3-random-variables">Random Variables</a></li>
-  <li><a href="#4-discrete-probabilities">Discrete Probabilities</a></li>
-  <li><a href="#5-continuous-probabilities">Continuous Probabilities</a></li>
-  <li><a href="#6-rules-of-probability">Rules of Probability</a></li>
-  <li><a href="#7-means">Means</a></li>
-  <li><a href="#8-covariance">Covariance</a></li>
-  <li><a href="#9-correlation">Correlation</a></li>
-  <li><a href="#10-empirical-mean-and-covariance">Empirical Mean and Covariance</a></li>
-  <li><a href="#11-sums-and-transformations-of-random-variables">Sums and Transformations of Random Variables</a></li>
-  <li><a href="#12-independence">Independence</a></li>
+  <li><a href="#1-mathematical-optimization-problems">Mathematical Optimization Problems</a></li>
+  <li><a href="#2-convex-optimization-problem">Convex Optimization Problem</a></li>
+  <li><a href="#3-key-properties-of-convex-functions">Key Properties of Convex Functions</a></li>
+  <li><a href="#4-jensens-inequality">Jensen’s Inequality</a></li>
+  <li><a href="#5-basic-terminology">Basic Terminology</a></li>
+  <li><a href="#6-convex-solution-sets">Convex Solution Sets</a></li>
+  <li><a href="#7-first-order-optimality-condition">First-Order Optimality Condition</a></li>
+  <li><a href="#8-special-cases-of-convex-problems">Special Cases of Convex Problems</a></li>
+  <li><a href="#9-lagrangian">Lagrangian</a></li>
 </ol>
 
-<h2 id="1-coin-toss-example">1. Coin Toss Example</h2>
-
-<ul>
-  <li>How can we “quantify” the likelihood of observing heads
-    <ul>
-      <li>Assuming the “fair” coin, both outcomes are equally likely.</li>
-    </ul>
-  </li>
-  <li>If we get $n_t$ tails and $n_h$ heads, let $n=n_h+n_t$.
-    <ul>
-      <li>We “expect” to see $n_t/n=1/2$ and $n_h/n=1/2$.</li>
-      <li>But can we say observed frequencies as “probabilities”? isn’t it “statistics”?</li>
-    </ul>
-  </li>
-  <li>Probability : theoretical quantities that underlies the data generation process.</li>
-  <li>Statistics : empirical quantities computed as functions of the observed data.</li>
-</ul>
-
-<h2 id="2-sample-space-event-and-probability">2. Sample space, event, and probability</h2>
-
-<ul>
-  <li>Sample space $\Omega$ : a set of all possible outcomes of the experiment.
-    <ul>
-      <li>i.i., if we toss coins for two times (H : Head, T : Tail)
-        <ul>
-          <li>$\Omega = {HH, HT, TH, TT}$</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Event $A$: subsets of the sample space.
-    <ul>
-      <li>i.e., the event of “the first coin toss comes up heads”, $A={HH, HT}$</li>
-    </ul>
-  </li>
-  <li>Probability function : maps events onto real values, $P : A \subseteq \Omega\to [0, 1]$
-    <ul>
-      <li>The probability of any event is a non-negative real number, $P(A)\geq0$</li>
-      <li>The probability of the entire sample space is 1, $P(\Omega)=1$.</li>
-      <li>For any countable even sequence $A_1, A_2,\ldots$, if $A_j\cap A_i=\emptyset$ for $i\ne j, P(\cup_{i=1}^\infty A_i)=\Sigma_{i=1}^\infty P(A_i)$</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="3-random-variables">3. Random Variables</h2>
-
-<ul>
-  <li>Mapping from an underlying sample space to a set of values.</li>
-  <li>For coin-tossing example, assume that you consider “number of heads”
-    <ul>
-      <li>A random variable $X$ maps $X(HH)=2, X(HT)=1, X(TH)=1, X(TT)=0$</li>
-      <li>Here, if $X : \Omega \to T, T={0, 1, 2}$</li>
-      <li>For any subset $S\subseteq T, P_X(S)\in[0,1]$</li>
-      <li>$P_X(S)=P(X\in S)=P(X^{-1}(S))=P({w\in\Omega : X(\omega)\in S})$</li>
-      <li>Remember $\Omega={TT, HH, TH, HT}$ in this example
-        <ul>
-          <li>If $T$ is finite or countably infinite (i.e., integer), $X$ is discrete random variable</li>
-          <li>If $T\in\mathbb{R}^n$, $X$ is coutinuous random variable</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="4-discrete-probabilities">4. Discrete Probabilities</h2>
+<h2 id="1-mathematical-optimization-problems">1. Mathematical Optimization Problems</h2>
 
 <div>
-<img src="https://drive.google.com/uc?export=view&amp;id=1A-2CVxtNW1Hkaux6RTXO75RZebXuiq9h" title="lec07-p5 image" style="float: center; width:70%" />
+<p>
+$\begin{matrix}
+\underset{x\in D}{min}\hfill &amp; f(x)\hfill &amp;  \\
+\text{subject to}\ &amp; g_i(x)\leq 0,\ &amp; i=1,\ldots,m \\
+&amp; h_j(x)=0,\ &amp; j=1,\ldots, r \\
+\end{matrix}$</p>
+<p>
+$\begin{matrix}
+x\in\mathbb{R}^n\hfill &amp; : \text{optimization variable}\hfill \\
+f:\mathbb{R}^n\to\mathbb{R}\hfill &amp; : \text{objective or cost function}\hfill \\
+g_i:\mathbb{R}^n\to\mathbb{R}, &amp; i=1,\ldots,m:\text{ineqn. constraints}\hfill \\
+h_i:\mathbb{R}^n\to\mathbb{R}, &amp; i=1,\ldots,r:\text{eqn. constraints}\hfill \\
+\end{matrix}$
+</p>
 <ul>
-<li>When target space $T$ is discrete</li>
-<li>We define "Probability mass function" (pmf) of a discrete probability distribution</li>
-<li>For two random variables $X,\ Y$, $p(X=x, Y=y)=\frac{n_{ij}}{N}$<br />
-where $n_{ij}$ denotes the number of events for states $x_i$ and $y_j$<br />
-where $N$ denotes the total number of events</li>
-<li>This <b>joint probability</b> is often written as $p(x, y)$ for $X=x, Y=y$</li>
-<li>The <b>marginal probability</b>: $p(x)=\Sigma_yp(x, y)$</li>
-<li>The conditional probability of y given x : $p(y|x)$</li>
+<li>"Optimal solution" $x^*$ minimizes the objective function in a feasible domain $D$.</li>
+<li>$D=dom(f)\cap\overset{m}{\underset{i=1}{\LARGE{\cap}}}dom(g_i)\cap\overset{r}{\underset{j=1}{\LARGE{\cap}}}dom(h_j)$<br />
+where $dom(f)$ is an impolicit constraint, and the remain is an explicit constraints</li>
+<li>
+<p></p>
+Example)<br />
+$\begin{matrix}
+\text{minimize} &amp;\log(x) &amp; \Rightarrow &amp; \text{minimize} &amp; \log(x) \\
+&amp; &amp; &amp; &amp; \text{subject to} &amp; x \gt 0 \\
+\end{matrix}$
+</li>
 </ul>
 </div>
 
-<h2 id="5-continuous-probabilities">5. Continuous Probabilities</h2>
+<h2 id="2-convex-optimization-problem">2. Convex Optimization Problem</h2>
 
+<div>
+<p>
+$\begin{matrix}
+\underset{x\in D}{min}\hfill &amp; f(x)\hfill &amp;  \\
+\text{subject to}\ &amp; g_i(x)\leq 0,\ &amp; i=1,\ldots,m \\
+&amp; h_j(x)=0,\ &amp; j=1,\ldots, r \\
+\end{matrix}$</p>
 <ul>
-  <li>A function $f\ :\ \mathbb{R}^D\to\mathbb{R}$ is called a probability density function (pdf) i
-    <ol>
-      <li>$\forall\mathbf{x}\in\mathbb{R}^D\ :\ f(\mathbf{x})\geq0$</li>
-      <li>$\int_{\mathbb{R}^D}f(\mathbf{x})d\mathbf{x}=1$</li>
-    </ol>
-  </li>
-  <li>$P(a\leq \mathbf{X}\leq b)=\int_a^bf(x)dx, P(X=x)=0$</li>
-  <li>A cumulative distribution function (cdf) of a multivariate real-valued random variable $X$ with states $\mathbf{x}\in\mathbb{R}^D$ is:
-    <ul>
-      <li>$F_X(\mathbf{x})=P(X_1\leq x_1, \ldots, X_D\leq x_D)$</li>
-      <li>$F_X(\mathbf{x})=\int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_D}f(z_1, \ldots, z_D)dz_1\cdots dz_D $</li>
-    </ul>
-  </li>
+<li>$f$ and $g$ are convex,</li>
+<li>$h_j$ is affine $(Ax+b)$</li>
+<ul><a href="https://mathworld.wolfram.com/AffineFunction.html"><span style="color:blue">affine function</span></a></ul>
 </ul>
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&amp;id=1qNiVzjy7MadwsRVfq5qHMX1JXa2_s_8p" title="lec09-p4 image" style="float: center; width:80%" />
+</p>
+$\Rightarrow$ def. of Convex
+<ul><ul>
+<li><b>Convex set, $C$</b></li>
+<ul>
+<li>When line segment connecting $x_1$ and $x_2$ are defined as $x=\theta x_1+(1-\theta)x_2$</li>
+<li>A set $C$ is convex if $x_1,\ x_2\in C,\ 0\leq \theta \leq 1 \Rightarrow \theta x_1+(1-\theta)x_2\in C$ </li>
+</ul>
+<li><b>Convex Function</b></li>
+<ul>
+<li>$f:\mathbb{R}^n\to\mathbb{R}$ is convex if $dom(f)$ is a convex set and,<br />$f(\theta x+(1-\theta)y)\leq\theta f(x)+(1-\theta)f(y)$ for all $x,\ y\in dom(f),\ 0\leq\theta\leq 1$.</li>
+<li>$f$ is a convex function if and only if its epigraph is a convex set.</li>
+<li>epigraph of $f:\mathbb{R}^n\to\mathbb{R}$<br />
+epi $f=\{(x,t)\in\mathbb{R}^{n+1}\lvert x\in dom(f),\ f(x)\leq t\}$</li>
+</ul>
+<li><b>Property of convex optimization problems</b></li>
+<ul>
+<li>If $f$ is a convex and $x$ is a locally optimal point of $f(x)$,<br />
+actually $x$ is a globally optimal point.</li>
+<ul><li><a href="https://ai.stanford.edu/~gwthomas/notes/convexity.pdf"><span style="color:blue">proof</span></a></li></ul>
+</ul>
+</ul>
+</ul>
+</div>
 
-<h2 id="6-rules-of-probability">6. Rules of Probability</h2>
+<h2 id="3-key-properties-of-convex-functions">3. Key Properties of Convex Functions</h2>
+
+<div>
+<ul>
+<li><b>First-order Cahracterization</b></li>
+<ul><li>$f$ is convex iff $dom(f)$ is a convex, and $f(y)\geq f(x)+\nabla f(x)^T(y-x)$ for all $x,y\in dom(f)$.</li>
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&amp;id=1xXuziKmznWpuNGOpdceiy81oug_jlB2-" title="lec09-p5 image" style="float: center; width:80%" />
+</p>
+</ul>
+<li><b>Second-order Characterization</b></li>
+<ul>
+<li>$f$ is convex $\Leftrightarrow\ \nabla^2f(x)\succcurlyeq 0$ for all $x\in dom(f)$ and where $dom(f)$ is a convex.</li>
+<p>
+$\begin{align*}
+\succcurlyeq &amp;: \text{when used with matrix, it denotes positive semidefiniteness.} \\
+&amp;: \text{when used with vector, it denotes all elements of the vectors are non-negative.}
+\end{align*}$
+</p>
+</ul>
+</ul>
+</div>
+
+<h2 id="4-jensens-inequality">4. Jensen’s Inequality</h2>
 
 <ul>
   <li>
-    <p>Sum Rule : $p(x)=\begin{cases}
-\underset{y\in\mathcal{Y}}{\LARGE{\Sigma}}p(x, y) &amp; \text{if}\ x,\ y\ \text{is discret} \\<br />
-\int_{\mathcal{Y}}p(x, y)dy &amp;  \text{if}\ x,\ y\ \text{is continuous} \\<br />
-\end{cases}$</p>
-  </li>
-  <li>Product Rule : $p(x, y) = p(y\vert x)p(x)$</li>
-  <li>Baye’s Rule : $p(x\vert y)=\frac{p(y\vert x)p(x)}{p(y)}$
-    <ul>
-      <li>which is called $posterior\ = \ \frac{likelihood\times prior}{evidence} $</li>
-      <li>making an inference of unobserved (latent) random variable $\mathbf{x}$, from observed values $\mathbf{y}$.</li>
-    </ul>
+    <p>For convex $f$, and for $w_1, \ldots, w_n$ where $w_i\gt 0$ and $\overset{n}{\underset{i=1}{\Large{\Sigma}}}w_i=1,$</p>
+
+    <p>$\Rightarrow\overset{n}{\underset{i=1}{\Large{\Sigma}}}w_if(x_i)\geq f\bigg(\overset{n}{\underset{i=1}{\Large{\Sigma}}}w_ix_i\bigg)\rightarrow\mathbb{E}(f(x))\geq f(\mathbb{E}(x))$
+  $\Rightarrow f(tx_1+(1-t)x_2)\leq tf(x_1)+(1-t)f(x_2)$ for $0\leq t\leq 1$</p>
   </li>
 </ul>
 
-<h2 id="7-means">7. Means</h2>
+<h2 id="5-basic-terminology">5. Basic Terminology</h2>
 
+<div>
 <p>
-<ul>
-<li>The expected value of a function $g\ :\ \mathbb{R}\to\mathbb{R}$ of a univariate continuous random variable $X\sim p(x)$ is given by:</li>
-<ul>
-<li>$\mathbb{E}_{X}[g(x)]=\int_{\mathcal{X}}g(x) p(x) dx $ , and for discrete random variable, $\mathbb{E}_X[g(x)]=\underset{x\in\mathcal{X}}{\large{\Sigma}}g(x)p(x)$.</li>
-<li>This is a linear operator</li>
-</ul>
-<li>The mean of a random variable $X$ with states $\mathbf{x}\in\mathbb{R}^D$ is defined as:</li>
-<ul>
-<li>$\mathbb{E}_X[x]=\begin{bmatrix}
-\mathbb{X_1}[x_1]\\
-\vdots \\
-\mathbb{x_D}[x_D]\\
-\end{bmatrix}\in\mathbb{R}^D$, where $\mathbb{E}_{X_d}[x_d]:=\begin{cases}
-\int_{\mathcal{X}}x_dp(x_d)dx_d &amp; \text{if}\ X\ \text{is a continuous random variable} \\
-\underset{x_i\in\mathcal{X}}{\large{\Sigma}}x_ip(x_d=x_i) &amp; \text{if}\ X\ \text{is a discrete random variable} \\
-\end{cases}$</li></ul>
-<li>Modes : most frequent value&gt;</li>
-<li>Median : the middle value.</li>
-</ul>
+$\begin{matrix}
+\underset{x\in D}{min}\hfill &amp; f(x)\hfill &amp;  \\
+\text{subject to}\ &amp; g_i(x)\leq 0,\ &amp; i=1,\ldots,m \\
+&amp; h_j(x)=0,\ &amp; j=1,\ldots, r \\
+\end{matrix}$</p>
+<p>
+$\begin{matrix}
+x\in\mathbb{R}^n\hfill &amp; : \text{optimization variable}\hfill \\
+f:\mathbb{R}^n\to\mathbb{R}\hfill &amp; : \text{objective or cost function}\hfill \\
+g_i:\mathbb{R}^n\to\mathbb{R}, &amp; i=1,\ldots,m:\text{ineqn. constraints}\hfill \\
+h_i:\mathbb{R}^n\to\mathbb{R}, &amp; i=1,\ldots,r:\text{eqn. constraints}\hfill \\
+\end{matrix}$
 </p>
-
-<h2 id="8-covariance">8. Covariance</h2>
-
 <ul>
-  <li>For univariate random variables, $X,\ Y\in\mathbb{R}$, the covariance between two is given as the expected product of their deviations from their respective means:
-    <ul>
-      <li>$Cov_{X,Y}[x, y]:=\mathbb{E}_{X,Y}[(x-\mathbb{E}_X[x])(y-\mathbb{E}_Y[y])]$</li>
-      <li>The covariance of itself is called as variance, $V[X]=Cov_{X,X}$, and its root is standard deviation, $\sigma[X]=\sqrt{Var[X]}$</li>
-      <li>By using the linearity of expectations, $Cov_{X,Y}=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]$.</li>
-    </ul>
-  </li>
+<li>If $x\in D$ satisfies explicit constraints, it is called "feaible point"</li>
+<li>For feasible point $x$, the minimum of $f(x)$ is called "optimal value", and denoted as $f^*$.</li>
+<li>For feasible point $x$, if $f(x)=f^*,\ x$ is called "optimal", "solution", or "minimizer".</li>
+<li>For feasible point $x$, if $f(x)\leq f^*+\epsilon,\ x$ is called "$\epsilon$-suboptimal".</li>
+<li>For feasible point, $x$, if $g_i(x)=0,\ g_i$ is "active" on $x$.</li>
 </ul>
+</div>
 
-<ul>
-<li>For multivariate random variables, $X,\ Y$ where $\mathbf{x}\in\mathbb{R}^D,\ \mathbf{y}\in\mathbb{R}^E$, covariance is a matrix as:</li>
-<ul>
-<li>$Cov[\mathbf{x}, \mathbf{y}]=\mathbb{E}[\mathbf{x}\mathbf{y}^T]-\mathbb{E}[\mathbf{x}]\mathbb{E}[\mathbf{y}]^T=Cov[\mathbf{y}, \mathbf{x}]^T\in\mathbb{R}^{D\times E}$</li>
-<li>The covariance of itself is also called a variance as below</li>
-    $\begin{align*}
-    \mathbb{V}_X[\mathbf{x}] &amp; =Cov_X[\mathbf{x},\mathbf{x}] \\
-    &amp; = \mathbb{E}_X[(\mathbf{x}-\mathbf{\mu})(\mathbf{x}-\mathbf{\mu})^Y]=\mathbb{E}_X[\mathbf{x}\mathbf{x}^T]-\mathbb{E}_X[x]\mathbb{E}_X[x]^T \\
-    &amp; = \begin{bmatrix}
-    Cov[x_1, x_1] &amp; Cov[x_1, x_w] &amp; \cdots &amp; Cov[x_1, x_D] \\
-    Cov[x_2, x_1] &amp; Cov[x_2, x_2] &amp; \cdots &amp; Cov[x_2, x_D] \\
-    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-    Cov[x_D, x_1] &amp; \cdots &amp; \cdots &amp; Cov[x_D, x_D] \\
-    \end{bmatrix}
-    \end{align*}
-    $
-    where A symmetric and positive-semidefinite Covariance matrix.
-</ul>
-</ul>
-
-<h2 id="9-correlation">9. Correlation</h2>
+<h2 id="6-convex-solution-sets">6. Convex Solution Sets</h2>
 
 <div>
 <ul>
-<li>The correlation between two random variables $X,\ Y\in\mathbb{R}$ is given by</li>
+<li>Let us denote $X_{opt}$ is a set of solution for a certain convex problem.</li>
+<ul><p>$\begin{matrix}
+\hfill X_{opt}= &amp; arg\underset{x}{min}\hfill &amp; f(x)\hfill &amp;  \\
+&amp; \text{subject to}\ &amp; g_i(x)\leq 0,\ &amp; i=1,\ldots,m \\
+&amp; &amp; h_j(x)=0,\ &amp; j=1,\ldots, r \\
+\end{matrix}$</p></ul>
+<li>$X_{opt}$ is a convex set.</li>
 <ul>
-<li>$corr[x,y]=\frac{Cov[x, y]}{\sqrt{\mathbb{V}[x]\mathbb{V}[y]}}\in[-1,1]$</li>
-<li>Indicates how two random variables are related</li>
+<li>How do we check this for $tx+(1-t)y$ where $x,\ y$ are solutions?</li>
+<ul>
+<li>Is $tx+(1-t)y$ in $D$?</li>
+<li>Does $tx+(1-t)y$ satisfy explicit conditions?</li>
+<li>Is $tx+(1-t)y$ also a solution?</li>
 </ul>
+</ul>
+<li>About being "strictly convex"</li>
+<ul><li>$f(tx+(1-t)y)\lt tf(x)+(1-t)f(y)$<br />
+where $0\lt t\lt 1$, $x\ne y$, and $xy\in dom(f)$.
+</li></ul>
+</ul>
+</div>
+
+<h2 id="7-first-order-optimality-condition">7. First-Order Optimality Condition</h2>
+
+<div>
+<ul>
+<p>$\begin{matrix}
+\underset{x}{min}\hfill &amp; f(x)\hfill \\
+\text{subject to}\ &amp; x\in C \\
+\end{matrix}$</p>
+<li>For this convex problem, if $f$ is differentiable,</li>
+<ul>
+$x$ is optimal $\Leftrightarrow \nabla f(x)^T(y-x)\geq 0$ for all $y\in C$<br />
+Set $C$ is in half-space which is opposite to the direction $-\nabla f(x)$
 </ul>
 <p align="center">
-<img src="https://drive.google.com/uc?export=view&amp;id=1is0IzX2yeObF2T0ZdsIK5_Tun2OBR12b" title="lec07-p11 image" style="float: center; width:100%" /></p>
-</div>
-
-<h2 id="10-empirical-mean-and-covariance">10. Empirical Mean and Covariance</h2>
-
-<ul>
-  <li>Given a finite dataset of size N, we can obtain an estimate of the mean.</li>
-  <li>The empirical mean / sample mean vector is the arithmetic average observations for each variable, defined as $\overline{x}:=\frac{1}{N}\overset{N}{\underset{n=1}{\large{\Sigma}}}x_n$. where $x_1,\ldots,x_N$ are observations.</li>
-  <li>The empirical covariance matrix is $\Sigma:=\frac{1}{N}\overset{N}{\underset{n=1}{\large{\Sigma}}}(x_n-\overline{x})(x_n-\overline{x})^T$.</li>
-</ul>
-
-<h2 id="11-sums-and-transformations-of-random-variables">11. Sums and Transformations of Random Variables</h2>
-
-<ul>
-  <li>For two random variables $X,\ Y$ with states $x, y\in\mathbb{R}^D$
-    <ul>
-      <li>$\mathbb{E}[x+y]=\mathbb{E}[x]+\mathbb{E}[y]$</li>
-      <li>$\mathbb{E}[x-y]=\mathbb{E}[x]-\mathbb{E}[y]$</li>
-      <li>$\mathbb{V}[x+y]=\mathbb{V}[x]+\mathbb{V}[y]+Cov[x,y]+Cov[y,x]$</li>
-      <li>$\mathbb{V}[x+y]=\mathbb{V}[x]+\mathbb{V}[y]-Cov[x,y]-Cov[y,x]$</li>
-    </ul>
-  </li>
-  <li>$y=Ax+b$
-    <div>
-<ul>
-<li>$\mathbb{E}_Y[y]=\mathbb{E}_X[Ax+b]=A\mathbb{E}_X[x]+b=A\mu+b$</li>
-<li>$\mathbb{V}_Y[y]=\mathbb{V}_X[Ax+b]=\mathbb{V}_X[Ax]=A\mathbb{V}_X[x]A^T$</li>
-<ul>
-<p>
-$\begin{align*}
-Cov[x,y]&amp;=\mathbb{E}[x(Ax+b)^T]-\mathbb{E}[x]\mathbb{E}[Ax+b]^T\\
-&amp;=\mathbb{E}[x]b^T+\mathbb{E}[xx^T]A^T-\mu b^T-\mu\mu^TA^T\\
-&amp;=\mu b^T-\mu b^T+(\mathbb{E}[xx^T]-\mu\mu^T)A^T\\
-&amp;=\Sigma A^T \\
-\end{align*}
-$
+<img src="https://drive.google.com/uc?export=view&amp;id=1Y87DW1EOlkPzQdFJj-ymvGbbCmNNyelK" title="lec09-p10 image" style="float: center; width:100%" />
 </p>
 </ul>
+</div>
+
+<h2 id="8-special-cases-of-convex-problems">8. Special Cases of Convex Problems</h2>
+
+<div>
+<ul>
+<li><b>Linear Programming</b></li>
+<ul>: A convex optimization problems is a linear probram (LP) if both the objective function and inequality constraints are affine functions.<br />
+<p>$\begin{matrix}
+\text{minimize}\hfill &amp; c^Tx+d\hfill \\
+\text{subject to}\ &amp; Gx\preccurlyeq h \hfill\\
+&amp; Ax=b \hfill\\
+\end{matrix}$</p>
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&amp;id=1Fd-0rEdbw0e2YcQgmXqW1uRRXpCNr5Yq" title="lec09-p11 image" style="float: center; width:80%" />
+</p>
+</ul>
+<li><b>Quadratic Programming</b></li>
+<ul>: A convex optimization problem is a quadratic program (QP) if the inequality constraints are still all affine, but the objective function is a convex function.<br />
+<p>$\begin{matrix}
+\text{minimize}\hfill &amp; \frac{1}{2}x^TPx+c^Tx+d\hfill \\
+\text{subject to}\ &amp; Gx\preccurlyeq h\hfill \\
+&amp; Ax=b \hfill\\
+\end{matrix}$</p>
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&amp;id=1GwnCpc2lAcUNMSZ0mWo5frbd0rfQ9omO" title="lec09-p12 image" style="float: center; width:100%" />
+</p>
+To make objective function as convex, $P$ is a symmetric positive semidefinite matrix.
+</ul>
+<li><b>Quadratically Constrained Quadratic Programming</b></li>
+<ul>: A convex optimization problem is a quadratically constrained quadratic program (QCQP) if both the objective and inequality constraints are convex quadratic functions<br />
+<p>$\begin{matrix}
+\text{minimize}\hfill &amp; \frac{1}{2}x^TP_0x+q^T_0x+r_0\hfill \\
+\text{subject to}\ &amp; \frac{1}{2}x^TP_ix+q^T_ix+r_i\leq0, i=1,\ldots,m\hfill \\
+&amp; Ax=b \hfill\\
+\text{where}\hfill &amp; P_i\in\mathbb{S}^n_+\ \text{for}\ i=0,\ldots,m,\ \text{and}\ A\in\mathbb{R}^{p\times n}\hfill
+\end{matrix}$</p>
+</ul>
+<li><b>Semidefinite Programming</b></li>
+<ul>: If inequality constraint in LP changes to linear matrix inequality, it is Semidefinite Program.<br />
+<p>$\begin{matrix}
+\underset{x}{\text{minimize}}\hfill &amp;c^Tx+d\hfill \\
+\text{subject to}\ &amp; xF_1+\cdots+x_nF_n+G\preccurlyeq 0\hfill \\
+&amp; Ax=b \hfill\\
+\text{where}\hfill &amp; G,F_1,\cdots,F_n\in\mathbb{S}^k\ \text{and}\ A\in\mathbb{R}^{p\times n}\hfill \\
+\end{matrix}$</p>
+</ul>
 </ul>
 </div>
-  </li>
-</ul>
 
-<h2 id="12-independence">12. Independence</h2>
+<h2 id="9-lagrangian">9. Lagrangian</h2>
 
+<div>
 <ul>
-  <li>Two random variables, $X,\ Y$ are independent if and only if $p(x,y)=p(x)p(y)$ and below properties are hold:
-    <ul>
-      <li>$p(y\vert x)=p(y)$</li>
-      <li>$p(x\vert y)=p(x)$</li>
-      <li>$\mathbb{V}_{X,Y}[x+y]=\mathbb{V}_X[x]+\mathbb{V}_Y[y]$</li>
-      <li>$Cov_{X,Y}[x,y]=0$</li>
-    </ul>
-  </li>
-  <li>Two random variables $X,\ Y$ are conditionally independent given $Z$ if and onyl if:
-$p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\mathcal{Z}$</li>
-  <li>$p(x\vert y,z)=p(x\vert z)$ implies “Markov Process”
-    <ul>
-      <li>The current state only depends on the previous state</li>
-    </ul>
-  </li>
+<p>$\begin{matrix}
+\underset{x}{\text{min}}\hfill &amp; f(x)\hfill \\
+\text{s.t.}\ &amp; h_i(x)\leq 0,\ i=1,\ldots,m \hfill\\
+&amp; l_j(x)=0,\ j=1,\ldots,r \hfill\\
+\end{matrix}$</p>
+<li>For above optimization problem, which doesn't have to be a convex optimization,</li>
+<li>We define Lagrangian as, with new variables $u\in\mathbb{R}^m,v\in\mathbb{R}^r,\ \text{where}\ u\geq0$,</li>
+<p align="center">$L(x,u,v)=f(x)+\overset{m}{\underset{i=1}{\Large{\Sigma}}}u_ih_i(x)+\overset{r}{\underset{j=1}{\Large{\Sigma}}}v_jl_j(x)$</p>
+<ul>
+<li>Implicitly, we define $L(x,u,v)=-\infty\ \text{for}\ u\gt 0$</li>
+<li>For feasible $x$,<br />
+<p align="center">
+$L(x,u,v)=f(x)+\overset{m}{\underset{i=1}{\Large{\Sigma}}}u_ih_i(x)+\overset{r}{\underset{j=1}{\Large{\Sigma}}}v_jl_j(x)\leq f(x)$
+</p></li>
 </ul>
+</ul>
+</div>
+
+<h3 id="91-lagrange-dual-function">9.1 Lagrange Dual Function</h3>
+
+<div>
+<ul>
+<li>Let $C$ denote a primal feabile set, and $f^*$ be a prinmal optimal value</li>
+<li>Then, if we minimze $L(x,u,v)$ for all $x$, it has below lower bound<br />
+<p align="center">$f^*\geq \underset{x\in C}{\text{min}}L(x,u,v)\geq\underset{x}{\text{min}}L(x,u,v):=g(u,v)$</p></li>
+<li>Here, we call $g(u,v)$ as a Lagrange dual function, which provides a lower bound for any feasible $u\geq 0, v$.</li>
+<li>Lagrangian $L(x,u,v)$ is affine in $u\geq0,v$.</li>
+<ul><li>Dual function $g(u,v)$ is always concave, becuase it is the pointwise infimum of a set of affine functions.<br />
+<p align="center">$g(u,v)=\underset{x}{\text{min}}\{f(x)+\overset{m}{\underset{i=1}{\Large{\Sigma}}}u_ih_i(x)+\overset{r}{\underset{j=1}{\Large{\Sigma}}}v_jl_j(x)\}$</p></li>
+</ul>
+</ul>
+</div>
+
+<h3 id="92-lagrange-dual-problem">9.2 Lagrange Dual Problem</h3>
+
+<div>
+<ul>
+<p>$\begin{matrix}
+\underset{x}{\text{min}}\hfill &amp; f(x)\hfill \\
+\text{s.t.}\ &amp; h_i(x)\leq 0,\ i=1,\ldots,m \hfill\\
+&amp; l_j(x)=0,\ j=1,\ldots,r \hfill\\
+\end{matrix}$</p>
+<li>The dual function $g(u,v)$ satisfies $f^*\geq g(u,v)$</li>
+<ul>
+<li>Maximized $g(u,v)$ is the best lower bound!</li>
+<li>Dual Problem: <p>$\begin{matrix}
+\underset{u,v}{\text{max}}\hfill &amp; g(u,v)\hfill \\
+\text{s.t.}\ &amp; u\geq 0,\hfill\\
+\end{matrix}$</p></li>
+</ul>
+<li>Since $g(u,v)$ is concave, dual problem is a concave maximization problem.</li>
+</ul>
+</div>
 
         
       </section>
@@ -848,7 +884,11 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#probability" class="page__taxonomy-item" rel="tag">Probability</a>
+      <a href="/tags/#convex" class="page__taxonomy-item" rel="tag">Convex</a><span class="sep">, </span>
+    
+      <a href="/tags/#lagrange" class="page__taxonomy-item" rel="tag">Lagrange</a><span class="sep">, </span>
+    
+      <a href="/tags/#optimization" class="page__taxonomy-item" rel="tag">Optimization</a>
     
     </span>
   </p>
@@ -872,7 +912,7 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-22">October 22, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-23">October 23, 2022</time></p>
 
 
       </footer>
@@ -882,22 +922,22 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+07.+Probability+Distribution+%281%29%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F007%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+09.+Optimization+%281%29%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F009%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F007%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F009%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F007%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F009%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/courses/ai-toolkit/006/" class="pagination--pager" title="[AI toolkit] 06. Vector Calculus
+      <a href="/courses/ai-toolkit/008/" class="pagination--pager" title="[AI toolkit] 08. Probability Distribution (2)
 ">Previous</a>
     
     
-      <a href="/courses/ai-toolkit/008/" class="pagination--pager" title="[AI toolkit] 08. Probability Distribution (2)
+      <a href="/courses/ai-toolkit/010/" class="pagination--pager" title="[AI toolkit] 10. Optimization (2)
 ">Next</a>
     
   </nav>
@@ -995,42 +1035,6 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/ai-toolkit/009/" rel="permalink">[AI toolkit] 09. Optimization (1)
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Convex Optimization introduction
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/courses/ai-toolkit/008/" rel="permalink">[AI toolkit] 08. Probability Distribution (2)
 </a>
       
@@ -1053,6 +1057,42 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
 
 
     <p class="archive__item-excerpt" itemprop="description">Random Variables, Central Limit Theorem
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/007/" rel="permalink">[AI toolkit] 07. Probability Distribution (1)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-22T00:00:00+09:00">October 22, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Probability Basics
 </p>
   </article>
 </div>
@@ -1110,8 +1150,8 @@ $p(x,y\vert z)=p(x\vert y,z)p(y\vert z)=p(x|z)p(y\vert z)\ \text{for all}\ z\in\
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/courses/ai-toolkit/007/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/courses/ai-toolkit/07-probability-distribution-1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/ai-toolkit/009/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/ai-toolkit/09-optimization-1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
