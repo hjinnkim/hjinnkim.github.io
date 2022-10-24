@@ -163,9 +163,9 @@ $
 - For orthonormal $v_i, v_j, i\ne j$, from their linear transformation by $A$ are orthogonal
 
     $\Rightarrow (Av_i)^TAv_j=v_i^T(A^TAv_j)=v_i^T\lambda_j v_j=0$
-  - For $m\geq r, \{Av_i, \ldots, Av_r\}$ is a basis of an r-dimensional subspace of $\mathbb{R}^m$
-     $u_i:=\frac{Av_i}{\left\lVert Av_i \right\rVert}=\frac{1}{\sqrt{\lambda_i}}Av_i=\frac{1}{\sigma_i}Av_i, Av_i=\sigma_iu_i,\ i=1, \ldots, r$
-    $\left\lVert Av_i\right\rVert^2=v_i^TA^TAv_i=v_i^T\lambda_i v_i=\lambda_i v_i^Tv_i=\lambda_i$
+- For $m\geq r, \{Av_i, \ldots, Av_r\}$ is a basis of an r-dimensional subspace of $\mathbb{R}^m$
+    $u_i:=\frac{Av_i}{\left\lVert Av_i \right\rVert}=\frac{1}{\sqrt{\lambda_i}}Av_i=\frac{1}{\sigma_i}Av_i, Av_i=\sigma_iu_i,\ i=1, \ldots, r$
+  $\left\lVert Av_i\right\rVert^2=v_i^TA^TAv_i=v_i^T\lambda_i v_i=\lambda_i v_i^Tv_i=\lambda_i$
   - If $m \lt n$ and $i\gt m$, $Av_i=0$
       Since $v_i$ are orthonormal, it supplies an orthonormal basis of null space.
 
