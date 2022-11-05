@@ -35,6 +35,60 @@ var store = [{
         "url": "/liberalarts/philosophyofscience/000/",
         "teaser": null
       },{
+        "title": "[Philosophy of Science] 01. Basic Terms",
+        "excerpt":"0. Table of Contents Terms Truth Argumemt Deductive vs. Inductive Observational vs. Theoretical Summary 1. Terms Truth Argument Deductive Inductive Observational Theoretical 2. Truth 2.1 Correspondence Theory Aristotle (384-322 B.C.) advanced Correspondence Theory of truth Correspondence Theory : A statement is true if and only if it corresponds to the...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/001/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 02. Scientific knowledge",
+        "excerpt":"0. Table of Contents Knowledge Three Kinds of Knowledge Summary 1. Knowledge 1.1 Definition Plato (428?-348? B.C.) advanced the classic account of knowledge Knowledge : A justified true belief Believe Justified (true) Sufficient envidence 1.2 Difference between Knowledge and Belief We can believe something even if it is false and...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/002/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 03. Hypothesis, Law, and Theory",
+        "excerpt":"0. Table of Contents Hypothesis Law Theory Similarities and Differences Summary 1. Hypothesis 1.1 Definition There are ten dimensions of space and one dimension of time A large asteroid hit the Yucatan Peninsula about 65 million years ago $F=Fm_1m_2/r^2$ The total amount of energy is conserved in a closed system...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/003/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 04. Descriptivism vs. Instrumentalism",
+        "excerpt":"0. Table of Contents Descriptivism Instrumentalism Planck vs. Mach Advantages and Disadvantages Summary 1. Descriptivism 1.1 Definition Descriptivism is the view that a scientific theory is a description of the world 1.2 Features of Descriptivism A scientific theory either correctly or incorrectly describes/reflects the world If it correctly reflects the...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/004/",
+        "teaser": null
+      },{
+        "title": "[Markdown] 01. Basic",
+        "excerpt":"Basic Syntax of Markdown 0. Table of Contents Overview 1. Overview Markdown is easy to use, manage. If you are a developer, you may see this language in most of Github repositories. You may write down README.md file, the description, manual of your repositories in Markdown. Therefore, Markdown is one...","categories": ["Markdown"],
+        "tags": ["markdown"],
+        "url": "/blog/markdown/001/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 05. The Aims of Science",
+        "excerpt":"0. Table of Contents What is Science True Explanations, True Predictions, and Useful Manipulations Scientific Realists and Antirealists Skepticism about Whether Science Has an Aim Summary 1. What is Science 1.1 Science as an enterprise Science is an enterprise just like music, sports, religion, and politics In other words, science...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/005/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 06. The Methods of Science",
+        "excerpt":"0. Table of Contents Observation and Experiment whether science has an aim Thought Experiment Idealized Models Infernce to the Best Explanation Inference from a hypothesis to observational evidence Methods to Conceive of Hypotheses Summary 1. Observation and Experiment 1.1 Features of Observation and Experiments Scientists make observations and perform experiments...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/006/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 09. Logical Positivism",
+        "excerpt":"0. Table of Contents Background The Verifiability Theory of Meaning Empirical Science Psychology Summary 1. What is Logical Positivism 1.1 Background Logical positivism was a movement in philosophy that arose in Berlin and Vienna in the late 1920s Moritz Schlick (1882-1936), Rudolf Carnap (1891-1970), and Otto Neurath (1882-1945) were cheif...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/009/",
+        "teaser": null
+      },{
+        "title": "[Philosophy of Science] 10. Observation and Theory",
+        "excerpt":"0. Table of Contents Confirmation Falsificationism Holism Summary 1. Confirmation 1.1 Definition Confirmationism holds that a hypothesis can be confirmed by obsrvations, i.e., that observational evidence can show that a hypothesis is likely to be true 1.2 How Scientists Confirm a Hypothesis They imagine what observable event must occur, if...","categories": ["Ph of Science"],
+        "tags": [],
+        "url": "/liberalarts/philosophyofscience/010/",
+        "teaser": null
+      },{
         "title": "[AI toolkit] 00. ",
         "excerpt":"Lecture 00   0. Table of Contents      template   1. Template  ","categories": ["AI toolkit"],
         "tags": ["Linear Algebra"],
@@ -105,5 +159,23 @@ var store = [{
         "excerpt":"Lecture 11 0. Table of Contents Self-Information Entropy Joint Entropy Conditional Entropy Mutual Information Kullback-Leibler Divergence Cross-Entropy Cross-Entropy and Multi-Class Classification 1. Self-Information Bit: the unit of information, 0 or 1. Any information can be encoded by a series of 0 and 1. Binary digits of length $n$ contains $n$...","categories": ["AI toolkit"],
         "tags": ["Information Theory","Entropy","KL Divergence"],
         "url": "/courses/ai-toolkit/011/",
+        "teaser": null
+      },{
+        "title": "[GNN] 01. Deep Learning Basics",
+        "excerpt":"Part 1 딥러닝의 기초 0. Table of Contents Neural Networks Convolutional Neural Networks Recurrent Neural Networks Autoencoders 1. Neural Networks (신경망) 생물학적 뉴런을 인공적으로 모방한 모델. (1943년 W. McCulloch에 의해 소개되었음) 퍼셉트론은 활성화 함수가 계단 함수(Step Function)인 모델. (1957년 F. Rosenblatt에 의해 소개되었음) 퍼셉트론은 간단한 XOR 문제를 풀지 못하는 한계를...","categories": ["GNN"],
+        "tags": ["Deep Learning","GNN"],
+        "url": "/courses/gnn/001/",
+        "teaser": null
+      },{
+        "title": "[GNN] 02. Graph Basics",
+        "excerpt":"Part 2 그래프의 기초 0. Table of Contents Why Graph? Graph Representation Properties and Measures of Graph Spectral Graph Theory Graph Signal Processing 1. Why Graph? 그래프(Graph)는 실제 데이터를 표현하는데 가장 필수적인 방법. 실제로 많이 쓰이기 때문에 여러 분야에서 연구됨. 2. Graph Representation 그래프는 다음과 같이 표현된다. $G={V, E}$ where...","categories": ["GNN"],
+        "tags": ["Graph","GNN"],
+        "url": "/courses/gnn/002/",
+        "teaser": null
+      },{
+        "title": "[GNN] 03. Graph Neural Networks",
+        "excerpt":"Part 3 그래프 신경망 기초 0. Table of Contents Introduction and Motivation of GNNs GNN Frameworks Spectral Graph Convolution Spatial Graph Convolution Graph Pooling Framework Graph Filters in Detail 1. Introduction and Motivation of GNNs 실제 데이터는 graph-based인 경우가 많다. GNN은 Scarselli et al.(2009)에 의해 제시되었으며, 딥러닝을 그래프 형태의 데이터에...","categories": ["GNN"],
+        "tags": ["Graph","GNN"],
+        "url": "/courses/gnn/003/",
         "teaser": null
       }]

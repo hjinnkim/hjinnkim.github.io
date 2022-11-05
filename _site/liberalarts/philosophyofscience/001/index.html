@@ -1,0 +1,1073 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <style> 
+      ::-webkit-scrollbar{ 
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        width: 0px;
+        background-color: rgba(224, 224, 224, 0.2);
+        /* border-radius: 5px; */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        width: 0px;
+        background-color: rgba(220, 219, 218, 0.6);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        width: 10px;
+        height: 20px;
+        /* background-color: rgba(190, 190, 190, 0.2); */
+        background-color: rgba(193, 192, 191, 0.7);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-track:hover {
+        width: 10px;
+        /* background-color: rgba(150, 150, 150, 0.1); */
+        background-color: rgba(224, 224, 224, 0.5);
+        border-radius: 5px;
+        /* background: transparent; */
+        /* border-radius: 10px; */
+      }
+
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+          width:0px;
+          height: 0px;
+          /* background-color: rgb(14, 221, 24); */
+          /* border-radius: 50%; */
+      }
+    </style>
+    
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Philosophy of Science] 01. Basic Terms | hjinnkim</title>
+<meta name="description" content="Basic terms frequently used in philosophy of science">
+
+
+  <meta name="author" content="hjinnkim">
+  
+  <meta property="article:author" content="hjinnkim">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="hjinnkim Devlog">
+<meta property="og:title" content="[Philosophy of Science] 01. Basic Terms">
+<meta property="og:url" content="http://localhost:4000/liberalarts/philosophyofscience/001/">
+
+
+  <meta property="og:description" content="Basic terms frequently used in philosophy of science">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-16T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-10-16T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/liberalarts/philosophyofscience/001/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "hjinnkim",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="naver-site-verification" content="c578bc80ddad92815840edec269a967d3dc34d16">
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="hjinnkim Devlog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hjinnkim.github.io/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hjinnkim.github.io/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hjinnkim.github.io/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://hjinnkim.github.io/assets/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://hjinnkim.github.io/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+
+    
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          hjinnkim Devlog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://hjinnkim.github.io/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search">search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/avatar.jpg" alt="hjinnkim" itemprop="image">
+      
+    </div>
+  
+
+  <!-- 2022.02.17 author content hidden -->
+  <!-- <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">hjinnkim</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>hjinnkim’s Robot / AI / Development notes</p>
+
+      </div>
+    
+  </div> -->
+
+  <div class="author__urls-wrapper">
+    <!-- <button class="btn btn--inverse">Follow</button> -->
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Ulsan, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:khj12203@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/hjinnkim" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/hjinnkim_0012" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    <!-- <li>
+      <span class="nav__total">🌴 Total Posts: 30</span>
+    </li> -->
+    
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Mathematics</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+                <li><a href="/categories/linear-algebra">Linear Algebra (1)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">LiberalArts</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/philosophy-of-science">Ph of Science (9)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Courses</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/ai-toolkit">AI toolkit (12)</a></li>
+              
+            
+              
+            
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Blog</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+                <li><a href="/categories/blog">Blog (4)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/markdown">Markdown (1)</a></li>
+              
+            
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">AI</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/gnn">GNN (3)</a></li>
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Philosophy of Science] 01. Basic Terms">
+    <meta itemprop="description" content="Basic terms frequently used in philosophy of science">
+    <meta itemprop="datePublished" content="2022-10-16T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-10-16T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[Philosophy of Science] 01. Basic Terms
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-terms">1. Terms</a></li><li><a href="#2-truth">2. Truth</a><ul><li><a href="#21-correspondence-theory">2.1 Correspondence Theory</a></li><li><a href="#22-other-truth-bearers">2.2 Other Truth-bearers</a></li></ul></li><li><a href="#3-argument">3. Argument</a><ul><li><a href="#31-definition">3.1 Definition</a></li><li><a href="#32-example">3.2 Example</a></li><li><a href="#33-hypothesis">3.3 Hypothesis</a></li></ul></li><li><a href="#4-deductive-vs-inductive">4. Deductive vs. Inductive</a><ul><li><a href="#41-definition">4.1 Definition</a></li><li><a href="#42-examples">4.2 Examples</a></li><li><a href="#43-easy-way-to-distinguish">4.3 Easy Way to Distinguish</a></li></ul></li><li><a href="#5-observational-vs-theoretical">5. Observational vs. Theoretical</a><ul><li><a href="#51-definition">5.1 Definition</a></li><li><a href="#52-examples">5.2 Examples</a></li><li><a href="#53-observationaltheoretical-terms">5.3 Observational/Theoretical Terms</a></li><li><a href="#54-importance-of-distinction-between-observationaltheoretical-entitiy">5.4 Importance of Distinction between Observational/Theoretical Entitiy</a></li><li><a href="#55-classic-objection-to-the-distinction-between-observationaltheoretical-entities">5.5 Classic Objection to the Distinction between Observational/Theoretical Entities</a></li><li><a href="#56-refute-to-the-previous-objection">5.6 Refute to the Previous Objection</a></li></ul></li><li><a href="#6-summary">6. Summary</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-terms">Terms</a></li>
+  <li><a href="#2-truth">Truth</a></li>
+  <li><a href="#3-argument">Argumemt</a></li>
+  <li><a href="#4-deductive-vs-inductive">Deductive vs. Inductive</a></li>
+  <li><a href="#5-observational-vs-theoretical">Observational vs. Theoretical</a></li>
+  <li><a href="#6-summary">Summary</a></li>
+</ol>
+
+<h2 id="1-terms">1. Terms</h2>
+<ul>
+  <li>Truth</li>
+  <li>Argument</li>
+  <li>Deductive</li>
+  <li>Inductive</li>
+  <li>Observational</li>
+  <li>Theoretical</li>
+</ul>
+
+<h2 id="2-truth">2. Truth</h2>
+
+<h3 id="21-correspondence-theory">2.1 Correspondence Theory</h3>
+
+<p><strong>Aristotle</strong> (384-322 B.C.) advanced <strong><u>Correspondence Theory of truth</u></strong></p>
+
+<ul>
+  <li><strong>Correspondence Theory</strong> : A statement is true if and only if it corresponds to the world, and it is false if and only if it does not corresponds to the world</li>
+</ul>
+
+<h3 id="22-other-truth-bearers">2.2 Other Truth-bearers</h3>
+
+<ul>
+  <li>Beliefs</li>
+  <li>Opinions</li>
+  <li>Claims</li>
+  <li>Views</li>
+  <li>Hypotheses</li>
+  <li>Laws</li>
+  <li>Theories</li>
+</ul>
+
+<h2 id="3-argument">3. Argument</h2>
+
+<h3 id="31-definition">3.1 Definition</h3>
+
+<p>A set of statements in which some of them are <em><u>premises</u></em> and one of them is the <em><u>conclusion</u></em></p>
+
+<h3 id="32-example">3.2 Example</h3>
+
+<ul>
+  <li>Some apples are red</li>
+  <li>$\therefore$ All appples are red</li>
+</ul>
+
+<p>The first statement is a <em>premise</em> and the seconde statement is a <em>conclusion</em>.</p>
+
+<h3 id="33-hypothesis">3.3 Hypothesis</h3>
+
+<p>Scientists construct and refute arguments. Scientists do not merely state their <em><u>hypotheses</u></em>.They present <em>evidence</em> to persuade their readers that their <em>hypotheses</em> are true. The <em>evidence</em> is the premise, and the <em>hypothesis</em> is the conclusion.</p>
+
+<h2 id="4-deductive-vs-inductive">4. Deductive vs. Inductive</h2>
+
+<h3 id="41-definition">4.1 Definition</h3>
+
+<ul>
+  <li><strong>Deductive Argument</strong> : If premises are true, the conclusion is guaranteed to be true</li>
+  <li><strong>Inductive Argument</strong> : Even if premises are true, it is likely, but less than 100% probable, that the conclusion is.</li>
+</ul>
+
+<h3 id="42-examples">4.2 Examples</h3>
+
+<ul>
+  <li>
+    <p>Deductive Argument</p>
+
+    <p>100% of UNIST students are intelligent</p>
+
+    <p>Alice is a UNIST student</p>
+
+    <p>$\therefore$ She is intelligent</p>
+  </li>
+  <li>
+    <p>Inductive Argument</p>
+
+    <p>90% of UNIST students are intelligent</p>
+
+    <p>Alice is a UNIST student</p>
+
+    <p>$\therefore$ She is intelligent</p>
+  </li>
+</ul>
+
+<h3 id="43-easy-way-to-distinguish">4.3 Easy Way to Distinguish</h3>
+
+<p>Investigate whether the given argument has a small <em><u>possibility</u></em> that the <em><u>conclusion</u></em> could be <em><u>false</u></em> when premises are true</p>
+
+<h2 id="5-observational-vs-theoretical">5. Observational vs. Theoretical</h2>
+
+<h3 id="51-definition">5.1 Definition</h3>
+
+<ul>
+  <li><strong>Observational entity</strong> : We can observe them with our naked eyes</li>
+  <li><strong>Theoretical entity</strong> : We cannot observe them with our naked eyes</li>
+</ul>
+
+<h3 id="52-examples">5.2 Examples</h3>
+
+<ul>
+  <li>
+    <p>Observational entity</p>
+
+    <p>stones, trees, chairs, and computers</p>
+  </li>
+  <li>
+    <p>Theoretical entity</p>
+
+    <p>electrons, quarks, black holes, dark energy, dark matter, and neutrinos</p>
+  </li>
+</ul>
+
+<h3 id="53-observationaltheoretical-terms">5.3 Observational/Theoretical Terms</h3>
+
+<p>An <em><u>observational term</u></em> refers to an <em><u>observational entity</u></em> and a <em><u>theoretical term</u></em> refers to a <em><u>theoretical entity</u></em>.</p>
+
+<p>Only <em><u>observational terms</u></em> figure in an observational statement, whereas a <em><u>theoretical term</u></em> features in a <em><u>theoretical statement</u></em>.</p>
+
+<h3 id="54-importance-of-distinction-between-observationaltheoretical-entitiy">5.4 Importance of Distinction between Observational/Theoretical Entitiy</h3>
+
+<ul>
+  <li>An <em>observational statement</em> can be determined whether it is true or false just by observing a relevant part of the world.</li>
+  <li>An <em>theoretical statement</em> cannot be determined whether it is true or false just by observing a part of the world.</li>
+  <li>Relatedly, our evidence for an observational statement is more powerful than our evidence for a theoretical statement.</li>
+  <li>A perennial topic in philosophy of science is whether or not we have a sufficient evidence for believing that a theoretical statement is true.</li>
+</ul>
+
+<h3 id="55-classic-objection-to-the-distinction-between-observationaltheoretical-entities">5.5 Classic Objection to the Distinction between Observational/Theoretical Entities</h3>
+
+<p>Maxwell said we cannot draw a line between them</p>
+
+<ul>
+  <li>We can observe a tree through a windowpane $\rightarrow$ the tree is an observational entity.</li>
+  <li>We can observe a bird in a distant tree through binoculars $\rightarrow$ the bird is an observational entity.</li>
+  <li>We seem to observe Jupiter with a telescope $\rightarrow$ Jupiter seems to be an observational entity.</li>
+</ul>
+
+<p>How about:</p>
+
+<ul>
+  <li>Cell that we seem to observe with a light microscope</li>
+  <li>DNA that we seem to observe with an electron microscope</li>
+</ul>
+
+<p>It appears that <em>there is no strict distinction between observational and theoretical entities</em>.</p>
+
+<h3 id="56-refute-to-the-previous-objection">5.6 Refute to the Previous Objection</h3>
+
+<p><em>Bas van Fraassen</em> retorts that the foregoing objection only shows that the two predicates, “observational” and “theoretical” are vague. A predicate is “usable provided it has clear cases and clear counter-cases”</p>
+
+<ul>
+  <li>We cannot draw a line between boys and men $\leftarrow$ However, some people are clearly boys, and other people are clearly men.</li>
+  <li>Similarly, there are clear cases and counter-cases of “observational” and “theoretical” $\leftarrow$ A tree is clearly an observational entity, and an electron is clearly a theoretical entity.</li>
+</ul>
+
+<h2 id="6-summary">6. Summary</h2>
+
+<ul>
+  <li>True statements correspond to the world, whereas false statements do not.</li>
+  <li>An argument is a set of statements, some of which are premises and one of which is the conclusion.</li>
+  <li>In a deductive argument, the conclusion necessarily follows from premises.</li>
+  <li>In an inductive argument, the conclusion probably follows from premises.</li>
+  <li>An observational entity is an entity that we can observe, whereas a theoretical entity is an entity that we cannot observe.</li>
+  <li>It is more difficult to determine whether a theoretical statement is true or false than to determine whether an observational statement is true or false.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ph-of-science" class="page__taxonomy-item" rel="tag">Ph of Science</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-16">October 16, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BPhilosophy+of+Science%5D+01.+Basic+Terms%20http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F001%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F001%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F001%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/liberalarts/philosophyofscience/000/" class="pagination--pager" title="[Philosophy of Science] 00. Introduction
+">Previous</a>
+    
+    
+      <a href="/liberalarts/philosophyofscience/002/" class="pagination--pager" title="[Philosophy of Science] 02. Scientific knowledge
+">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/gnn/003/" rel="permalink">[GNN] 03. Graph Neural Networks
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Graph Neural Networks basics
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/gnn/002/" rel="permalink">[GNN] 02. Graph Basics
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Graph Basics
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/gnn/001/" rel="permalink">[GNN] 01. Deep Learning Basics
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Deep Learning Basics
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/ai-toolkit/011/" rel="permalink">[AI toolkit] 11. Information Theory
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-10-23T00:00:00+09:00">October 23, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Information Theory Basics and Loss Functions
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/hjinnkim" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 hjinnkim. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/liberalarts/philosophyofscience/001/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/liberalarts/philosophyofscience/[Philosophy-of-Science]-01-Basic-Terms"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hjinnkim.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -47,7 +47,7 @@ categories:
         url: /categories/blog
       - title: "Markdown"
         url: /categories/markdown
-
-      # Add here for more children
-      # - title: "blahblah"
-      #   url: /categories/blah
+  - title: AI
+    children:
+      - title: "GNN"
+        url: /categories/gnn
