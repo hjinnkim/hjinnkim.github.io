@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Philosophy of Science] 00. Introduction | hjinnkim</title>
-<meta name="description" content="Introduction of philosophy of science">
+<!-- begin _includes/seo.html --><title>[GNN] 05. GNN application 1 | hjinnkim</title>
+<meta name="description" content="Graph Recurrent Network, Graph Attention Network">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[Philosophy of Science] 00. Introduction">
-<meta property="og:url" content="http://localhost:4000/liberalarts/philosophyofscience/000/">
+<meta property="og:title" content="[GNN] 05. GNN application 1">
+<meta property="og:url" content="http://localhost:4000/courses/gnn/005/">
 
 
-  <meta property="og:description" content="Introduction of philosophy of science">
-
-
-
+  <meta property="og:description" content="Graph Recurrent Network, Graph Attention Network">
 
 
 
 
-  <meta property="article:published_time" content="2022-10-16T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-10-16T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-11-12T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-11-12T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/liberalarts/philosophyofscience/000/">
+
+<link rel="canonical" href="http://localhost:4000/courses/gnn/005/">
 
 
 
@@ -162,6 +162,30 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
 
+    
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
     
   </head>
 
@@ -548,15 +572,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Philosophy of Science] 00. Introduction">
-    <meta itemprop="description" content="Introduction of philosophy of science">
-    <meta itemprop="datePublished" content="2022-10-16T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-10-16T00:00:00+09:00">
+    <meta itemprop="headline" content="[GNN] 05. GNN application 1">
+    <meta itemprop="description" content="Graph Recurrent Network, Graph Attention Network">
+    <meta itemprop="datePublished" content="2022-11-12T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-11-12T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Philosophy of Science] 00. Introduction
+          <h1 id="page-title" class="page__title" itemprop="headline">[GNN] 05. GNN application 1
 </h1>
           
 
@@ -565,7 +589,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
+        <time datetime="2022-11-12T00:00:00+09:00">November 12, 2022</time>
       </span>
     
 
@@ -583,14 +607,80 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#introduction-of-philosophy-of-science">Introduction of Philosophy of Science</a></li></ul>
+              <ul class="toc__menu"><li><a href="#part-5-그래프-신경망-활용">Part 5 그래프 신경망 활용</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-gated-graph-neural-networks">1. Gated Graph Neural Networks</a></li><li><a href="#2-tree-lstm">2. Tree LSTM</a></li><li><a href="#3-graph-lstm">3. Graph LSTM</a></li><li><a href="#4-graph-attention-network">4. Graph Attention Network</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="introduction-of-philosophy-of-science">Introduction of Philosophy of Science</h1>
+        <h1 id="part-5-그래프-신경망-활용">Part 5 그래프 신경망 활용</h1>
 
-<p>해당 카테고리의 포스트들은 개인 학습을 위한 포스트들이며, 저작권 보호를 위해 포스트를 비공개로 게시합니다.</p>
+<h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-gated-graph-neural-networks">Gated Graph Neural Networks</a></li>
+  <li><a href="#2-tree-lstm">Tree LSTM</a></li>
+  <li><a href="#3-graph-lstm">Graph LSTM</a></li>
+  <li><a href="#4-graph-attention-network">Graph Attention Network</a></li>
+</ol>
+
+<h2 id="1-gated-graph-neural-networks">1. Gated Graph Neural Networks</h2>
+
+<ul>
+  <li>GGNN은 propagation 단계에서 Gated Recurrent Units(GRU)의 사용을 제시했다.</li>
+  <li>노드의 hidden state를 업데이트하기 위해, GRU-like operation에서 이전 시간의 정보 및 이웃 노드들로부터의 정보를 사용한다.
+    <p>
+    $
+     a^t_v=A^T_v[h^{t-1}_1,\ldots,h^{t-1}_N]+b\\
+     z^t_v=\sigma(W^za^t_v+U^zh^{t-1}_v)\\
+     r^t_v=\sigma(W^ra^t_v+U^rh^{t-1}_v)\\
+     \overset{~}{h^t_v}=tanh(Wa^t_h+U(r^t_v\odot h^{t-1}_v))\\
+     h^t_v=(1-z^t_v)\odot h^{t-1}_v+z^t_v\odot \overset{~}{h^t_v}
+    $
+  </p>
+  </li>
+</ul>
+
+<h2 id="2-tree-lstm">2. Tree LSTM</h2>
+
+<ul>
+  <li>GGNN의 GRU와 같이, LSTM 역시 graph와 tree의 propagation method로 제시되었다.</li>
+  <li>Tree LSTM은 tree-structured data를 위한 LSTM 모델의 일반화를 위해 소개되었다. Tree는 loop가 없는 graph의 한 분류일 뿐이다.</li>
+  <li>LSTM에서는 시퀀스에서 노드의 히든 스테이트는 현재 노드와 이전 노드의 히든 스테이트로부터 구해진다.</li>
+  <li>Tree는 임의의 수의 child nodes(previous nodes)들을 가지고 있으며, 스퀀스 속 노드의 히든 스테이트를 얻기 위해 현재 노드와 child node들의 히든 스테이트를 사용할 수 있다.</li>
+</ul>
+
+<h2 id="3-graph-lstm">3. Graph LSTM</h2>
+
+<ul>
+  <li>어떤 그래프에서든 사용할 수 있도록 일반화된 Tree LSTM이다.</li>
+  <li>핵심 문제는 일반적인 그래프는 tree와 같은 순서가 없다는 것이다. child나 parent와 같은 개념이 없는 것이다.</li>
+  <li>따라서, 우린 노드의 순서를 먼저 결정해야 한다.
+    <ul>
+      <li>BFS/DFS는 노드의 순서가 될 수 있다. 적절한 순서는 활용에 따라 다를 것이다.</li>
+      <li>순서가 결정되면 노드의 히든 스테이트는 노드의 child가 아닌 모든 이웃 노드의 히든 스테이트를 활용하여 계산될 것이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-graph-attention-network">4. Graph Attention Network</h2>
+
+<ul>
+  <li>Attention 메커니즘 역시 sequence-based task (machine translation)에 효과적이라는 것이 증명되어 왔다.</li>
+  <li>GCN에서는 모든 이웃 노드들이 동등하게 취급되었다.</li>
+  <li>Attention 메커니즘에서는 각 노드가 다르게 취급될 수 있으며, 즉, 각 이웃 노드에게 각각 다른 attention score를 적용할 수 있다는 것이다.</li>
+  <li>약어로는 GAT을 사용한다. (Generative Adversarial Network와의 혼동을 막기 위해)</li>
+  <li>2018년 GAT은 Velickovic et al.에 의해 attention 메커니즘을 GNN의 propagation step에 통합시키기 위해 제시되었다.</li>
+  <li>self-attention 전략을 따르며, 각 노드의 히든 스테이트는 이웃 노드들에 의해 계산된다.</li>
+  <li>GAT은 하나의 graph attention layer를 정의하며, 이 레이어를 쌓아 임의의 graph attention network를 구성한다.</li>
+  <li>Graph attention layer는 multi-head attention을 사용하여 학습 과정을 안정화시킨다. 히든 스테이트를 계산하기 위해 K개의 독립적인 attention mechanism을 적용하며, 목표 노드의 최종 히든 스테이트를 얻기 위해 그것들을 연결하거나 평균을 취한다.</li>
+  <li>GAT 특징:
+    <ul>
+      <li>노드와 이웃쌍의 GAT의 연산은 병렬화될 수 있으며, 매우 효율적이다.</li>
+      <li>각 노드에 서로 다른 가중치를 적용할 수 있다.</li>
+      <li>GAT은 귀납적 문제에도 적용될 수 있다.(이전에 보지 못한 문제에도 효율적으로 사용될 수 있다.)</li>
+    </ul>
+  </li>
+</ul>
 
         
       </section>
@@ -598,6 +688,23 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#gnn" class="page__taxonomy-item" rel="tag">GNN</a><span class="sep">, </span>
+    
+      <a href="/tags/#graph" class="page__taxonomy-item" rel="tag">Graph</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -609,14 +716,14 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#ph-of-science" class="page__taxonomy-item" rel="tag">Ph of Science</a>
+      <a href="/categories/#gnn" class="page__taxonomy-item" rel="tag">GNN</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-10-16">October 16, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-12">November 12, 2022</time></p>
 
 
       </footer>
@@ -626,23 +733,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BPhilosophy+of+Science%5D+00.+Introduction%20http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F000%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BGNN%5D+05.+GNN+application+1%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F005%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F000%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F005%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fliberalarts%2Fphilosophyofscience%2F000%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F005%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/blog/000/" class="pagination--pager" title="Have to study
+      <a href="/courses/gnn/004/" class="pagination--pager" title="[GNN] 04. Graph Node Embedding Methods
 ">Previous</a>
     
     
-      <a href="/liberalarts/philosophyofscience/001/" class="pagination--pager" title="[Philosophy of Science] 01. Basic Terms
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -657,42 +763,6 @@
     <div class="page__related">
       <h4 class="page__related-title">You may also enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/courses/gnn/005/" rel="permalink">[GNN] 05. GNN application 1
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-11-12T00:00:00+09:00">November 12, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Graph Recurrent Network, Graph Attention Network
-</p>
-  </article>
-</div>
-
         
           
 
@@ -802,6 +872,42 @@
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/courses/gnn/001/" rel="permalink">[GNN] 01. Deep Learning Basics
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Deep Learning Basics
+</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -854,8 +960,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/liberalarts/philosophyofscience/000/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/liberalarts/philosophyofscience/[Philosophy-of-Science]-00-Introduction"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/gnn/005/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/gnn/05_GNN_application_1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

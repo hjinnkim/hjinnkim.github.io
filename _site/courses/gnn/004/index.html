@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[GNN] 03. Graph Neural Networks | hjinnkim</title>
-<meta name="description" content="Graph Neural Networks basics">
+<!-- begin _includes/seo.html --><title>[GNN] 04. Graph Node Embedding Methods | hjinnkim</title>
+<meta name="description" content="Graph Node Embedding">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[GNN] 03. Graph Neural Networks">
-<meta property="og:url" content="http://localhost:4000/courses/gnn/003/">
+<meta property="og:title" content="[GNN] 04. Graph Node Embedding Methods">
+<meta property="og:url" content="http://localhost:4000/courses/gnn/004/">
 
 
-  <meta property="og:description" content="Graph Neural Networks basics">
-
-
-
+  <meta property="og:description" content="Graph Node Embedding">
 
 
 
 
-  <meta property="article:published_time" content="2022-11-05T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-11-05T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-11-12T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-11-12T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/courses/gnn/003/">
+
+<link rel="canonical" href="http://localhost:4000/courses/gnn/004/">
 
 
 
@@ -572,15 +572,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[GNN] 03. Graph Neural Networks">
-    <meta itemprop="description" content="Graph Neural Networks basics">
-    <meta itemprop="datePublished" content="2022-11-05T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-11-05T00:00:00+09:00">
+    <meta itemprop="headline" content="[GNN] 04. Graph Node Embedding Methods">
+    <meta itemprop="description" content="Graph Node Embedding">
+    <meta itemprop="datePublished" content="2022-11-12T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-11-12T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[GNN] 03. Graph Neural Networks
+          <h1 id="page-title" class="page__title" itemprop="headline">[GNN] 04. Graph Node Embedding Methods
 </h1>
           
 
@@ -589,7 +589,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+        <time datetime="2022-11-12T00:00:00+09:00">November 12, 2022</time>
       </span>
     
 
@@ -607,231 +607,326 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#part-3-그래프-신경망-기초">Part 3 그래프 신경망 기초</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-introduction-and-motivation-of-gnns">1. Introduction and Motivation of GNNs</a></li><li><a href="#2-gnn-frameworks">2. GNN Frameworks</a></li><li><a href="#3-spectral-graph-convolution">3. Spectral Graph Convolution</a></li><li><a href="#4-spatial-graph-convolution">4. Spatial Graph Convolution</a></li><li><a href="#5-graph-pooling">5. Graph Pooling</a></li><li><a href="#6-framework">6. Framework</a></li><li><a href="#7-graph-filters-in-detail">7. Graph Filters in Detail</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#part-4-그래프-임베딩">Part 4 그래프 임베딩</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-graph-node-embedding-methods">1. Graph Node Embedding Methods</a></li><li><a href="#2-graph-node-embedding-process">2. Graph Node Embedding Process</a></li><li><a href="#3-graph-node-embedding-example">3. Graph Node Embedding Example</a></li><li><a href="#4-general-process-of-graph-node-embedding">4. General process of Graph Node Embedding</a></li><li><a href="#5-general-framework-of-graph-node-embedding">5. General Framework of Graph Node Embedding</a></li><li><a href="#6-transductive-vs-inductive">6. Transductive vs. Inductive</a></li><li><a href="#7-deepwalk-algorithm">7. DeepWalk Algorithm</a></li><li><a href="#8-node2vec-algorithm">8. Node2Vec Algorithm</a></li><li><a href="#9-node2vecdeepwalk-pros-and-cons">9. Node2Vec/DeepWalk Pros and Cons</a></li><li><a href="#10-graphsage-algorithm">10. GraphSAGE Algorithm</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="part-3-그래프-신경망-기초">Part 3 그래프 신경망 기초</h1>
+        <h1 id="part-4-그래프-임베딩">Part 4 그래프 임베딩</h1>
 
 <h2 id="0-table-of-contents">0. Table of Contents</h2>
 
 <ol>
-  <li><a href="#1-introduction-and-motivation-of-gnns">Introduction and Motivation of GNNs</a></li>
-  <li><a href="#2-gnn-frameworks">GNN Frameworks</a></li>
-  <li><a href="#3-spectral-graph-convolution">Spectral Graph Convolution</a></li>
-  <li><a href="#4-spatial-graph-convolution">Spatial Graph Convolution</a></li>
-  <li><a href="#5-graph-pooling">Graph Pooling</a></li>
-  <li><a href="#6-framework">Framework</a></li>
-  <li><a href="#7-graph-filters-in-detail">Graph Filters in Detail</a></li>
+  <li><a href="#1-graph-node-embedding-methods">Graph Node Embedding Methods</a></li>
+  <li><a href="#2-graph-node-embedding-process">Graph Node Embedding Process</a></li>
+  <li><a href="#3-graph-node-embedding-example">Graph Node Embedding Example</a></li>
+  <li><a href="#4-general-process-of-graph-node-embedding">General process of Graph Node Embedding</a></li>
+  <li><a href="#5-general-framework-of-graph-node-embedding">General Framework of Graph Node Embedding</a></li>
+  <li><a href="#6-transductive-vs-inductive">Transductive vs. Inductive</a></li>
+  <li><a href="#7-deepwalk-algorithm">DeepWalk Algorithm</a></li>
+  <li><a href="#8-node2vec-algorithm">Node2Vec Algorithm</a></li>
+  <li><a href="#9-node2vecdeepwalk-pros-and-cons">Node2Vec/DeepWalk Pros and Cons</a></li>
+  <li><a href="#10-graphsage-algorithm">GraphSAGE Algorithm</a></li>
 </ol>
 
-<h2 id="1-introduction-and-motivation-of-gnns">1. Introduction and Motivation of GNNs</h2>
+<h2 id="1-graph-node-embedding-methods">1. Graph Node Embedding Methods</h2>
 
 <ul>
-  <li>실제 데이터는 graph-based인 경우가 많다.</li>
-  <li>GNN은 Scarselli et al.(2009)에 의해 제시되었으며, 딥러닝을 그래프 형태의 데이터에 적용하기 위해 나왔다.</li>
-  <li>그래프에서는 노드는 그 자체의 특징과 다른 노드들간의 관계로 정의되어 있다.</li>
-  <li>GNN의 주요 목표는 노드와 주변 환경의 정보를 인코딩하는 <em>state enbedding</em>을 학습하는 것이다.
-    <ul>
-      <li>Node-focused tasks에서 GNN은 각 노드의 특징을 배우는 것이다.</li>
-      <li>Graph-focused tasks에서 GNN은 전체 그래프의 특징을 배우는 것이며, 노드의 특징을 배우는 것은 이를 위한 중간 단계에 주로 해당한다.</li>
-    </ul>
+  <li>딥러닝 혹은 머신러닝에서 학습할 수 있는 임베딩의 집합으로 그래프의 노드를 변환하는 방법</li>
+  <li>우리는 그래프를 이런 임베딩들로 변환하는 방법을 배워야 한다</li>
+  <li>주요한 세가지 방법:
+    <ol>
+      <li>DeepWalk</li>
+      <li>Node2Vec</li>
+      <li>GraphSAGE</li>
+    </ol>
   </li>
 </ul>
+
+<h2 id="2-graph-node-embedding-process">2. Graph Node Embedding Process</h2>
+
+<ul>
+  <li>General Idea: 그래프의 모든 단일 노드들을 저차원의 벡터로 나타내는 것</li>
+  <li>이러한 노드 임베딩은 기존 그래프 속 노드들의 중요 정보(Key information)을 보존해주어야 한다.
+    <ul>
+      <li>만약 그래프 속에서 노드들의 spatial information이 비슷하다면 임베딩 공간에서도 해당 노드들은 비슷해야 한다.</li>
+    </ul>
+  </li>
+  <li>두 가지 중요한 질문:
+    <ol>
+      <li>어떤 정보를 보존해야 하는가?</li>
+      <li>어떻게 그 정보를 보존할 것인가?</li>
+    </ol>
+  </li>
+  <li>그래프 노드 임베딩 알고리즘들은 이 질문에 여러 방식으로 답을 제시한다.</li>
+</ul>
+
+<h2 id="3-graph-node-embedding-example">3. Graph Node Embedding Example</h2>
+
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&amp;id=1WpkvRqMcxAu3yK-PT_l33TiztZeifrXw" title="2_Graph" style="float: center; width:50%" />
-</p>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1jCzplBb14pvvFqoVhKEzGZmYURDGT1XP" title="4_CNN" style="float: center; width:80%" />
+    <font size="2">Image reference: <a href="https://arxiv.org/abs/1709.05584">Image reference: William L. Hamilton, Rex Ying, Jure Leskovec: Representation Learning on Graphs: Methods and Applications//</a></font>
+  </p>
+
 <ul>
-  <li>node 1의 state embedding, x1
+  <li>Left: 가라테 클럽 소셜 네트워크 그래프 표현(선으로 이어진 것은 친구, 서로 다른 색상은 서로 다른 커뮤니티를 나타냄)</li>
+  <li>Right: 노드들의 2차원 임베딩 표현(유사성 포착)</li>
+  <li>두 노드의 동시 발생을 포착하는 DeepWalk 사용 $\rightarrow$ 그래프의 특수 표현에서 노드의 저차원 임베딩으로 변환할 때 찾고 있는 정보를 보존</li>
+  <li>문제 : 매핑은 어떻게 하는가? 임베딩을 얻는 가장 좋은 방법은 어떻게 학습하는가?</li>
+</ul>
+
+<h2 id="4-general-process-of-graph-node-embedding">4. General process of Graph Node Embedding</h2>
+
+<ul>
+  <li>임베딩 차원의 노드 정보를 사용하여 보존하고 싶은 그래프 차원의 정보를 재구성</li>
+  <li>따라서 우리는 보존하고 싶은 그래프로부터의 정보를 재구성하게 해주는 “node embedding representation” 방법을 원한다</li>
+  <li>General Idea: 재구성 과정에서 오류를 최소화하는 매핑 함수를 찾는 것
     <ul>
-      <li>x1은 node 1에 관련된 feature의 vector로 볼 수 있다.</li>
-      <li>x1에 연결된 edge 역시 node 1의 neighbor들을 알아내어 neighbor들을 고려한 x1을 추출하는데 사용될 수 있다.</li>
+      <li>(+그래프의 크기가 임베딩하는 속도에 주는 영향이 작아야 한다.)</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="2-gnn-frameworks">2. GNN Frameworks</h2>
+<h2 id="5-general-framework-of-graph-node-embedding">5. General Framework of Graph Node Embedding</h2>
 
 <ul>
-  <li>Graph filtering opertaion
-    <ul>
-      <li>노드의 feature와 그래프의 structure를 기반으로 노드의 feature를 학습하는 과정</li>
-      <li>이는 주로 노드의 feature와 그래프의 structure로부터 새로운 노드의 feature(더 고차원의)를 생성하는 과정이다.
+  <li>4가지 주요 구성 요소
+    <ol>
+      <li>The mapping function: 실제로 배우고자 하는 함수이며, 그래프의 노드를 임베딩 공간에 매핑한다.
         <ul>
-          <li>따라서 그래프의 structure는 바뀌지 않지만 노드가 담고있는 feature는 이전과 다르다.</li>
+          <li>“encoding function”이라고 불린다</li>
         </ul>
       </li>
-      <li>이를 위한 두 가지 방식의 convolutional operation(convolution은 필터링)이 있다.
+      <li>The information extractor: 그래프에서 보존하고자 하는 key information을 추출한다
         <ul>
-          <li>Spectral-based filtering</li>
-          <li>Spatial-based filtering</li>
+          <li>“similarity graph function”이라고 불린다</li>
         </ul>
       </li>
-    </ul>
+      <li>The information reconstructor: mapping function에서 얻어진 노드 임베딩들로부터 key information을 재구성한다
+        <ul>
+          <li>“similarity embedding funcion”이라고 불린다</li>
+        </ul>
+      </li>
+      <li>The objective: 추출한 key information과 재구성한 key information을 기반으로 objective를 정의한다. mapping/reconstruction에 관여하는 패러미터들은 objective를 최적화하여 학습한다.</li>
+    </ol>
   </li>
-  <li>핵심은 노드의 embedding state를 생성하기 위해 노드 그 자체의 feature뿐 아니라 neighbors의 feature 역시 사용하는 것이다.</li>
 </ul>
 
-<h2 id="3-spectral-graph-convolution">3. Spectral Graph Convolution</h2>
+<h2 id="6-transductive-vs-inductive">6. Transductive vs. Inductive</h2>
 
 <ul>
-  <li>Spectral graph theory를 기반으로 한다.
+  <li>Transductive methods: 보이지 않는 데이터(현재 존재하지 않는 데이터)에서 잘 작동하지 않는다.
     <ul>
-      <li>graph-based polynomial, eigenvalue/vector of the matrices associated with the graph의 특징에 대한 연구</li>
+      <li>만약 그래프에 새로운 노드가 추가된다면, 새로운 노드로부터 노드 임베딩을 얻기 위해 모델을 새로 훈련시켜야 한다.</li>
+      <li>DeepWalk, Node2Vec 이 있음.</li>
     </ul>
   </li>
-  <li>기본적으로 kernel에 의한 graph signal의 곱으로 정의됨.
+  <li>Inductive methods: 보이지 않는 데이터에도 쉽게 사용될 수 있음.
     <ul>
-      <li>Fourier domain에서 정의됨.</li>
+      <li>일반적으로 이웃 노드의 정보를 이용하여 새로운 노드의 임베딩을 얻기 때문</li>
+      <li>GraphSAGE</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-deepwalk-algorithm">7. DeepWalk Algorithm</h2>
+
+<ul>
+  <li>2014년 Perozzi et al.이 제시함.</li>
+  <li>그래프 속 비슷한 노드를 보존하는 것에 초점을 맞춤.</li>
+  <li>그래프의 Walk의 개념을 사용.</li>
+  <li>“random walk”에서 동시에 발생하는 노드들을 비슷하다고 고려함.</li>
+  <li>mapping function은 학습된 노드 임베딩들이 walks에서 추출한 유사도를 재구성할 수 있도록 최적화 됨.</li>
+  <li>그래프 노드 임베딩에서 보통 가장 먼저 배우는 일반적인 알고리즘.</li>
+  <li>과정
+    <ul>
+      <li>입력: 노드나 엣지의 정보가 없는 그래프를 받는다.</li>
+      <li>Mapping function: 노드의 임베딩은 $v_i$일 때, index i에서 얻어지는 <a href="https://wikidocs.net/64779">look up table</a>
+        <ul>
+          <li>$f(v_i)=u_i=e^T_iW$, where $e[i]=1$ and rest of positions are 0 and $W$ are the embedding parameters we want to learn</li>
+        </ul>
+      </li>
+      <li>Information Extraction
+        <ol>
+          <li>Random walks</li>
+          <li>Extracting co-occurrence</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Random walk
+    <ul>
+      <li>그래프의 특정 노드로부터 랜덤워크를 시행했을 때, walk가
+        <ol>
+          <li>5-3-8-7</li>
+          <li>4-6-8-7</li>
+        </ol>
+      </li>
+      <li>이때, 8과 7이 동시 발생</li>
+      <li>이 동시 발생에 집중하는 것이 DeepWalk</li>
+    </ul>
+  </li>
+  <li>DeepWalk Algorithm
+    <ol>
+      <li>Generating Random walks
+        <p>
+   $
+   \text{Input: G={V, E}, T, alpha}\\\quad {\scriptsize \text{(T : length of random walk, alpha : # of random walks we want to generate)}} \\
+   \text{Output: R}\\
+   \text{Initialization: R}\leftarrow\emptyset\\
+   \text{for v in V do}\ {\scriptsize\text{# for all nodes in graph}} \\
+   \quad\text{for I in range(1, alpha) do}\ {\scriptsize {\scriptsize\text{# generate alpha random walks}}}\\
+   \qquad\text{W}\leftarrow\text{RW(G,v,T)}\ {\scriptsize \text{# generate a random walk W starting at node v of length T}} \\
+   \qquad\text{R}\leftarrow R\cup \text{W}\ {\scriptsize \text{# store the random walk just generated}}\\
+   \quad \text{end}\\
+   \text{end}
+   $
+ </p>
+      </li>
+      <li>Extracting co-occurrence
+        <p>
+   $
+   \begin{array}[l]
+     \text{Input: R, d}\hfill\\
+     \text{Output: I}\hfill\\
+     \text{Initialization: I}\leftarrow \text{[ ]}\hfill\\
+     \text{for W in R do}\hfill\\
+     \quad\text{for v[i] in W do}\hfill\\
+     \qquad\text{for j in range(1, d) do}\hfill\\
+     \quad\qquad\text{I.append({v[i-j], v[i]})}{\scriptsize \text{# add the co-occurrence of node i and its next i-j node}}\hfill\\
+     \quad\qquad\text{I.append({v[i+j], v[i]})}{\scriptsize \text{# add the co-occurrence of node i and its next i+j node}}\hfill\\
+     \quad\qquad {\small\text{(v[i] is center node, v[i-j], v[i+j] are context nodes)}}\hfill\\
+     \qquad\text{end}\hfill\\
+     \quad\text{end}\hfill\\
+     \text{end}\hfill
+   \end{array}
+   $
+ </p>
+        <ul>
+          <li>지금까지 mapping function(the lookup table)과 information extractor(from random walks)를 가지고 있다.</li>
+          <li>노드 임베딩에서 co-occurrence를 재구성하기 위해, $\text{I}$ 속 tuples들을 관측할 확률을 다룬다.</li>
+        </ul>
+      </li>
+      <li>Reconstructor function:
+        <p>
+ <ul>
+   <li>$\text{z_i, z_j: embeddings of v_i and v_j nodes}$</li>
+   <li>각 tuples $(v_j,\ v_i)$에서 각 노드들은 두 가지 역할을 가질 수 있다: context, center(depending on the tuple</li>
+   <li>$v_i$의 context로서 $v_j$를 관측할 확률은 softmax 함수로 모델링할 수 있다</li>
+   <ul>$$rec(v_i,v_j)=p(v_j\vert v_i)=\frac{\exp{z^T_iz_j}}{\Sigma_{v\in V}\exp{z^T_iz_v}}\\\text{where }z_i=e^T_iW,\ \text{and } z_j=e^T_jW$$</ul>
+   <li>만약 reconstruction function이 잘 작동한다면, $\text{I(co-occurrence list)}$에 있는 tuple들은 높은 확률을 반환할 것이고, 랜덤하게 생성된 튜플들($\text{I}$에 있지 않은 튜플들)은 낮은 확률을 반환할 것이다.</li>
+   <li>original co-occurrence information을 재구성할 확률을 다음과 같이 계산된다.</li>
+   <ul>$$I'=rec(I)=\underset{v_i,v_j\in set(I)}{\Pi}p(v_j\vert v_i)^{\text{# of }(v_j,v_i)}$$</ul>
+   <li>따라서, 우린 다음의 objective function을 최소화한다.</li>
+   <ul>$$L(W)=-\underset{(v_i,v_j)\in set(I)}{\huge{\Sigma}}{\small \text{# of }(v_j, v_i)*\log p(v_j\vert v_i)}$$</ul>
+ </ul>
+ </p>
+        <h2 id="8-node2vec-algorithm">8. Node2Vec Algorithm</h2>
+      </li>
+    </ol>
+  </li>
+  <li>Node2Vec은 random walk 생성 방식을 변형하여 노드의 neighborhood를 탐색하기 위한 더 유연한 방식이다.</li>
+  <li>나머지는 DeepWalk와 동일하다.</li>
+  <li>Node2Vec Random Walk 과정
+    <ul>
+      <li>DeepWalk에서는 walk에서 다으 ㅁ노드를 방문할 확률이 uniform distribution을 따른다.</li>
+      <li>Node2Vec에서는 새로운 두 패러미터 p, q가 도입된다.</li>
+      <li>p는 현재 노드로부터 이전에 방문했던 노드를 재탐색할 확률을 제어한다. 작은 p는 이전에 방문했던 노드를 방문할 확률을 높게 한다.</li>
+      <li>q는 현재 노드로부터 가까운 노드를 방문할 확률을 제어한다. q가 크면 (q&gt;1) 가까운 노드를 탐색할 확률이, q가 작으면 (q&lt;1) 멀리 있는 노드를 탐색할 확률이 높다.
+        <ul>
+          <li>q&lt;1: DFS, q&gt;1: BFS</li>
+        </ul>
+      </li>
+      <li>p와 q를 잘 선택하여 local structure와 global structure 모두를 잘 포착하는 것이 관건이다.</li>
+      <li>다음 노드를 선택하기 위한 Node2Vec의 비정규화 확률
+        <p>
+    $$
+      p_{pq}(v^{t+1}\vert v^{t-1},v^t)=\begin{cases}
+      \frac{1}{p} &amp; \text{if dis}(v^{t-1},v^{t+1})=0 \\
+      1 &amp; \text{if dis}(v^{t-1},v^{t+1})=1 \\
+      \frac{1}{q} &amp; \text{if dis}(v^{t-1},v^{t+1})=2 \\
+      \end{cases}\\
+      {\scriptsize \text{where dis}(v^{t-1},v^{t+1})\ \text{measures the shortest path between these two nodes}}
+    $$
+        
+  </p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="9-node2vecdeepwalk-pros-and-cons">9. Node2Vec/DeepWalk Pros and Cons</h2>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>random walk의 생성을 병렬화하여 확장 가능하다.</li>
+      <li>Node2Vec의 경우 local structure와 global structure 모두를 포착할 수 있다.</li>
     </ul>
   </li>
   <li>단점
     <ul>
-      <li>전체 그래프에 대해 동시에 처리한다.(큰 그래프에서 비실용적)</li>
-      <li>고정된 그래프라고 가정</li>
+      <li>노드나 엣지의 정보를 사용할 수 없다.</li>
+      <li>전제 그래프에 대해 알고리즘을 돌리는 것이 아니면 새로 추가된 노드에게는 임베딩을 부여할 수 없다.</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="4-spatial-graph-convolution">4. Spatial Graph Convolution</h2>
+<h2 id="10-graphsage-algorithm">10. GraphSAGE Algorithm</h2>
 
 <ul>
-  <li>노드의 neighbor들의 feature를 이용하여 연산한다.
+  <li>GraphSAGE: Inductive Representation Learning on Large Graphs</li>
+  <li>DeepWalk와 Node2Vec의 한계를 극복하기 위한 시도
     <ul>
-      <li>그래프 어디에서든 weight를 공유한다.</li>
-      <li>그래프 전체보다는 subgraph의 노드들만 계산한다.</li>
-      <li>GraphSAGE 알고리즘이 spatial graph convolution을 위한 가장 대표적인 알고리즘이다.</li>
+      <li>귀납적. 고려되지 않은 새로운 노드의 임베딩도 생성 가능.</li>
+      <li>새로 추가된 노드의 표현을 생성하기 위해 노드의 feature를 사용함.</li>
     </ul>
   </li>
-</ul>
-
-<h2 id="5-graph-pooling">5. Graph Pooling</h2>
-
-<ul>
-  <li>Node-focused tasks에서는 graph filtering이 충분할 수 있다.
+  <li>GraphSAGE의 핵심 아이디어는 타겟 노드의 임베딩을 생성하기 위해 그래프 전체가 아닌 이웃 노드들의 샘플 집합을 사용한다는 것에 있음.</li>
+  <li>GraphSAGE는 3단계로 이루어져 있음.
     <ul>
-      <li>하지만 전체 그래프에 대한 정보를 추출하기 위해선 다른 방식의 연산이 필요하다.</li>
-      <li>Graph poolinbg opertaion</li>
+      <li>Sampling</li>
+      <li>Aggregation(집계)</li>
+      <li>Activation function</li>
     </ul>
   </li>
-  <li>Pooling operation은 subsampling이다.
-    <ul>
-      <li>CNNs와 마찬가지로 필터링과 풀링이 반복적으로 나타날 수 있다.</li>
-      <li>Graph filtering은 CNN의 일반화이다.(따라서 GNN의 시작은 CNN이다.)</li>
-    </ul>
+  <li>GraphSAGE는 Graph Filter로 이해될 수 있음.</li>
+  <li>GraphSAGE Algorithm
+    <p>
+    $
+      h^0_v=x_v\\
+      h^k_v=\sigma(w_k*f_{agg}(h^{k-1}_u,u\in N(v)),B_kh^{k-1}_v),\quad \text{k layer}\\
+      z_v=h^k_v\quad \text{final layer}
+    $  
+  </p>
   </li>
-  <li>기존의 그래프를 입력으로 받고 더 적은 수의 더 좋은 feature를 가진 노드들의 그래프를 얻는다.</li>
-</ul>
-
-<h2 id="6-framework">6. Framework</h2>
-
-<ul>
-  <li>Node tasks(i.e. 노드의 label을 예측)를 위한 GNN을 쌓는 것을 위한 전형적인 프레임워크는 하나 이상의 graph filtering과 비선형 활성화함수를 조합하는 것이다.
+  <li>GraphSAGE의 원 논문에서는 3가지의 집계함수를 제안했다.
     <ul>
-      <li>Graph filtering과 비선형 활성화함수는 각 노드의 더 나은 feature를 추출하기 위함.</li>
-    </ul>
-  </li>
-  <li>Graph tasks를 위한 GNN을 쌓는 것은 하나 이상의 graph filtering과 비선형 활성화 함수, 그리고 grpah pooling layers를 추가한 것들을 조합하는 것이다.
-    <ul>
-      <li>이 경우 graph가 결과로 나온다.</li>
-      <li>pooling layer의 경우 고차원 feature를 생성하기 위함(i.e. 노드의 feature를 요약)</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="7-graph-filters-in-detail">7. Graph Filters in Detail</h2>
-
-<ul>
-  <li>두 가지 종류의 graph filters
-    <ul>
-      <li>Spectral-based graph filters</li>
-      <li>Spatial-based graph filters</li>
-    </ul>
-  </li>
-  <li>Spectral-based graph filters
-    <ul>
-      <li>graph signal을 조절하는 것이 목표
+      <li>Mean aggregator:
         <ul>
-          <li>graph signal을 재생성하기 전에 graph signal들을 증폭/소거</li>
-          <li>Graph fourier transform이 사용됨.</li>
+          <li>노드 벡터의 평균</li>
+          <li>GCN filter와 매우 흡사</li>
         </ul>
       </li>
-      <li>Background
+      <li>LSTM aggregator:
         <ul>
-          <li>데이터로부터 어떤 signal을 보존할지 학습</li>
-          <li>함수에 자유도를 주기 위해 parameter의 수가 그래프의 노드의 수와 같음
-            <ul>
-              <li>연산 소모량이 많음</li>
-            </ul>
-          </li>
+          <li>고비용의 용량(capacity)를 요구</li>
+          <li>aggregation은 순서에 따른 영향이 없어야 하기 때문에, 이웃 노드들은 순열변환되어야 한다. (permuted)</li>
         </ul>
       </li>
-      <li>Poly-filter
+      <li>Pooling aggregator:
         <ul>
-          <li>연산량 문제를 해결하기 위해 Defferrard et al (2016)에 의해 제시됨.</li>
-          <li>그래프의 특정 노드들만 사용함. (k-hop neighborhoods)</li>
-          <li>polynomial filter의 한계 중 하나는 polynomial의 basis가 orthogonal 하지 않다는 것. 이는 학습 중 하나의 계수가 변하면 다른 계수가 변경될 수 있음을 의미. 학습 과정에서 불안정성을 야기할 수 있음.</li>
-        </ul>
-      </li>
-      <li>Cheby-filter
-        <ul>
-          <li>Chebshev polynomial을 사용.
-            <ul>
-              <li>orthogonal basis를 사용</li>
-              <li>poly-filter와 같은 장점. 더 안정.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>GCN-filter
-        <ul>
-          <li>Cheby-filter는 k의 값을 1로 한정하면 k-hop neighborhood를 의미함.</li>
-          <li>GCN-filter는 spatial-based filter로도 볼 수 있다. (특정 노드들만 고려할 수 있으므로)</li>
+          <li>학습 가능한 fully-connected NN</li>
+          <li>결과를 max-pool</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>Spatial-based graph filters
+  <li>GraphSAGE 특징:
     <ul>
-      <li>Scarselli et al.(2005) 제시됨.</li>
-      <li>그래프 내의 특정 노드들만으로 연산함.</li>
-      <li>이때 kernel g()는
-        <ul>
-          <li>node i의 label, node i의 associated features, node i와 1-hop neighbor인 노드들의 label을 입력으로 받는다.</li>
-          <li>g()는 FNN으로 모델링 될 수 있으며, 그래프의 모든 노드들의 같은 g()를 공유할 수 있다.</li>
-        </ul>
-      </li>
-      <li>GraphSAGE-filter
-        <ol>
-          <li>Sampling: 이웃으로부터 S 노드만 뽑는다.</li>
-          <li>Aggregation: 이웃들의 정보를 합니다. 다양한 aggregation function이 사용 가능.</li>
-          <li>Combination: 노드의 이전 feature와 aggregate한 정보를 합쳐서 노드의 새로운 feature를 생성한다.
-            <ul>
-              <li>combination에서 feedforward NN이 사용될 수 있다.</li>
-            </ul>
-          </li>
-        </ol>
-      </li>
-      <li>GAT-filter
-        <ul>
-          <li>Graph Attention Networks를 위해 설계된 spatial graph filter를 위해 self-attention mechanism이 소개되었다.</li>
-          <li>GCN-filter와 닮았다.</li>
-          <li>GCN-filter는 그래프 구조만 사용하지만 GAT-filter는 중요도에 따라 이웃에 서로 다른 가중치를 할당한다.</li>
-        </ul>
-      </li>
-      <li>EC-filter
-        <ul>
-          <li>edge 자체에도 정보가 있을 수 있다.</li>
-          <li>EC-filter(edge-conditioned graph filter)는 edge의 정보를 사용하기 위해 설계되었다.</li>
-        </ul>
-      </li>
-      <li>GGNN-filter
-        <ul>
-          <li>GRU(Gated Recurrent Units)를 사용한 graph filter를 적용함.</li>
-          <li>edge에 정보가 있는 Directed graph를 위해 설계되었다.</li>
-        </ul>
-      </li>
+      <li>그래프의 특정 부분만을 사용하여 목표 노드의 임베딩을 생성하기 때문에 확장이 용이하다.</li>
+      <li>aggregation method가 parameter를 공유하기 때문에 그래프에 없던 노드의 임베딩이 생성 가능하다.</li>
+      <li>목적에 따라 다른 aggregation 기능을 사용할 수 있다.</li>
     </ul>
   </li>
 </ul>
@@ -877,7 +972,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-05">November 5, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-12">November 12, 2022</time></p>
 
 
       </footer>
@@ -887,22 +982,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BGNN%5D+03.+Graph+Neural+Networks%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F003%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BGNN%5D+04.+Graph+Node+Embedding+Methods%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F004%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F003%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F004%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F003%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F004%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/courses/gnn/002/" class="pagination--pager" title="[GNN] 02. Graph Basics
+      <a href="/courses/gnn/003/" class="pagination--pager" title="[GNN] 03. Graph Neural Networks
 ">Previous</a>
     
     
-      <a href="/courses/gnn/004/" class="pagination--pager" title="[GNN] 04. Graph Node Embedding Methods
+      <a href="/courses/gnn/005/" class="pagination--pager" title="[GNN] 05. GNN application 1
 ">Next</a>
     
   </nav>
@@ -964,7 +1059,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/gnn/004/" rel="permalink">[GNN] 04. Graph Node Embedding Methods
+        <a href="/courses/gnn/003/" rel="permalink">[GNN] 03. Graph Neural Networks
 </a>
       
     </h2>
@@ -975,7 +1070,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-11-12T00:00:00+09:00">November 12, 2022</time>
+        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
       </span>
     
 
@@ -985,7 +1080,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Graph Node Embedding
+    <p class="archive__item-excerpt" itemprop="description">Graph Neural Networks basics
 </p>
   </article>
 </div>
@@ -1115,8 +1210,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/courses/gnn/003/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/courses/gnn/03-graph-neural-networks"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/gnn/004/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/gnn/04-graph-embedding"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -178,4 +178,16 @@ var store = [{
         "tags": ["Graph","GNN"],
         "url": "/courses/gnn/003/",
         "teaser": null
+      },{
+        "title": "[GNN] 04. Graph Node Embedding Methods",
+        "excerpt":"Part 4 그래프 임베딩 0. Table of Contents Graph Node Embedding Methods Graph Node Embedding Process Graph Node Embedding Example General process of Graph Node Embedding General Framework of Graph Node Embedding Transductive vs. Inductive DeepWalk Algorithm Node2Vec Algorithm Node2Vec/DeepWalk Pros and Cons GraphSAGE Algorithm 1. Graph Node Embedding Methods...","categories": ["GNN"],
+        "tags": ["Graph","GNN"],
+        "url": "/courses/gnn/004/",
+        "teaser": null
+      },{
+        "title": "[GNN] 05. GNN application 1",
+        "excerpt":"Part 5 그래프 신경망 활용 0. Table of Contents Gated Graph Neural Networks Tree LSTM Graph LSTM Graph Attention Network 1. Gated Graph Neural Networks GGNN은 propagation 단계에서 Gated Recurrent Units(GRU)의 사용을 제시했다. 노드의 hidden state를 업데이트하기 위해, GRU-like operation에서 이전 시간의 정보 및 이웃 노드들로부터의 정보를 사용한다. $ a^t_v=A^T_v[h^{t-1}_1,\\ldots,h^{t-1}_N]+b\\\\...","categories": ["GNN"],
+        "tags": ["Graph","GNN"],
+        "url": "/courses/gnn/005/",
+        "teaser": null
       }]
