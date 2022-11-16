@@ -52,8 +52,8 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[GNN] 01. Deep Learning Basics | hjinnkim</title>
-<meta name="description" content="Deep Learning Basics">
+<!-- begin _includes/seo.html --><title>[Nonparametric Bayesian] 01. Linear Algebra 1 | hjinnkim</title>
+<meta name="description" content="Linear Algebra">
 
 
   <meta name="author" content="hjinnkim">
@@ -65,32 +65,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="[GNN] 01. Deep Learning Basics">
-<meta property="og:url" content="http://localhost:4000/courses/gnn/001/">
+<meta property="og:title" content="[Nonparametric Bayesian] 01. Linear Algebra 1">
+<meta property="og:url" content="http://localhost:4000/courses/nonparametric-bayesian/001/">
 
 
-  <meta property="og:description" content="Deep Learning Basics">
-
-
-
+  <meta property="og:description" content="Linear Algebra">
 
 
 
 
-  <meta property="article:published_time" content="2022-11-05T00:00:00+09:00">
 
 
 
-  <meta property="article:modified_time" content="2022-11-05T00:00:00+09:00">
+  <meta property="article:published_time" content="2022-11-14T00:00:00+09:00">
 
 
 
-  
+  <meta property="article:modified_time" content="2022-11-14T00:00:00+09:00">
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/courses/gnn/001/">
+
+<link rel="canonical" href="http://localhost:4000/courses/nonparametric-bayesian/001/">
 
 
 
@@ -602,15 +602,15 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[GNN] 01. Deep Learning Basics">
-    <meta itemprop="description" content="Deep Learning Basics">
-    <meta itemprop="datePublished" content="2022-11-05T00:00:00+09:00">
-    <meta itemprop="dateModified" content="2022-11-05T00:00:00+09:00">
+    <meta itemprop="headline" content="[Nonparametric Bayesian] 01. Linear Algebra 1">
+    <meta itemprop="description" content="Linear Algebra">
+    <meta itemprop="datePublished" content="2022-11-14T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-11-14T00:00:00+09:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[GNN] 01. Deep Learning Basics
+          <h1 id="page-title" class="page__title" itemprop="headline">[Nonparametric Bayesian] 01. Linear Algebra 1
 </h1>
           
 
@@ -619,7 +619,7 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-11-05T00:00:00+09:00">November 5, 2022</time>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
       </span>
     
 
@@ -637,235 +637,239 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#part-1-딥러닝의-기초">Part 1 딥러닝의 기초</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-neural-networks-신경망">1. Neural Networks (신경망)</a></li><li><a href="#2-convolution-neural-networks-cnns">2. Convolution Neural Networks (CNNs)</a></li><li><a href="#3-recurrent-neural-networks-rnns">3. Recurrent Neural Networks (RNNs)</a></li><li><a href="#4-autoencoders">4. Autoencoders</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#lecture-01">Lecture 01</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-n-tuple-vector">1. n-tuple vector</a></li><li><a href="#2-paldu">2. PA=LDU</a></li><li><a href="#3-gauss-jordan-method-for-finding-inva">3. Gauss-Jordan Method for Finding inv(A)</a></li><li><a href="#4-associate-memory">4. Associate Memory</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="part-1-딥러닝의-기초">Part 1 딥러닝의 기초</h1>
+        <h1 id="lecture-01">Lecture 01</h1>
 
 <h2 id="0-table-of-contents">0. Table of Contents</h2>
 
 <ol>
-  <li><a href="#1-neural-networks-신경망">Neural Networks</a></li>
-  <li><a href="#2-convolution-neural-networks-cnns">Convolutional Neural Networks</a></li>
-  <li><a href="#3-recurrent-neural-networks-rnns">Recurrent Neural Networks</a></li>
-  <li><a href="#4-autoencoders">Autoencoders</a></li>
+  <li><a href="#1-n-tuple-vector">n-tuple vector</a></li>
+  <li><a href="#2-paldu">PA=LDU</a></li>
+  <li><a href="#3-gauss-jordan-method-for-finding-inva">Gaussian-Jordan Methods for Finding inv(A)</a></li>
+  <li><a href="#4-associate-memory">Associate Memory</a></li>
 </ol>
 
-<h2 id="1-neural-networks-신경망">1. Neural Networks (신경망)</h2>
+<h2 id="1-n-tuple-vector">1. n-tuple vector</h2>
 
 <ul>
-  <li>생물학적 뉴런을 인공적으로 모방한 모델. (1943년 W. McCulloch에 의해 소개되었음)</li>
-  <li>퍼셉트론은 활성화 함수가 계단 함수(Step Function)인 모델. (1957년 F. Rosenblatt에 의해 소개되었음)
-    <ul>
-      <li>퍼셉트론은 간단한 XOR 문제를 풀지 못하는 한계를 가짐.</li>
-      <li>퍼셉트론을 여러 층으로 쌓으면 이 문제를 풀 수 있는 것을 발견함 (Fully Connected Layers)</li>
-      <li>이렇게 퍼셉트론을 쌓는 것을 Multilayer Perceptron(MLP)</li>
-    </ul>
-  </li>
-  <li>인공신경망 (Artificial Neural Network)가 많은 수의 은닉층 (Hidden layers)를 가지고 있을 때, 심층신경망 (Deep Neural Network, DNNs))이라고 부른다.
-    <ul>
-      <li>하지만 은닉충의 개수가 많다 (deep)의 기준이 명확하지 않기 때문에, 신경망 구조를 학습시키는 것을 Deep Learning이라고 총칭한다.</li>
-    </ul>
-  </li>
-  <li>1986년 이전에도 DNNs의 개념은 존재했지만, 어떻게 MLP를 훈련할지 정해지지 않았음.
-    <ul>
-      <li>1986년 D. Rumelhart, G. Hinton 그리고 R. Williams가 <em>Backpropagation training algorithm</em> 논문을 공개함.</li>
-      <li>경사하강법을 사용하는 알고리즘 (Gradient Descent)
-        <ol>
-          <li>계단 함수는 경사하강법을 적용할 수 없음 (기울기가 없음)을 저자는 깨달음.
-            <ul>
-              <li>활성화 함수를 변경 $\rightarrow$ Sigmoid 함수 (기울기가 생김)</li>
-            </ul>
-          </li>
-          <li>연쇄 법칙을 적용.</li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-  <li>오늘날에는 다양한 활성화 함수가 소개됨.
-    <ul>
-      <li>Sigmoid, Tanh (Hyperbolic tangent), ReLU, Leaky ReLU, GeLU, etc.
-        <ul>
-          <li>ReLU의 변형들은 음수에서 함수의 값을 0으로 하지 않게 한다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Neural Network는 몇 가지 장단점이 있음.
-    <ul>
-      <li>복잡한 문제를 풀 수 있는 유연성을 제공</li>
-      <li>그런 유연성은 많은 하이퍼패러미터로 인해 trade-off가 있다.
-        <ul>
-          <li>주어진 하이퍼패러미터 조정을 효율적으로 도와주는 여러 라이브러리가 존재한다.</li>
-        </ul>
-      </li>
-      <li>하지만 모델의 아키텍처가 잘못되었다면 하이퍼패러미터를 아무리 잘 조정해도 성능이 개선되지 않는다.</li>
-    </ul>
-  </li>
-  <li>신경망을 다음을 주로 고려한다.
-    <ul>
-      <li>은닉층이 얼마나 많은가?</li>
-      <li>은닉층당 얼마나 많은 뉴런이 존재하는가?
-        <ul>
-          <li>모두 과적합의 위험을 내재함.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="2-convolution-neural-networks-cnns">2. Convolution Neural Networks (CNNs)</h2>
-
-<ul>
-  <li>CNN은 신경망의 종류 중 하나.
-    <ul>
-      <li>인간의 시각 피질이 어떻게 작동하는지를 연구한 결과</li>
-      <li>이미지 기반 작업에 효과적
-        <ul>
-          <li>Image recognition, Image detection, etc…</li>
-        </ul>
-      </li>
-      <li>심지어는 NLP나 Voice recognition 에서도 많이 쓰임.</li>
-    </ul>
-  </li>
-  <li>실제 시각 피질에서는 제한된 영역의 자극에만 반응하는 뉴런들을 찾을 수 있음.
-    <ul>
-      <li>각 뉴런의 관심 영역은 겹칠 수 있음.</li>
-    </ul>
-  </li>
-  <li>뉴런들은 각각의 특징을 가지고 있음.
-    <ul>
-      <li>그들 중 몇몇은 수평선에만 반응하고, 몇몇은 수직선에만 반응한다.</li>
-      <li>또 몇몇은 더 복잡한 패턴에 반응한다.</li>
-    </ul>
-  </li>
-  <li>FCNs (Fully Connected Networks)는 왜 이미지 처리에 사용되지 않을까?
-    <ul>
-      <li>저 해상도의 200x200 pixel 이미지를 생각해보자. (총 40000 pixel)</li>
-      <li>첫 layer의 Neuron의 수를 4000으로 잡아도 (1:10 축소, 정보 손실), 중간 연결의 수는 4000만이 된다. (<strong>어째서 4000만? 4000x40000=1억 6천 아닌가?</strong>)</li>
-      <li>CNNs의 각 Neuron은 모든 입력 pixel에 연결되지 않고, 각 visual region / receptive field에 연결된다. $\rightarrow$ 즉, 연결 수가 훨씬 적음.</li>
-    </ul>
+  <li>Inner product, Dot product
     <p align="center">
-<img src="https://drive.google.com/uc?export=view&amp;id=1EVxUFDSBAsRsaj-UGTaWSB-ivw8FcJKl" title="1_CNN" style="float: center; width:50%" />
-</p>
-  </li>
-  <li>CNNs의 중요한 개념 / 패러미터
+    <img src="https://drive.google.com/uc?export=view&amp;id=1wxc_v9SOvGPLrt2L2LTjfq_EYuSWLw4T" title="lec2-p3 image" style="float: center; width:50%" />
+  </p>
     <ul>
-      <li>Filters
+      <li>실수
         <ul>
-          <li>특정 패턴에 집중할 수 있게 해줌. (수직선, 수평선 등)</li>
-          <li>같은 필터를 쓰는 layer는 feature map을 결과로 출력함.</li>
+          <li>$&lt;x,y&gt;=x\cdot y=x^Ty=\begin{bmatrix} x_1 &amp; x_2 \ \end{bmatrix} \begin{bmatrix}y_1 \\ y_2 \ \end{bmatrix}=x_1y_1+x_2y_2$</li>
         </ul>
       </li>
-      <li>Zero padding
+      <li>복소수
         <ul>
-          <li>인풋의 경계에 0 픽셀들을 추가하는 것. 아웃풋 사이즈를 조정함. (인풋 사이즈를 보존할 수 있음)</li>
+          <li>$&lt;x,y&gt;=x\cdot y=y^*x=\begin{bmatrix} \overline{y_1} &amp; \overline{y_2} \ \end{bmatrix} \begin{bmatrix}x_1 \\ x_2 \ \end{bmatrix}=x_1\overline{y_1}+x_2\overline{y_2}$</li>
         </ul>
       </li>
-      <li>Stride
-        <ul>
-          <li>receptive field의 겹치는 정도를 조정할 수 있음.</li>
-          <li>필터가 몇 간씩 뛰어넘을지 결정.</li>
-        </ul>
-      </li>
-      <li>Depth
-        <ul>
-          <li>필터의 개수를 지정.</li>
-          <li>output feature map의 개수를 결정</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Pooling layers
-    <ul>
-      <li>feature map의 크기를 조정 (패러미터 감소).</li>
-      <li>feature map의 중요한 정보를 추출하는 역할.</li>
-      <li>Max pooling / Average pooling</li>
-    </ul>
-  </li>
-  <li>몇몇 중요한 CNNs
-    <ul>
-      <li>AlexNet(2012)</li>
-      <li>GoogleNet(2014) $\rightarrow$ Inception Module. 참고: <a href="https://kangbk0120.github.io/articles/2018-01/inception-googlenet-review">Inception Module</a></li>
-      <li>VGG16(2014)</li>
-      <li>ResNet(2015) $\rightarrow$ Residual Learning</li>
-      <li>Inception-v4 (GoogleNet+ResNet)</li>
-      <li>Xception(2016) $\rightarrow$ Inception Module를 depthwise separable convolution layers로 변경</li>
-      <li>SENet(2017)</li>
-      <li>YOLOv3(2018)$\rightarrow$ 몹시 빠른 객체 검출</li>
-    </ul>
-
-    <p>$\Rightarrow$ 핵심은 네트워크는 깊어지지만 패러미터는 적어진다는 것.</p>
-  </li>
-</ul>
-
-<h2 id="3-recurrent-neural-networks-rnns">3. Recurrent Neural Networks (RNNs)</h2>
-
-<ul>
-  <li>지금까지는 인공 신경망이 Feedforward Network라고 가정했다. (입력층에서 출력층으로 이동)</li>
-  <li>RNNs에서는 자신의 출력이 자신의 입력으로 들어온다.
-    <ul>
-      <li>t-1시점의 출력을 t시점의 입력과 함께 다시 자신에게 전달한다.</li>
-    </ul>
-  </li>
-  <li>각 RNN는 두 가지 형태의 가중치를 가진다.
-    <ul>
-      <li>input X, output for time t-1</li>
-    </ul>
-  </li>
-  <li>t 시점의 뉴런의 출력은 이전 시간의 입력들에 대한 함수가 되기 때문에, 뉴런의 출력이 기억(memory)를 가지고 있다고 말할 수 있다.
-    <ul>
-      <li>RNNs가 과거를 기억하고 미래를 예측한다고 생각할 수 있음.</li>
-    </ul>
-  </li>
-  <li>RNNs의 목표에 따라 다른 형태를 가짐.
-    <ul>
-      <li>Sequence-to-Sequence Network: 주가 예측과 같은 시계열 예측에 유리. 지난 X days동안의 입력으로부터 X+1~X+Y 예측(Y날동안의 미래를 예측)</li>
-      <li>Sequence-to-Vector Network: 신경망의 결과에만 관심이 있음. ex) 문장이 주어지면 의미를 예측 (+1 positive ~ -1 negative)</li>
-      <li>Vector-to-Sequence: 이미지를 받으면 이미지의 캡션을 생성.</li>
-      <li>Encoder/Decoder : Sequence-to-Vector 뒤에 Vector-to-Sequence가 연결됨. 언어 번역에 사용됨.</li>
-    </ul>
-  </li>
-  <li>어떻게 훈련시키나?
-    <ul>
-      <li>BackPropagation Through Time(BPTT): 네트워크를 시간에 따라 풀었다가(unroll) 전형적인 역전파를 적용. 참고: <a href="https://velog.io/@jody1188/BPTT">BPTT</a></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="4-autoencoders">4. Autoencoders</h2>
+<h2 id="2-paldu">2. PA=LDU</h2>
 
 <ul>
-  <li>Autoencoders는 입력값의 dense representation을 배우는 ANNs이다.
+  <li>행렬 A는 하삼각행렬(Lower triangular matrix) L과 상삼각행렬(Upper triangular matrix) U의 곱으로 나타낼 수 있다. A=LU
     <ul>
-      <li>비지도학습.</li>
-      <li>Dense representation은 Latent representation 혹은 Latent coding 이라고 부르기도 함.</li>
-    </ul>
-  </li>
-  <li>차원 축소, 특징 선택에 효과적이며, unsupervised pretraining networks와 generative tasks(GANs)에 쓰임.</li>
-  <li>즉, Autoencoder는 입력에서 출력으로 복사하는 법을 배움.
-    <ul>
-      <li>주로 MLP와 같은 구조를 가짐.
+      <li>이때 U의 대각행의 원소를 1로 맞추는 U=DU’로 더 나눌 수 있다.
         <ul>
-          <li>입력과 출력이 같은 사이즈를 가짐.</li>
-          <li>출력은 입력과 매우 비슷하지만 달라야 한다.
+          <li>$U’=\begin{bmatrix}d_1 &amp; u_{12} &amp; \cdots &amp; u_{1n} \\<br />
+0 &amp; d_2 &amp; \cdots &amp; u_{2n} \\\ 
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br />
+0 &amp; 0 &amp; \cdots &amp; u_{nn} \\ \end{bmatrix} = \begin{bmatrix}d_1 &amp; 0 &amp; \cdots &amp; 0 \\<br />
+0 &amp; d_2 &amp; \cdots &amp; 0 \\<br />
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br />
+0 &amp; 0 &amp; \cdots &amp; d_n \ \end{bmatrix}\begin{bmatrix}1 &amp; u_{12}/d_1 &amp; \cdots &amp; u_{1n}/d_1 \\<br />
+0 &amp; 1 &amp; \cdots &amp; u_{2n}/d_2 \\<br />
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br />
+0 &amp; 0 &amp; \cdots &amp; u_{nn}/d_n \\ \end{bmatrix}$</li>
+        </ul>
+      </li>
+      <li>A를 Gaussian elimination하여 U로 만들면 다음과 같은 형태가 된다.
+        <ul>
+          <li>$(E_mE_{m-1}\cdots E_2E_1)A=U$
             <ul>
-              <li>잠재 정보를 사용하기 때문.</li>
-              <li>중간 은닉층의 출력 결과가 잠재 정보.</li>
+              <li>Gaussian elimination은 행렬에 기본 행렬(Elementary matrix)을 곱하는 것으로 볼 수 있다.</li>
+              <li>이때 Gaussian elimination은 i열을 작업할 때, i행 밑의 원소들을 0으로 만들도록 작업하며, 1열부터 시작한다.</li>
+            </ul>
+          </li>
+          <li>$(E_mE_{m-1}\cdots E_2E_1)$의 역함수를 양변에 취해주면 다음과 같다.
+            <ul>
+              <li>$A = (E_mE_{m-1}\cdots E_2E_1)^{-1}U=LU$</li>
+              <li>따라서 $L=(E_mE_{m-1}\cdots E_2E_1)^{-1}=E^{-1}_1E^{-1}_2\cdots E^{-1}_m$</li>
+              <li>$\small E_i=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\\ &amp; 1 &amp; &amp; &amp; \\<br />
+&amp; &amp; \ddots &amp; \\\ &amp; &amp; l &amp; 1 &amp; \\\ &amp; &amp; &amp; &amp; 1  \end{bmatrix}$, $E^{-1}_i=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\\ &amp; 1 &amp; &amp; &amp; \\<br />
+&amp; &amp; \ddots &amp; \\\ &amp; &amp; -l &amp; 1 &amp; \\\ &amp; &amp; &amp; &amp; 1  \end{bmatrix}$</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>Encoder의 출력은 Latent representation이라고 불리며, 입력의 더 낮은 차원의 표현(Lower dimensional representation)이라고 볼 수 있다.
+      <li>이를 LU 분해(LU Decomposition)이라고 한다.
         <ul>
-          <li>그래서 차원 축소 / 특징 선택이라고 볼 수 있다.</li>
+          <li>LU 분해는 왜 하는가?</li>
+          <li>$Ax=y\rightarrow LUx=y$에서 $Ux$와 $L(Ux)$의 계산이 훨씬 간편해진다.
+            <ul>
+              <li>A가 나타내는 시스템에 대해 미리 LU 분해로 분석해놓으면, 인풋 x에 대한 아웃풋 y의 계산이 훨씬 간편해진다.</li>
+            </ul>
+          </li>
+          <li>$Ax=y\rightarrow x = A^{-1}y, A^{-1}=U^{-1}D^{-1}L^{-1}$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>만약 Gaussian Elimination 과정 중 두 행을 교환해야하는 경우 치환행렬(Permutation matrix)를 사용해야 한다. (<a href="https://www2.math.upenn.edu/~kazdan/320F18/Notes/Gauss-Elim/LU-P.html">LU Decomposition with Pivoting</a>)
+    <ul>
+      <li>이 경우 전체 식은 다음과 같은 형태가 된다.
+        <ul>
+          <li>$L_3P_3L_2P_2L_1P_1A=U$</li>
+        </ul>
+      </li>
+      <li>위 식은 다음과 같은 형태로 변형할 수 있다.
+        <ul>
+          <li>$L’_3L’_2L’_1P_3P_2P_1A=U$</li>
+          <li>$L’_3=L_3,\ L’_2=P_3L_2P^{-1}_3,\ L’_1=P_3P_2L_1P^{-1}_2P^{-1}_3$</li>
+        </ul>
+      </li>
+      <li>이 경우 PA=LU는 다음과 같은 형태가 된다.
+        <ul>
+          <li>$L=(L’_3L’_2L’_1)^{-1},\ P=P_3P_2P_1$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>하지만, L’를 구하는 과정이 상당히 많은 계산이 요구된다(역행렬이 포함됨).
+    <ul>
+      <li>$L_i$와 $P_j$를 교환하는 과정을 조금 더 효율적으로 계산하는 방법이 있다.(<a href="https://www.youtube.com/watch?v=9YmssxzMhAo#t=9m33">링크</a>)</li>
+      <li>다음의 경우를 고려해보자.
+        <ul>
+          <li>$\scriptsize P=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 1\\<br />
+&amp; &amp; 1 &amp; &amp; \\<br />
+&amp; &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\ \end{bmatrix}$, $\scriptsize A=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; 1 \\ \end{bmatrix}$</li>
+        </ul>
+      </li>
+      <li>P는 위에서 본 치환행렬이다. P가 행렬의 왼쪽에 위치하면 행렬의 행을 바꾸는 역할을 하며, P가 행렬의 오른쪽에 위치하면 행렬의 열을 바꾸는 역할을 한다.
+        <ul>
+          <li>$\scriptsize PA=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 1\\<br />
+&amp; &amp; 1 &amp; &amp; \\<br />
+&amp; &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\ \end{bmatrix}\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; 1 \\ \end{bmatrix}=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; 1 \\ \end{bmatrix}$</li>
+          <li>$\scriptsize AP=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; 1 \\ \end{bmatrix}\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 1\\<br />
+&amp; &amp; 1 &amp; &amp; \\<br />
+&amp; &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\ \end{bmatrix}=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 1\\<br />
+&amp; &amp; 1 &amp; &amp; 2\\<br />
+&amp; &amp; &amp; 1 &amp; 3\\<br />
+&amp; 1 &amp; &amp; &amp; 4\\ \end{bmatrix}$</li>
+        </ul>
+      </li>
+      <li>우린 $L_3P_3L_2P_2L_1P_1A=U$의 형태를 $L’_3L’_2L’_1P_3P_2P_1A=U$로 변형하고 싶기 때문에 $PA=A’P$를 위한 $A’$를 찾기를 원한다. 이를 위해 양변에 $P^{-1}$를 오른쪽에서 곱해보자.
+        <ul>
+          <li>치환행렬의 역행렬은 자기 자신이다.
+            <ul>
+              <li>행열을 바꾸는 행위는 한 번 더 바꿈으로써 원래대로 돌아올 수 있다.</li>
+            </ul>
+          </li>
+          <li>$PAP=PAP^{-1}=A’PP^{-1}=A’$</li>
+          <li>$\scriptsize (PA)P=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; 1 \\ \end{bmatrix}\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 1\\<br />
+&amp; &amp; 1 &amp; &amp; \\<br />
+&amp; &amp; &amp; 1 &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\ \end{bmatrix}=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 4\\<br />
+&amp; &amp; 1 &amp; &amp; 2\\<br />
+&amp; &amp; &amp; 1 &amp; 3\\<br />
+&amp; 1 &amp; &amp; &amp; 1\\ \end{bmatrix}=A’$</li>
+          <li>A와 A’를 비교해보자. $\scriptsize A=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; 1 &amp; &amp; &amp; \\<br />
+&amp; 2 &amp; 1 &amp; &amp; \\<br />
+&amp; 3 &amp; &amp; 1 &amp; \\<br />
+&amp; 4 &amp; &amp; &amp; 1 \\ \end{bmatrix}$, $\scriptsize A’=\begin{bmatrix}1 &amp; &amp; &amp; &amp; \\<br />
+&amp; &amp; &amp; &amp; 4\\<br />
+&amp; &amp; 1 &amp; &amp; 2\\<br />
+&amp; &amp; &amp; 1 &amp; 3\\<br />
+&amp; 1 &amp; &amp; &amp; 1\\ \end{bmatrix}$</li>
+        </ul>
+      </li>
+      <li>위의 예시에서 P는 2, 5 행/열을 바꾸는 치환행렬이다. 따라서 A 행렬의 2행과 5행, 2열과 5열을 모두 바꾸어 A’를 얻을 수 있다.</li>
+      <li>이를 일반화시켜보면, 만약 P가 i, j 행/열을 바꾸는 치환행렬이라면, A’는 A의 i, j 행과 열을 바꾸어 얻을 수 있다.
+        <ul>
+          <li>대각행에 있는 i번째 원소와 j번째 원소는 서로 교체된다.</li>
+        </ul>
+      </li>
+      <li>다시 LU Decomposition의 경우를 생각해보자.
+        <ul>
+          <li>$L_1$은 $P_2$에 의해 변형되는데, $P_2$는 2, m(m&gt;2) 행/열을 바꾸는 치환행렬이므로 대각행을 제외하고는 1열에만 값이 있는 $L_1$의 경우 대각행을 제외한 2행과 m행의 원소를 서로 교환하여 $L’_1$을 구할 수 있다. 이때, $L’_1$은 여전히 1열에만 값을 가지고 있으며, 대각행의 원소는 모두 1이므로 서로 교환되어도 변화가 없으므로 대각행을 제외한 원소만을 고려한다.</li>
+          <li>위 변환을 통해 $L_2P_2L_1P_1$은 $L_2L’_1P_2P_1$이 되었다. $L_2$의 경우 대각행 아래 2열에만 값을 가지고 있으므로 $L_2L’_1$은 대각행 아래 1, 2열에만 원소를 가지고 있다.</li>
+          <li>$L_2L’_1P_2P_1$은 $P_3$에 의해 변환되는데 $P_3$는 3, n(n&gt;3) 행/열을 바꾸는 치환행렬이므로 대각행 제외 1, 2열에만 값을 가지고 있는 $L_2L’_1$는 대각행을 제외한 3, n행의 원소를 서로 교환하여 $L’_2L’‘_1$을 을 구할 수 있다.</li>
+          <li>이와 같은 방식으로 $P_i$를 오른쪽으로 옮김과 동시에 앞서 계산한 $L’$행렬의 대각행을 제외한 행렬의 행을 교환하여 최종 $L’$와 $P$을 구할 수 있다.</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
+
+<h2 id="3-gauss-jordan-method-for-finding-inva">3. Gauss-Jordan Method for Finding inv(A)</h2>
+
+<ul>
+  <li>$AA^{-1}=A^{-1}A=(E_nE_{n-1}\cdots E_2E_1)A=I$</li>
+  <li>즉, A를 I로 바꾸는 기본행렬들의 곱을 찾으면 된다.</li>
+  <li>따라서 기본 행 연산(Elementary Row Operation)을 통해 A를 I로 바꾸면 $A^{-1}$를 구할 수 있다.
+    <ul>
+      <li>$[A\vert I]\rightarrow [I\vert A^{-1}]$</li>
+    </ul>
+  </li>
+  <li>만약 $A$가 $n\times n$ 행렬이라면 위 연산의 계산복잡도는 다음과 같다.
+    <ul>
+      <li>$[A\vert I]$를 기준으로 한 행에 scalar 곱을 하는 연산 (scalar multiplication) : $2n$</li>
+      <li>scalar 곱을 한 행을 다른 행에서 빼는 연산 (addition) : $2n$
+        <ul>
+          <li>행렬의 한 원소를 0으로 바꾸기 위해서는 총 $4n$의 연산이 필요함.</li>
+        </ul>
+      </li>
+      <li>한 열 안에 있는 n-1행의 원소를 0으로 만들기 : $4n\times (n-1)\approx 4n\times n$</li>
+      <li>모든 열에 대해 위의 연산 시행 : $4n\times n\times n$</li>
+    </ul>
+  </li>
+  <li>시간 복잡도 : $4n^3=O(n^3)$</li>
+</ul>
+
+<h2 id="4-associate-memory">4. Associate Memory</h2>
+
+<p>이러한 개념이 있다고 소개만 해주셨다. 원본은 논문 여러 장… $\rightarrow$ <a href="/list/000/#1-nonparametric-bayesian">언젠가…</a></p>
 
         
       </section>
@@ -882,9 +886,11 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#deep-learning" class="page__taxonomy-item" rel="tag">Deep Learning</a><span class="sep">, </span>
+      <a href="/tags/#linear-algebra" class="page__taxonomy-item" rel="tag">Linear Algebra</a><span class="sep">, </span>
     
-      <a href="/tags/#gnn" class="page__taxonomy-item" rel="tag">GNN</a>
+      <a href="/tags/#lu-decomposition" class="page__taxonomy-item" rel="tag">LU Decomposition</a><span class="sep">, </span>
+    
+      <a href="/tags/#pa-lu" class="page__taxonomy-item" rel="tag">PA=LU</a>
     
     </span>
   </p>
@@ -901,14 +907,14 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#gnn" class="page__taxonomy-item" rel="tag">GNN</a>
+      <a href="/categories/#nonparametric-bayesian" class="page__taxonomy-item" rel="tag">Nonparametric bayesian</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-05">November 5, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-14">November 14, 2022</time></p>
 
 
       </footer>
@@ -918,22 +924,22 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BGNN%5D+01.+Deep+Learning+Basics%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F001%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BNonparametric+Bayesian%5D+01.+Linear+Algebra+1%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fnonparametric-bayesian%2F001%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F001%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fnonparametric-bayesian%2F001%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fgnn%2F001%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fnonparametric-bayesian%2F001%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/courses/ai-toolkit/011/" class="pagination--pager" title="[AI toolkit] 11. Information Theory
+      <a href="/courses/ai-toolkit/012/" class="pagination--pager" title="[AI toolkit] 12. Convolutional Neural Network
 ">Previous</a>
     
     
-      <a href="/courses/gnn/002/" class="pagination--pager" title="[GNN] 02. Graph Basics
+      <a href="/courses/nonparametric-bayesian/002/" class="pagination--pager" title="[Nonparametric Bayesian] 02. Linear Algebra 2
 ">Next</a>
     
   </nav>
@@ -1031,42 +1037,6 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/courses/nonparametric-bayesian/001/" rel="permalink">[Nonparametric Bayesian] 01. Linear Algebra 1
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Linear Algebra
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/courses/ai-toolkit/012/" rel="permalink">[AI toolkit] 12. Convolutional Neural Network
 </a>
       
@@ -1089,6 +1059,42 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 
     <p class="archive__item-excerpt" itemprop="description">Basics of CNNs
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/list/000/" rel="permalink">[To-do] List
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">To do someday…
 </p>
   </article>
 </div>
@@ -1146,8 +1152,8 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/courses/gnn/001/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/courses/gnn/01-deeplearning-basics"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/courses/nonparametric-bayesian/001/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/nonparametric-bayesian/01-linear-algebra-1"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

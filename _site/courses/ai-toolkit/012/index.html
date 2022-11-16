@@ -52,30 +52,36 @@
     
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Philosophy of Science | hjinnkim</title>
-<meta name="description" content="hjinnkim’s Robot / AI / Development blog">
+<!-- begin _includes/seo.html --><title>[AI toolkit] 12. Convolutional Neural Network | hjinnkim</title>
+<meta name="description" content="Basics of CNNs">
 
 
   <meta name="author" content="hjinnkim">
   
+  <meta property="article:author" content="hjinnkim">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="hjinnkim Devlog">
-<meta property="og:title" content="Philosophy of Science">
-<meta property="og:url" content="http://localhost:4000/categories/philosophy-of-science">
+<meta property="og:title" content="[AI toolkit] 12. Convolutional Neural Network">
+<meta property="og:url" content="http://localhost:4000/courses/ai-toolkit/012/">
 
 
-  <meta property="og:description" content="hjinnkim’s Robot / AI / Development blog">
-
-
-
+  <meta property="og:description" content="Basics of CNNs">
 
 
 
 
 
+
+
+  <meta property="article:published_time" content="2022-11-14T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2022-11-14T00:00:00+09:00">
 
 
 
@@ -84,7 +90,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/philosophy-of-science">
+<link rel="canonical" href="http://localhost:4000/courses/ai-toolkit/012/">
 
 
 
@@ -157,9 +163,33 @@
     <meta name="theme-color" content="#ffffff">
 
     
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        equationNumbers: {
+        autoNumber: "AMS"
+        }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+    }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
   </head>
 
-  <body class="layout--category">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -341,7 +371,7 @@
   <label for="ac-toc">Toggle menu</label>
   <ul class="nav__items">
     <!-- <li>
-      <span class="nav__total">🌴 Total Posts: 32</span>
+      <span class="nav__total">🌴 Total Posts: 37</span>
     </li> -->
     
     
@@ -367,33 +397,6 @@
             
               
             
-              
-            
-              
-            
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <!-- title -->
-              <span class="nav__sub-title">LiberalArts</span>
-              <hr>
-        
-
-        
-        <ul>
-          
-            <!-- sub-title -->
-            
-              
-            
-              
-            
-              
-                <li><a href="/categories/philosophy-of-science" class="active">Ph of Science (9)</a></li>
               
             
               
@@ -428,7 +431,11 @@
               
             
               
-                <li><a href="/categories/ai-toolkit">AI toolkit (12)</a></li>
+                <li><a href="/categories/ai-toolkit">AI toolkit (13)</a></li>
+              
+            
+              
+            
               
             
               
@@ -446,6 +453,12 @@
             
               
             
+              
+            
+              
+            
+              
+                <li><a href="/categories/nonparametric-bayesian">Nonparametric bayesian (3)</a></li>
               
             
           
@@ -479,6 +492,10 @@
             
               
             
+              
+            
+              
+            
           
             <!-- sub-title -->
             
@@ -490,6 +507,10 @@
             
               
                 <li><a href="/categories/markdown">Markdown (1)</a></li>
+              
+            
+              
+            
               
             
               
@@ -527,6 +548,45 @@
                 <li><a href="/categories/gnn">GNN (5)</a></li>
               
             
+              
+            
+              
+            
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <!-- title -->
+              <span class="nav__sub-title">Someday</span>
+              <hr>
+        
+
+        
+        <ul>
+          
+            <!-- sub-title -->
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/categories/to-do">To do (1)</a></li>
+              
+            
+              
+            
           
         </ul>
         
@@ -541,25 +601,238 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[AI toolkit] 12. Convolutional Neural Network">
+    <meta itemprop="description" content="Basics of CNNs">
+    <meta itemprop="datePublished" content="2022-11-14T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2022-11-14T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[AI toolkit] 12. Convolutional Neural Network
+</h1>
+          
+
+  <p class="page__meta">
     
-      <h1 id="page-title" class="page__title">Philosophy of Science</h1>
-    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
+      </span>
     
 
+    
+
+    
+  </p>
 
 
-<div class="entries-list">
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#lecture-12">Lecture 12</a><ul><li><a href="#0-table-of-contents">0. Table of Contents</a></li><li><a href="#1-mnist-classification-with-mlps">1. MNIST Classification with MLPs</a></li><li><a href="#2-convolutional-neural-networks">2. Convolutional Neural Networks</a><ul><li><a href="#21-convolution-layers">2.1 Convolution Layers</a></li><li><a href="#22-pooling-layers">2.2 Pooling Layers</a></li></ul></li><li><a href="#3-stacking-layers">3. Stacking Layers</a></li><li><a href="#4-convolution-layer-output-size">4. Convolution Layer Output Size</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="lecture-12">Lecture 12</h1>
+
+<h2 id="0-table-of-contents">0. Table of Contents</h2>
+
+<ol>
+  <li><a href="#1-mnist-classification-with-mlps">MNIST Classification with MLPs</a></li>
+  <li><a href="#2-convolutional-neural-networks">Convolutional Neural Networks</a></li>
+  <li><a href="#3-stacking-layers">Stacking Layers</a></li>
+</ol>
+
+<h2 id="1-mnist-classification-with-mlps">1. MNIST Classification with MLPs</h2>
+
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1cme5S_V2z4W6rYtDYo7PEg8va_J9JaJg" title="lec12-p3 image" style="float: center; width:100%" />
+</p>
+
+<h2 id="2-convolutional-neural-networks">2. Convolutional Neural Networks</h2>
+
+<h3 id="21-convolution-layers">2.1 Convolution Layers</h3>
+
+<ul>
+  <li>Number of parameters: 3x224x224x256+256x128+128x10 = 38569216
+    <ul>
+      <li>3x224x224 resolution is very low. But, # of parameters is very high</li>
+      <li>Need More efficient way for processing images</li>
+    </ul>
+  </li>
+  <li>Images can be similar even if scale is changed, or transition happens.
+    <p align="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1MMr7gzn6Q3YIzrZjyHBGHbOPnyIZ-eo6" title="lec12-p7 image" style="float: center; width:30%" />
+  </p>
+    <ul>
+      <li>Characteristics of images can be considered to be hierarchical
+        <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1PyVejbWX-oAZbCtGb-ifQras72zYdZcV" title="lec12-p7 image" style="float: center; width:80%" />
+</p>
+      </li>
+    </ul>
+  </li>
+  <li>For an image with size WxHx3:
+    <p align="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1YtAUaM_pfW_4jF5tHVMi_A2eA-JssIHL" title="lec12-p14 image" style="float: center; width:80%" />
+  </p>
+    <ul>
+      <li>Filter size : 3x3x3 : (WxHx3)</li>
+      <li>Filters are shared when processing different area of an image</li>
+      <li>Look at the local parts first, not the whole part of the image</li>
+    </ul>
+  </li>
+  <li>Multiple filters gives multiple channel output
+    <ul>
+      <li>K filters gives MxNxK responses(WxHxC)
+        <p align="center">
+  <img src="https://drive.google.com/uc?export=view&amp;id=1E10olBIUNaCdIyzWSvodZ1YUGbQcDaoS" title="lec12-p16 image" style="float: center; width:100%" />
+</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="22-pooling-layers">2.2 Pooling Layers</h3>
+
+<ul>
+  <li>Subsampling the response with pooling layers
+    <p align="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1IHS_p10NGezGUgR58KKtaQvYAPwaTJg1" title="lec12-p24 image" style="float: center; width:100%" />
+  </p>
+  </li>
+  <li>Reprentative pooling layers:
+    <ul>
+      <li>Max pooling layer</li>
+      <li>Average pooling layer</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-stacking-layers">3. Stacking Layers</h2>
+
+<ul>
+  <li>Convolution layer $\rightarrow$ Activation func $\rightarrow$ Subsampling by pooling $\rightarrow$ ~~~
+    <p align="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1Ixu5X3YMFx4v-JF5grBNQfMllPLgLdQa" title="lec12-p16 image" style="float: center; width:100%" />
+  </p>
+  </li>
+</ul>
+
+<h2 id="4-convolution-layer-output-size">4. Convolution Layer Output Size</h2>
+
+<ul>
+  <li>
+    <p>Kernel size, stride, dilation, padding</p>
+
+    <p align="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1N_YcNwBOltdHXlDl3uzsqRRTHQCUlMhz" title="lec12-p30 image" style="float: center; width:100%" />
+  </p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
 
 
+  
 
-<div class="list__item">
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cnn" class="page__taxonomy-item" rel="tag">CNN</a><span class="sep">, </span>
+    
+      <a href="/tags/#deep-learning" class="page__taxonomy-item" rel="tag">Deep Learning</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai-toolkit" class="page__taxonomy-item" rel="tag">AI toolkit</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-14">November 14, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BAI+toolkit%5D+12.+Convolutional+Neural+Network%20http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F012%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F012%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcourses%2Fai-toolkit%2F012%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/list/000/" class="pagination--pager" title="[To-do] List
+">Previous</a>
+    
+    
+      <a href="/courses/nonparametric-bayesian/001/" class="pagination--pager" title="[Nonparametric Bayesian] 01. Linear Algebra 1
+">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/liberalarts/philosophyofscience/010/" rel="permalink">[Philosophy of Science] 10. Observation and Theory
+        <a href="/courses/nonparametric-bayesian/003/" rel="permalink">[Nonparametric Bayesian] 03. Information Theory
 </a>
       
     </h2>
@@ -570,7 +843,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
       </span>
     
 
@@ -580,20 +853,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">How are observation and theory related to each other
+    <p class="archive__item-excerpt" itemprop="description">Linear Algebra
 </p>
   </article>
 </div>
 
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/liberalarts/philosophyofscience/009/" rel="permalink">[Philosophy of Science] 09. Logical Positivism
+        <a href="/courses/nonparametric-bayesian/002/" rel="permalink">[Nonparametric Bayesian] 02. Linear Algebra 2
 </a>
       
     </h2>
@@ -604,7 +879,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
       </span>
     
 
@@ -614,20 +889,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">What is the logical positivism
+    <p class="archive__item-excerpt" itemprop="description">Linear Algebra
 </p>
   </article>
 </div>
 
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/liberalarts/philosophyofscience/006/" rel="permalink">[Philosophy of Science] 06. The Methods of Science
+        <a href="/courses/nonparametric-bayesian/001/" rel="permalink">[Nonparametric Bayesian] 01. Linear Algebra 1
 </a>
       
     </h2>
@@ -638,7 +915,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
       </span>
     
 
@@ -648,20 +925,22 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">What methods do scientists use to achieve aims of science
+    <p class="archive__item-excerpt" itemprop="description">Linear Algebra
 </p>
   </article>
 </div>
 
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/liberalarts/philosophyofscience/005/" rel="permalink">[Philosophy of Science] 05. The Aims of Science
+        <a href="/list/000/" rel="permalink">[To-do] List
 </a>
       
     </h2>
@@ -672,7 +951,7 @@
       
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-17T00:00:00+09:00">October 17, 2022</time>
+        <time datetime="2022-11-14T00:00:00+09:00">November 14, 2022</time>
       </span>
     
 
@@ -682,185 +961,18 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">What is difference of science from other enterprises such as music, sports, religion, and politics
+    <p class="archive__item-excerpt" itemprop="description">To do someday…
 </p>
   </article>
 </div>
 
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/liberalarts/philosophyofscience/004/" rel="permalink">[Philosophy of Science] 04. Descriptivism vs. Instrumentalism
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">What are descriptivism and instrumentalism
-</p>
-  </article>
+        
+      </div>
+    </div>
+  
+  
 </div>
 
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/liberalarts/philosophyofscience/003/" rel="permalink">[Philosophy of Science] 03. Hypothesis, Law, and Theory
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Similarities and differences among hypostheses, laws, and theories
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/liberalarts/philosophyofscience/002/" rel="permalink">[Philosophy of Science] 02. Scientific knowledge
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">What is knowledge?
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/liberalarts/philosophyofscience/001/" rel="permalink">[Philosophy of Science] 01. Basic Terms
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Basic terms frequently used in philosophy of science
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/liberalarts/philosophyofscience/000/" rel="permalink">[Philosophy of Science] 00. Introduction
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        <time datetime="2022-10-16T00:00:00+09:00">October 16, 2022</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Introduction of philosophy of science
-</p>
-  </article>
-</div>
-
-</div>
-
-  </div>
-</div>
     </div>
 
     
@@ -902,6 +1014,25 @@
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/courses/ai-toolkit/012/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/courses/ai-toolkit/convolutional_nueral_network"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hjinnkim.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

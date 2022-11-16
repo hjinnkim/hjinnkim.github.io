@@ -190,4 +190,34 @@ var store = [{
         "tags": ["Graph","GNN"],
         "url": "/courses/gnn/005/",
         "teaser": null
+      },{
+        "title": "[To-do] List",
+        "excerpt":"To do   0. Table of Contents      Nonparametric bayesian   1. Nonparametric bayesian                  개념       From       To                       Associate Memory       링크       Not yet                 Matrix Norm       링크       Not yet                 Generalized Eigenvalue       링크       Not yet                 Pseudo Inverse       링크       Not yet                 Positive Definite       링크       Not yet           ","categories": ["To do"],
+        "tags": [],
+        "url": "/list/000/",
+        "teaser": null
+      },{
+        "title": "[AI toolkit] 12. Convolutional Neural Network",
+        "excerpt":"Lecture 12 0. Table of Contents MNIST Classification with MLPs Convolutional Neural Networks Stacking Layers 1. MNIST Classification with MLPs 2. Convolutional Neural Networks 2.1 Convolution Layers Number of parameters: 3x224x224x256+256x128+128x10 = 38569216 3x224x224 resolution is very low. But, # of parameters is very high Need More efficient way for...","categories": ["AI toolkit"],
+        "tags": ["Deep Learning","CNN"],
+        "url": "/courses/ai-toolkit/012/",
+        "teaser": null
+      },{
+        "title": "[Nonparametric Bayesian] 01. Linear Algebra 1",
+        "excerpt":"Lecture 01 0. Table of Contents n-tuple vector PA=LDU Gaussian-Jordan Methods for Finding inv(A) Associate Memory 1. n-tuple vector Inner product, Dot product 실수 $&lt;x,y&gt;=x\\cdot y=x^Ty=\\begin{bmatrix} x_1 &amp; x_2 \\ \\end{bmatrix} \\begin{bmatrix}y_1 \\\\ y_2 \\ \\end{bmatrix}=x_1y_1+x_2y_2$ 복소수 $&lt;x,y&gt;=x\\cdot y=y^*x=\\begin{bmatrix} \\overline{y_1} &amp; \\overline{y_2} \\ \\end{bmatrix} \\begin{bmatrix}x_1 \\\\ x_2 \\ \\end{bmatrix}=x_1\\overline{y_1}+x_2\\overline{y_2}$ 2....","categories": ["Nonparametric bayesian"],
+        "tags": ["Linear Algebra","LU Decomposition","PA=LU"],
+        "url": "/courses/nonparametric-bayesian/001/",
+        "teaser": null
+      },{
+        "title": "[Nonparametric Bayesian] 02. Linear Algebra 2",
+        "excerpt":"Lecture 02 0. Table of Contents Determinant Vector Norm Matrix Norm Orthogonralization Eigenvalues and Eigenvectors SVD Pseudo Inverse Derivative of Matrix/Vector Function Positive Definite Matrices 1. Determinant 행렬식(Determinant)의 특징들: $det(AB)=det(A)det(B)$ $\\underset{\\text{Row Swap}}{A\\rightarrow B} \\Rightarrow det(A)=-det(B)$ $\\underset{\\text{Scalar Multiplication}}{A\\rightarrow B} \\Rightarrow det(A)=-det(B)$ $\\underset{\\text{Row Addition}}{A\\rightarrow B} \\Rightarrow det(A)=det(B)$ $det(A)=det(A^T)$ For $Ax=b$ $\\rightarrow$ $x_k...","categories": ["Nonparametric bayesian"],
+        "tags": ["Linear Algebra","Determinant","Norm","Orthogonalization","Eigenvalue","Eigenvector","SVD","Pseudo Inverse","Positive definite"],
+        "url": "/courses/nonparametric-bayesian/002/",
+        "teaser": null
+      },{
+        "title": "[Nonparametric Bayesian] 03. Information Theory",
+        "excerpt":"Lecture 03 Information Theory 0. Table of Contents 1. Information 정보의 기댓값(Expectation of information) $H(X)=E[I(X)]=\\Sigma^K_{k=-K}p_kI(x_k)=-\\Sigma^K_{k=-K}p_k\\log{p_k}$ 엔트로피 최댓값 $p_k$=uniform $0\\leq H(X)\\leq -\\Sigma^K_{k=-K}\\frac{1}{2K+1}\\log{\\frac{1}{2K+1}}=\\log{2K+1}$ $p_k=$0 or 1이면 정보는 0$\\rightarrow $따라서 엔트로피도 0 Theorem(Gray, 1990) $\\Sigma_Kp_k\\log{\\frac{p_k}{q_k}}\\geq 0$ Relative entropy(or Kullback-Leibler divergence, KL divergence) $D_{p\\Vert{q}}=\\Sigma_{x\\in X}p_X(x)\\log{\\frac{p_X(x)}{q_X(x)}}$ 이때 $p_X(x)$는 기준 pmf, $q_X(x)$는 상대 pmf KL divergence...","categories": ["Nonparametric bayesian"],
+        "tags": ["Information Theory","Entropy","KL Divergence","Cross Entropy","Mutual Information"],
+        "url": "/courses/nonparametric-bayesian/003/",
+        "teaser": null
       }]

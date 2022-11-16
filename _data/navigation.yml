@@ -29,11 +29,6 @@ categories:
       - title: "Linear Algebra"
         url: /categories/linear-algebra
 
-  - title: LiberalArts
-    children:
-      - title: "Ph of Science"
-        url: /categories/philosophy-of-science
-
   - title: Courses
     children:
       - title: "AI toolkit"
@@ -47,7 +42,13 @@ categories:
         url: /categories/blog
       - title: "Markdown"
         url: /categories/markdown
+
   - title: AI
     children:
       - title: "GNN"
         url: /categories/gnn
+  
+  - title: Someday
+    children:
+      - title: "To do"
+        url: /categories/to-do
