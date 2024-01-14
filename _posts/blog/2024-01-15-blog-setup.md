@@ -3,6 +3,7 @@ title: "[Blog] Blog 개설 Guide"
 date: 2024-01-15 + 0000
 categories: [Blog]
 tags: [blog]		# TAG는 반드시 소문자로 이루어져야함!
+pin: false
 ---
 
 Chirpy 테마로 새 Github blog를 개설하며 따랐던 링크를 정리한 게시글입니다.
