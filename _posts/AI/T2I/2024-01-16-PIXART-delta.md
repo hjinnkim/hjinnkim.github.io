@@ -35,7 +35,10 @@ math: true
 *PIXART-$\alpha$* 에 *LCM* 을 적용한 알고리즘을 설명한다.
 
 <p align="center">
-<img src="{{site.gdrive_url_prefix}}13r_NhmTLDNZwln9vWRNOUK8O_HoV3OGD"
+<img src="https://drive.google.com/uc?export=view&id=13r_NhmTLDNZwln9vWRNOUK8O_HoV3OGD"
      title="LCM algorithm" 
-     style="float: center; width:80%">
+     style="float: center; width:80%"
+     alt="Alternative text"/>
 </p>
+
+Batch size가 크면 FID / CLIP score가 좋아지지만, 
