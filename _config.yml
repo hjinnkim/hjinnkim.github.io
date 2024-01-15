@@ -196,5 +196,3 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-
-gdrive_url_prefix: "https://drive.google.com/uc?export=view&id="
