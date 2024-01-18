@@ -1,7 +1,7 @@
 ---
 title: "[Super Resolution] Transforming Image Super-Resolution: A ConvFormer-based Efficient Approach"
 date: 2024-01-17 + 0030
-categories: [Super Resolution]
+categories: [Super Resolution, Light Weight]
 tags: [super resolution]		# TAG는 반드시 소문자로 이루어져야함!
 pin: false
 math: true

@@ -1,7 +1,7 @@
 ---
 title: "[Text-to-Image] PIXART-δ:FASTANDCONTROLLABLEIMAGE GENERATIONWITHLATENTCONSISTENCYMODELS"
 date: 2024-01-16 + 0030
-categories: [Diffusion model, T2I]
+categories: [Diffusion Model, T2I]
 tags: [text-to-image, diffusion model, ]		# TAG는 반드시 소문자로 이루어져야함!
 pin: false
 math: true
