@@ -69,11 +69,12 @@ First stage에서는 Non-uniform sampling strategy를 사용하여 structure ref
 
 Estimaged $\hat x_{0\leftarrow T}=\frac{x_T-\sqrt{1-\bar \alpha}\epsilon_\epsilon(x_T, T)}{\sqrt{\bar \alpha}}$
 
-$l_T=||x_0-\hat x_{0\leftarrow T}||^2$
+
+$l_T=\lVert x_0-\hat x_{0\leftarrow T}\rVert^2$
 
 $\hat x_{t_{max}}=\sqrt{\bar \alpha_{t_{max}}} \cdot \hat x_{0\leftarrow T}+\sqrt{1-\bar\alpha_{t_{max}}}\cdot \epsilon$
 
-$l_{t_{max}}=||x_0-\frac{1}{\sqrt{\bar\alpha_{t_{max}}}}(\hat x_{t_{max}}-\sqrt{1-\bar\alpha_{t_{max}}}\epsilon_{t_{max}})||^2$
+$l_{t_{max}}=\lVert x_0-\frac{1}{\sqrt{\bar\alpha_{t_{max}}}}(\hat x_{t_{max}}-\sqrt{1-\bar\alpha_{t_{max}}}\epsilon_{t_{max}})\rVert^2$
 
 CCSR loss at t=T: $l^T_{diff}=l_{diff}+l_T+l_{t_{max}}$
 
