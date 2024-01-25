@@ -2,7 +2,7 @@
 title: "[Text-to-Video] Text-to-Video: The Task, Challenges and the Current State"
 date: 2024-01-26 + 0130
 categories: [Video, Text-to-Video]
-tags: [t2v, blog]		# TAG는 반드시 소문자로 이루어져야함!
+tags: [text-to-video, blog]		# TAG는 반드시 소문자로 이루어져야함!
 pin: false
 math: true
 ---
