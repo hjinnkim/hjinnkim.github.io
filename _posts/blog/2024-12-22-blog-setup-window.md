@@ -1,5 +1,5 @@
 ---
-title: "[Blog] Blog Window"
+title: "[Blog] Blog setup in Window"
 date: 2024-12-22 + 0000
 categories: [Blog]
 tags: [blog]		# TAG는 반드시 소문자로 이루어져야함!
