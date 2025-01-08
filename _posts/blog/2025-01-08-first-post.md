@@ -4,7 +4,7 @@ categories:
   - Blog
 tags:
   - Blog
-last_modified_at: 2025-01-08
+last_modified_at: 2025-01-08T20:00:00
 ---
 
 이 글은 포스팅은 다음 링크 <https://devinlife.com/howto/>를 기반으로 작성되었습니다.
