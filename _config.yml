@@ -325,4 +325,6 @@ defaults:
       comments: true # true
       share: true
       related: true
+      toc: true
+      toc_sticky: true
 

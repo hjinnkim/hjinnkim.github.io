@@ -2,7 +2,6 @@
 title: "수학+코딩+AI를 잘하고 싶은 Post 석사"
 permalink: /about/
 layout: single
-classes: wide
 ---
 
 
