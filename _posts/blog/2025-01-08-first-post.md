@@ -7,6 +7,10 @@ tags:
 last_modified_at: 2025-01-08
 ---
 
+이 글은 포스팅은 다음 링크 <https://devinlife.com/howto/>를 기반으로 작성되었습니다.
+
+---
+
 GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.
 GitHub Blog 서비스의 이름은 Pages이다.
 
