@@ -321,9 +321,13 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
+      show_date: true
       comments: true # true
       share: true
       related: true
       classes: wide
+      use_math: true
+      sidebar_main: true
 
+enable_copy_code_button: true

@@ -1,4 +1,4 @@
-<nav class="nav__list">
+<!-- <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
@@ -23,5 +23,51 @@
         </li>
       {% endfor %}
     {% endfor %}
+  </ul>
+</nav> -->
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/">📂 Total posts ({{ site.posts.size }})</a></span>
+      </li>
+      <li>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-reviews">📝 Paper Review ({{ site.categories['Paper Review'].size }})</a></span>
+        {% assign target_tags = "Computer Vision/CV/Computer Vision" | split: ", " %}
+        {% for target_tag in target_tags %}
+          {% assign sep = target_tag | split: "/" %}
+          <ul v-show="flag_c">
+            {% for tag in site.tags %}
+              {% if tag[0] == sep[0] %}
+                {% assign cnt = 0 %}
+                {% for page in tag[1] %}
+                  {% assign cnt = cnt | plus: 1 %}
+                {% endfor %}
+                <li><a href="/categories/paper-reviews/{{sep[1]}}" class="">{{sep[2]}} ({{cnt}})</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </li>
+      <li>
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/studies">📝 Study ({{ site.categories['Study'].size }})</a></span>
+        {% assign target_tags = "Theory/theories/Theory, Programming/programming/Programming, Ubuntu/ubuntu/Ubuntu, Blog/blogs/Blog" | split: ", " %}
+        {% for target_tag in target_tags %}
+          {% assign sep = target_tag | split: "/" %}
+          <ul v-show="flag_c">
+            {% for tag in site.tags %}
+              {% if tag[0] == sep[0] %}
+                {% assign cnt = 0 %}
+                {% for page in tag[1] %}
+                  {% assign cnt = cnt | plus: 1 %}
+                {% endfor %}
+                <li><a href="/categories/studies/{{sep[1]}}" class="">{{sep[2]}} ({{cnt}})</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </li>
   </ul>
 </nav>

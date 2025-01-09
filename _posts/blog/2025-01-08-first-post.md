@@ -1,7 +1,7 @@
 ---
 title: "[Blog] 포스팅 테스트"
 categories:
-  - Blog
+  - Study
 tags:
   - Blog
 last_modified_at: 2025-01-08T20:00:00
