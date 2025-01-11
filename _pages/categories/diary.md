@@ -1,8 +1,8 @@
 ---
-title: "Study"
-permalink: /categories/studies/
+title: "Diary"
+permalink: /categories/diaries/
 layout: category
 author_profile: true
-taxonomy: Study
+taxonomy: Diary
 sidebar_main: true
 ---
