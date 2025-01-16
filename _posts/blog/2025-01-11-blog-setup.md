@@ -4,6 +4,9 @@ categories:
   - Study
 tags:
   - Blog
+  
+excerpt: "[Blog] Blog setup guide"
+
 last_modified_at: 2025-01-11T23:20:00
 ---
 

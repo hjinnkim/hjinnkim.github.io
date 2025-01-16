@@ -4,6 +4,9 @@ categories:
   - Study
 tags:
   - Blog
+  
+excerpt: "[Blog] 포스팅 테스트"
+
 last_modified_at: 2025-01-08T20:00:00
 ---
 

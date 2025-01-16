@@ -4,6 +4,9 @@ categories:
   - Study
 tags:
   - Blog
+  
+excerpt: "[Blog] 카테고리 설정 + 사이드바"
+
 last_modified_at: 2025-01-09T15:00:00
 ---
 
