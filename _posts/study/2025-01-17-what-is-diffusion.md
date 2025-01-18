@@ -120,7 +120,7 @@ Diffusion Process에서 이전 state로부터 다른 state로의 움직임을 �
 
 즉, $p(x_t\vert x_{t-1})$이 gaussian distribution이라면, $p(x_{t-1}\vert x_t)$도 gaussian distribution으로 묘사될 수 있다는 것이다.  
 
-Diffusion Model은 이런 확산 과정의 성질을 이용하여, $p(x_t\vert x_{t-1})$을 되돌릴 수 있는 $p(x_{t-1}\vert x_t)=\mathcal N(x_{t-1}\vert \mu_\theta(x_t),\Sigma_\theta(x_t))$를 배우도록 학습한다. ([Sohl-Dickstein et al., 2015](https://arxiv.org/abs/1503.03585)). 
+Diffusion Model은 이런 확산 과정의 성질을 이용하여, $p(x_t\vert x_{t-1})$을 되돌릴 수 있는 $p_\theta(x_{t-1}\vert x_t)=\mathcal N(x_{t-1}\vert \mu_\theta(x_t),\Sigma_\theta(x_t))$를 배우도록 학습한다. ([Sohl-Dickstein et al., 2015](https://arxiv.org/abs/1503.03585)). 
 
 이를 통해 Diffusion Model은 다음과 같은 형태로 묘사된다.
 
