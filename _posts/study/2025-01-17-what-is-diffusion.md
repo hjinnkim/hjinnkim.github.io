@@ -128,9 +128,6 @@ $$
 x_0:=x(0)\sim p_{data}(x)\underset{p_\theta(x_0 \vert x_1)}{\overset{p(x_1 \vert x_0)}{\rightleftarrows}} x_1 \rightleftarrows \cdots \rightarrow x_{T-1} \underset{p_\theta(x_{T-1} \vert x_{T})}{\overset{p(x_{T} \vert x_{T-1})}{\rightleftarrows}} x_T:=x(1),\ x(1)\approx z\sim \mathcal N(0,I)
 $$
 
-
-
-
 여기서, 복잡한 data distribution $p_{data}(x)$를 간단한 latent distribution $p(z):=\mathcal N(0,I)$로 바꾸는 과정, 이것을 되돌리는 과정 모두 Diffusion Process이기 때문에, data distribution을 corrupt하는 과정을 $\textit{Forward Diffusion Process}$, corrupted sample을 clean data로 되돌리는 과정을 $\textit{Reverse Diffusion Process}$라고 부른다.
 
 ## 마치며...
