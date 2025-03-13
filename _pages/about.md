@@ -84,7 +84,16 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 # Recognitions
 
 <div style="display: flex; align-items: center;">
+  <div>
+    <b>Participation prize</b>: 37th Workshop on Image Processing and Image Understanding (IPIU)
+    <br>
+    Workshop on Image Processing and Image Understanding (IPIU) 2025 <br>
+    <a href="https://hjinnkim.github.io/pdfs/2025ipiu/IPIU_award.jpg">Link</a>
+  </div>
+</div>
+<br/>
 
+<div style="display: flex; align-items: center;">
   <div>
     <b>Rank 3rd</b>: IEEE WHISPERS: Multimodal Semantic Segmentation Challenge <br>
     Workshop on Hyperspectral Imaging and Signal Processing: Evolution in Remote Sensing 2024 <br>
