@@ -21,6 +21,18 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 ## International
 
 <div style="display: flex; align-items: center;">
+  <img src="/assets/publications/CVPR25-BF-STVSR/framework.jpg" alt="Singular Value Scaling" style="width: 200px; margin-right: 20px;">
+
+  <div>
+    <b>BF-STVSR: B-Splines and Fourier-Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution</b><br>
+    Eunjin Kim*, Hyeonjin Kim*, Kyong Hwan Jin, Jaejun Yoo (*Equal Contribution)<br>
+    CVPR 2025 <br><br>
+    <a href="https://arxiv.org/abs/2501.11043">Paper</a> | <a href="https://github.com/Eunjnnn/bfstvsr">Code</a> | <a href="https://eunjnnn.github.io/bfstvsr_site/">Project page</a>
+  </div>
+</div>
+<br/>
+
+<div style="display: flex; align-items: center;">
   <img src="/assets/publications/AAAI25-SVS/homepage_teaser.gif" alt="Singular Value Scaling" style="width: 200px; margin-right: 20px;">
 
   <div>
