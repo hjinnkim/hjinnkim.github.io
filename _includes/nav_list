@@ -35,7 +35,7 @@
       </li>
       <li>
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-reviews"> 📃 Paper Review ({{ site.categories['Paper Review'].size }})</a></span>
-        {% assign target_tags = "Generative Models/GM/Generative Models, Efficient DL/EfficientDL/Efficient DL, Inverse Problem/Inv/Inverse Problem" | split: ", " %}
+        {% assign target_tags = "Generative Models/GM/Generative Models, Efficient DL/EfficientDL/Efficient DL, Inverse Problem/Inv/Inverse Problem, INR/inr/INR" | split: ", " %}
         {% for target_tag in target_tags %}
           {% assign sep = target_tag | split: "/" %}
           <ul v-show="flag_c">
