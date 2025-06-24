@@ -27,7 +27,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
     <b>BF-STVSR: B-Splines and Fourier-Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution</b><br>
     Eunjin Kim*, Hyeonjin Kim*, Kyong Hwan Jin, Jaejun Yoo (*Equal Contribution)<br>
     CVPR 2025 <br><br>
-    <a href="https://arxiv.org/abs/2501.11043">Paper</a> | <a href="https://github.com/Eunjnnn/bfstvsr">Code</a> | <a href="https://eunjnnn.github.io/bfstvsr_site/">Project page</a>
+    <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Kim_BF-STVSR_B-Splines_and_Fourier---Best_Friends_for_High_Fidelity_Spatial-Temporal_Video_CVPR_2025_paper.html">Paper</a> | <a href="https://github.com/Eunjnnn/bfstvsr">Code</a> | <a href="https://eunjnnn.github.io/bfstvsr_site/">Project page</a>
   </div>
 </div>
 <br/>
@@ -82,6 +82,15 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 <br/>
 
 # Recognitions
+
+<div style="display: flex; align-items: center;">
+  <div>
+    <b>Rank 3rd</b>: 4th Multi-modal Aerial View Imagery Challenge: Classification (MAVIC-C) <br>
+    21th Workshop on Perception Beyond the Visible Spectrum (PBVS'2025) <br>
+    <a href="https://hjinnkim.github.io/pdfs/2025CVPR/PBVS_2025_Award_Certificates_MAVIC-C_Jeongho_Min.pdf">Link</a>
+  </div>
+</div>
+<br/>
 
 <div style="display: flex; align-items: center;">
   <div>
