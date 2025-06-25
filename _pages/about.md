@@ -25,8 +25,8 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 
   <div>
     <b>BF-STVSR: B-Splines and Fourier-Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution</b><br>
-    Eunjin Kim*, Hyeonjin Kim*, Kyong Hwan Jin, Jaejun Yoo (*Equal Contribution)<br>
-    CVPR 2025 <br><br>
+    Eunjin Kim*, <b>Hyeonjin Kim*</b>, Kyong Hwan Jin, Jaejun Yoo (*Equal Contribution)<br>
+    CVPR 2025 <br>
     <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Kim_BF-STVSR_B-Splines_and_Fourier---Best_Friends_for_High_Fidelity_Spatial-Temporal_Video_CVPR_2025_paper.html">Paper</a> | <a href="https://github.com/Eunjnnn/bfstvsr">Code</a> | <a href="https://eunjnnn.github.io/bfstvsr_site/">Project page</a>
   </div>
 </div>
@@ -37,9 +37,21 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 
   <div>
     <b>Singular Value Scaling: Efficient Generative Model Compression via Pruned Weights Refinement</b><br>
-    Hyeonjin Kim and Jaejun Yoo<br>
-    AAAI 2025 <br><br>
+    <b>Hyeonjin Kim</b> and Jaejun Yoo<br>
+    AAAI 2025 <br>
     <a href="https://arxiv.org/abs/2412.17387">Paper</a> | <a href="https://github.com/hjinnkim/Singular-Value-Scaling">Code</a> | <a href="https://hjinnkim.github.io/SVS_site/">Project page</a>
+  </div>
+</div>
+<br/>
+
+<div style="display: flex; align-items: center;">
+  <img src="/assets/publications/WHISPERS24-GatedMCBAM/overview_v4-1.png" alt="Singular Value Scaling" style="width: 200px; margin-right: 20px;">
+
+  <div>
+    <b>Gated-MCBAM: Cross-Modal Block Attention Module with Gating Mechanism for Remote Sensing Segmentation</b><br>
+    Jeongho Min, Sungbin Son, <b>Hyeonjin Kim</b>, Seunghyeok Back, Jaejun Yoo, Youngkyun Kong<br>
+    IEEE WHISPERS 2024 <br>
+    <a href="https://ieeexplore.ieee.org/document/10876487">Paper</a>
   </div>
 </div>
 <br/>
@@ -51,7 +63,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 
   <div>
     <b>효율적 생성모델 압축을 위한 가지치기된 가중치 특이값 조정</b><br>
-    Hyeonjin Kim and Jaejun Yoo<br>
+    <b>Hyeonjin Kim</b> and Jaejun Yoo<br>
     IPIU 2025 <br>
     <a href="https://hjinnkim.github.io/pdfs/2025ipiu/IPIU2025_SVS_v3.pdf">Paper</a>
   </div>
@@ -63,7 +75,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
   <div>
     <b>비스플라인과 푸리에 기저 함수를 이용한 연속적인 시공간 비디오
 초해상도 복원 연구</b><br>
-    Eunjin Kim, Hyeonjin Kim, Jaejun Yoo<br>
+    Eunjin Kim*, <b>Hyeonjin Kim*</b>, Jaejun Yoo<br>
     IPIU 2025 <br>
     <a href="https://hjinnkim.github.io/pdfs/2025ipiu/IPIU2025_BFSTVSR.pdf">Paper</a>
   </div>
@@ -74,7 +86,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 
   <div>
     <b>GAN 압축을 위한 선생 생성자 유도 학생 판별자 정규화</b><br>
-    Hyeonjin Kim, Sangyeop Yeo, Jaejun Yoo<br>
+    <b>Hyeonjin Kim</b>, Sangyeop Yeo, Jaejun Yoo<br>
     IPIU 2024 <br>
     <a href="https://hjinnkim.github.io/pdfs/2024ipiu/IPIU2024_GAN_Compression_camera_ready.pdf">Paper</a>
   </div>
@@ -86,7 +98,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 <div style="display: flex; align-items: center;">
   <div>
     <b>Rank 3rd</b>: 4th Multi-modal Aerial View Imagery Challenge: Classification (MAVIC-C) <br>
-    21th Workshop on Perception Beyond the Visible Spectrum (PBVS'2025) <br>
+    21th Workshop on Perception Beyond the Visible Spectrum (PBVS) 2025 <br>
     <a href="https://hjinnkim.github.io/pdfs/2025CVPR/PBVS_2025_Award_Certificates_MAVIC-C_Jeongho_Min.pdf">Link</a>
   </div>
 </div>
@@ -125,7 +137,7 @@ AI 전공 석사를 완료하였고, 현재 추가 공부를 하면서 취업 �
 
   <div>
     <b>Rank 2nd</b>: CVPR MultiEarth SAR-to-EO Image Translation Challenge  <br>
-    Workshop on Multimodal Learning for Earth and Environment 2023 <br>
+    Workshop on Multimodal Learning for Earth and Environment (MultiEarth) 2023 <br>
     <a href="https://sites.google.com/view/rainforest-challenge/multiearth-2023#h.kknjbe5kh907">Site</a> | <a href="https://drive.google.com/file/d/1-CxshAtgo1KQx9n-vdCdSrcRr1uzqw6n/view">Report</a>
   </div>
 </div>
